@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "585893187586",
+    "project_id": "uraba-conecta",
+    "storage_bucket": "uraba-conecta.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585893187586:android:fd9d74a1ea04597b97d71b",
+        "android_client_info": {
+          "package_name": "com.example.uraba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHJXiMbP9IWQcExnvpIsyezQ7b218se8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
