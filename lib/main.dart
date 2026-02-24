@@ -3,34 +3,29 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// Firebase config
 import 'firebase_options.dart';
-
-// IMPORTA BIEN TUS PANTALLAS
 import 'src/login_screen.dart';
 import 'src/complete_profile_screen.dart';
+import 'home_screen.dart'; // ← el HomeScreen nuevo
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(const MyApp());
 }
 
-// ================= APP ==================
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Urabá Digital',
+      title: 'Urabá Market',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFF97316)),
         useMaterial3: true,
       ),
       home: const AuthWrapper(),
@@ -38,7 +33,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ================= AUTH WRAPPER ==================
 class AuthWrapper extends StatelessWidget {
   const AuthWrapper({super.key});
 
@@ -47,14 +41,17 @@ class AuthWrapper extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, authSnapshot) {
-        // ⏳ Esperando Firebase
+        // Conectando con Firebase
         if (authSnapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+            body: Center(
+                child: CircularProgressIndicator(
+              color: Color(0xFFF97316),
+            )),
           );
         }
 
-        // ✅ Usuario logueado
+        // Usuario logueado → verificar perfil
         if (authSnapshot.hasData) {
           return FutureBuilder<DocumentSnapshot>(
             future: FirebaseFirestore.instance
@@ -64,14 +61,17 @@ class AuthWrapper extends StatelessWidget {
             builder: (context, userSnapshot) {
               if (userSnapshot.connectionState == ConnectionState.waiting) {
                 return const Scaffold(
-                  body: Center(child: CircularProgressIndicator()),
+                  body: Center(
+                      child: CircularProgressIndicator(
+                    color: Color(0xFFF97316),
+                  )),
                 );
               }
 
               final userData =
                   userSnapshot.data?.data() as Map<String, dynamic>?;
 
-              // ❗ Perfil NO completo → mandar a completar
+              // Perfil incompleto → CompleteProfileScreen
               if (!userSnapshot.hasData ||
                   !userSnapshot.data!.exists ||
                   userData == null ||
@@ -79,59 +79,15 @@ class AuthWrapper extends StatelessWidget {
                 return const CompleteProfileScreen();
               }
 
-              // ✅ Perfil completo → Home
+              // Perfil completo → HomeScreen nuevo
               return const HomeScreen();
             },
           );
         }
 
-        // ❌ No logueado → Login
+        // Sin sesión → LoginScreen
         return const LoginScreen();
       },
-    );
-  }
-}
-
-// ================= HOME ==================
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Plataforma Urabá',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-        actions: [
-          IconButton(
-            tooltip: 'Cerrar sesión',
-            icon: const Icon(Icons.logout),
-            onPressed: () => FirebaseAuth.instance.signOut(),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.eco, size: 80, color: Colors.green),
-            const SizedBox(height: 20),
-            Text(
-              '¡Hola, ${user?.displayName ?? "Bienvenido"}!',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text('Tu perfil está listo para usar 🚀'),
-          ],
-        ),
-      ),
     );
   }
 }

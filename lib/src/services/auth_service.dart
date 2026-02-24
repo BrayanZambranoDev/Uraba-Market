@@ -4,7 +4,7 @@ import 'firestore_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  GoogleSignIn? _googleSignIn;
   final FirestoreService _firestoreService = FirestoreService();
 
   // Rate limiting: registrar intentos fallidos
@@ -57,8 +57,8 @@ class AuthService {
         return 'Demasiados intentos fallidos. Intenta de nuevo en 15 minutos.';
       }
 
-      final userCred =
-          await _auth.signInWithEmailAndPassword(email: email, password: password);
+      final userCred = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       _clearFailedAttempts(email);
 
       // Optionally sync user data after login
@@ -123,8 +123,15 @@ class AuthService {
   // 3. Login con Google ✅
   Future<String?> loginWithGoogle() async {
     try {
+      // Inicializar GoogleSignIn de forma segura (evitar crash en web sin clientId)
+      try {
+        _googleSignIn ??= GoogleSignIn();
+      } catch (e) {
+        return 'Google Sign-In no disponible en este entorno.';
+      }
+
       // A. Iniciar flujo de Google Sign-In
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAccount? googleUser = await _googleSignIn!.signIn();
 
       // Si el usuario cancela
       if (googleUser == null) {
@@ -157,11 +164,18 @@ class AuthService {
     }
   }
 
+  // 5. Login con biometría (placeholder)
+  Future<String?> loginWithBiometrics() async {
+    // Aquí podríamos integrar `local_auth` para realizar biometría.
+    // Por ahora devolvemos un mensaje indicando que la funcionalidad no está configurada.
+    return 'Autenticación biométrica no configurada en este dispositivo.';
+  }
+
   // 4. Logout
   Future<void> logout() async {
-    await Future.wait([
-      _googleSignIn.signOut(),
-      _auth.signOut(),
-    ]);
+    final futures = <Future<void>>[];
+    if (_googleSignIn != null) futures.add(_googleSignIn!.signOut());
+    futures.add(_auth.signOut());
+    await Future.wait(futures);
   }
 }
