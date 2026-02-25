@@ -7,10 +7,10 @@ import 'services/connectivity_service.dart';
 import 'services/firestore_service.dart';
 import 'register_screen.dart';
 import 'complete_profile_screen.dart';
-import '../home_screen.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'theme/app_theme.dart';
 
 const String _kBackgroundUrl = 'assets/images/login_bg.jpg';
 
@@ -159,6 +159,7 @@ class _LoginScreenState extends State<LoginScreen>
       _showMessage('✅ Revisa tu correo ($email) para restablecer tu contraseña',
           isError: false);
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
       setState(() => _isLoading = false);
       _showMessage(
         e.code == 'user-not-found'
@@ -167,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen>
         isError: true,
       );
     } catch (_) {
+      if (!mounted) return;
       setState(() => _isLoading = false);
       _showMessage('Error inesperado. Por favor intenta de nuevo.',
           isError: true);
@@ -181,17 +183,11 @@ class _LoginScreenState extends State<LoginScreen>
     _showMessage(result ?? 'Biometría no disponible', isError: true);
   }
 
-  /// fromGoogle: true  → verifica Firestore antes de navegar
-  /// fromGoogle: false → va directo al Home
   Future<void> _onAuthSuccess(User? user, {bool fromGoogle = false}) async {
     if (user != null) await _firestoreService.saveUser(user);
     if (!mounted) return;
     setState(() => _showSuccessAnimation = true);
     await Future.delayed(const Duration(milliseconds: 1400));
-    // No es necesario navegar aquí. El StreamBuilder en AuthWrapper
-    // detectará el cambio de estado de autenticación y redirigirá
-    // automáticamente a la pantalla correcta (HomeScreen o CompleteProfileScreen).
-    // El `showSuccessAnimation` se ocultará cuando el widget sea reconstruido por la navegación.
   }
 
   void _showMessage(String message, {required bool isError}) {
@@ -283,14 +279,14 @@ class _LoginScreenState extends State<LoginScreen>
                     )),
             const Positioned.fill(
               child: DecoratedBox(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
                       Color(0x33000000),
                       Colors.transparent,
-                      Colors.white
+                      Colors.white,
                     ],
                     stops: [0.0, 0.5, 1.0],
                   ),
@@ -299,7 +295,6 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ]),
         ),
-        // Branding pill
         SafeArea(
           child: Align(
             alignment: Alignment.topCenter,
@@ -313,9 +308,10 @@ class _LoginScreenState extends State<LoginScreen>
                     padding:
                         const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.82),
+                      color: Colors.white.withValues(alpha: 0.82),
                       borderRadius: BorderRadius.circular(999),
-                      border: Border.all(color: Colors.white.withOpacity(0.3)),
+                      border: Border.all(
+                          color: Colors.white.withValues(alpha: 0.3)),
                     ),
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
                       const Icon(Icons.eco_rounded, color: _orange, size: 17),
@@ -332,7 +328,6 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
         ),
-        // Floating tractor icon
         Positioned(
           bottom: -28,
           left: 0,
@@ -347,7 +342,7 @@ class _LoginScreenState extends State<LoginScreen>
                 border: Border.all(color: Colors.white, width: 3.5),
                 boxShadow: [
                   BoxShadow(
-                      color: _orange.withOpacity(0.4),
+                      color: _orange.withValues(alpha: 0.4),
                       blurRadius: 12,
                       offset: const Offset(0, 4)),
                 ],
@@ -370,7 +365,6 @@ class _LoginScreenState extends State<LoginScreen>
         children: [
           if (!_isConnected) _buildConnectivityBanner(),
 
-          // Title
           Column(children: [
             Text('Bienvenido de nuevo',
                 style: GoogleFonts.plusJakartaSans(
@@ -446,7 +440,7 @@ class _LoginScreenState extends State<LoginScreen>
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 elevation: 4,
-                shadowColor: _orange.withOpacity(0.35),
+                shadowColor: _orange.withValues(alpha: 0.35),
               ),
               child: _isLoading
                   ? const SizedBox(
@@ -670,7 +664,6 @@ class _GoogleGPainter extends CustomPainter {
 
     final paint = Paint()..style = PaintingStyle.fill;
 
-    // Red
     paint.color = const Color(0xFFEA4335);
     canvas.drawPath(
         fromPoints([
@@ -685,7 +678,6 @@ class _GoogleGPainter extends CustomPainter {
         ]),
         paint);
 
-    // Blue
     paint.color = const Color(0xFF4285F4);
     canvas.drawPath(
         fromPoints([
@@ -701,7 +693,6 @@ class _GoogleGPainter extends CustomPainter {
         ]),
         paint);
 
-    // Yellow
     paint.color = const Color(0xFFFBBC05);
     canvas.drawPath(
         fromPoints([
@@ -716,7 +707,6 @@ class _GoogleGPainter extends CustomPainter {
         ]),
         paint);
 
-    // Green
     paint.color = const Color(0xFF34A853);
     canvas.drawPath(
         fromPoints([

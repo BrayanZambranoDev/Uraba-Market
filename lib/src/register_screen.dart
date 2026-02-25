@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'services/auth_service.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../home_screen.dart';
 import 'complete_profile_screen.dart';
 import 'theme/app_theme.dart';
 
@@ -86,8 +85,6 @@ class _RegisterScreenState extends State<RegisterScreen>
     setState(() => _isLoading = false);
 
     if (error == null) {
-      // La navegación ahora es manejada por AuthWrapper, que redirigirá a CompleteProfileScreen
-      // porque el perfil aún no está completo (falta el rol).
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (_) => const CompleteProfileScreen()),
@@ -128,9 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen>
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // ── TOP HERO ──
           _buildHero(),
-          // ── FORM ──
           Expanded(
             child: FadeTransition(
               opacity: _fadeAnimation,
@@ -143,7 +138,6 @@ class _RegisterScreenState extends State<RegisterScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // Title
                         Text('Crear Cuenta',
                             style: GoogleFonts.plusJakartaSans(
                                 fontSize: 22,
@@ -250,7 +244,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                                 horizontal: 12, vertical: 10),
                             decoration: BoxDecoration(
                               color: _acceptTerms
-                                  ? AppTheme.orange.withOpacity(0.06)
+                                  ? AppTheme.orange.withValues(alpha: 0.06)
                                   : AppTheme.background,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
@@ -317,7 +311,8 @@ class _RegisterScreenState extends State<RegisterScreen>
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12)),
                               elevation: 4,
-                              shadowColor: AppTheme.orange.withOpacity(0.35),
+                              shadowColor:
+                                  AppTheme.orange.withValues(alpha: 0.35),
                             ),
                             child: _isLoading
                                 ? const SizedBox(
@@ -365,12 +360,10 @@ class _RegisterScreenState extends State<RegisterScreen>
     );
   }
 
-  // ── HERO (más pequeño que el login, solo decorativo) ──
   Widget _buildHero() {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.28,
       child: Stack(clipBehavior: Clip.none, children: [
-        // Imagen de fondo
         Positioned.fill(
           child: Image.asset(
             'assets/images/register_bg.jpg',
@@ -387,10 +380,9 @@ class _RegisterScreenState extends State<RegisterScreen>
             ),
           ),
         ),
-        // Fade a blanco en la parte inferior
         Positioned.fill(
-          child: DecoratedBox(
-            decoration: const BoxDecoration(
+          child: const DecoratedBox(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -400,7 +392,6 @@ class _RegisterScreenState extends State<RegisterScreen>
             ),
           ),
         ),
-        // Botón volver
         SafeArea(
           child: Align(
             alignment: Alignment.topLeft,
@@ -421,7 +412,6 @@ class _RegisterScreenState extends State<RegisterScreen>
             ),
           ),
         ),
-        // Ícono flotante central
         Positioned(
           bottom: -26,
           left: 0,
@@ -436,7 +426,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                 border: Border.all(color: AppTheme.orange, width: 3),
                 boxShadow: [
                   BoxShadow(
-                    color: AppTheme.orange.withOpacity(0.3),
+                    color: AppTheme.orange.withValues(alpha: 0.3),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
@@ -457,6 +447,7 @@ class _RegisterScreenState extends State<RegisterScreen>
           fontWeight: FontWeight.w600,
           color: const Color(0xFF374151)));
 
+  // ✅ CORREGIDO: ahora sí retorna el TextFormField
   Widget _field({
     required TextEditingController controller,
     required String hint,
@@ -467,55 +458,53 @@ class _RegisterScreenState extends State<RegisterScreen>
     TextInputType type = TextInputType.text,
     String? Function(String?)? validator,
   }) =>
-      Builder(builder: (context) {
-        TextFormField(
-          controller: controller,
-          obscureText: isPassword && obscureText,
-          keyboardType: type,
-          validator: validator,
-          style: GoogleFonts.plusJakartaSans(
-              fontSize: 13,
-              color: const Color(0xFF0F172A),
-              fontWeight: FontWeight.w500),
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: GoogleFonts.plusJakartaSans(
-                fontSize: 13, color: const Color(0xFF94A3B8)),
-            prefixIcon: Icon(icon, color: const Color(0xFF94A3B8), size: 19),
-            suffixIcon: isPassword
-                ? IconButton(
-                    icon: Icon(
-                        obscureText
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined,
-                        color: const Color(0xFF94A3B8),
-                        size: 19),
-                    onPressed: onToggle)
-                : null,
-            filled: true,
-            fillColor: const Color(0xFFF8FAFC),
-            isDense: true,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: Color(0xFFE2E8F0))),
-            enabledBorder:
-                Theme.of(context).inputDecorationTheme.enabledBorder?.copyWith(
-                      borderSide:
-                          const BorderSide(color: AppTheme.border, width: 1.5),
-                    ),
-            focusedBorder: Theme.of(context)
-                .inputDecorationTheme
-                .focusedBorder
-                ?.copyWith(
-                  borderSide: const BorderSide(color: AppTheme.green, width: 2),
-                ),
-            errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
-            focusedErrorBorder:
-                Theme.of(context).inputDecorationTheme.focusedErrorBorder,
-            errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
-          ),
-        );
-      });
+      TextFormField(
+        controller: controller,
+        obscureText: isPassword && obscureText,
+        keyboardType: type,
+        validator: validator,
+        style: GoogleFonts.plusJakartaSans(
+            fontSize: 13,
+            color: const Color(0xFF0F172A),
+            fontWeight: FontWeight.w500),
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: GoogleFonts.plusJakartaSans(
+              fontSize: 13, color: const Color(0xFF94A3B8)),
+          prefixIcon: Icon(icon, color: const Color(0xFF94A3B8), size: 19),
+          suffixIcon: isPassword
+              ? IconButton(
+                  icon: Icon(
+                      obscureText
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                      color: const Color(0xFF94A3B8),
+                      size: 19),
+                  onPressed: onToggle)
+              : null,
+          filled: true,
+          fillColor: const Color(0xFFF8FAFC),
+          isDense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: Color(0xFFE2E8F0))),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide:
+                  const BorderSide(color: Color(0xFFE2E8F0), width: 1.5)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.green, width: 2)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide:
+                  const BorderSide(color: Color(0xFFEF4444), width: 1.5)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: Color(0xFFEF4444), width: 2)),
+          errorStyle: GoogleFonts.plusJakartaSans(fontSize: 10),
+        ),
+      );
 }

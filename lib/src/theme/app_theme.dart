@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // ─── Colores principales (FUENTE ÚNICA DE VERDAD) ───
+  // ─── Colores principales ───
   static const Color orange = Color(0xFFF97316);
   static const Color orangeDark = Color(0xFFEA580C);
   static const Color green = Color(0xFF16A34A);
@@ -11,6 +11,7 @@ class AppTheme {
 
   // ─── Fondos ───
   static const Color bg = Color(0xFFF8FAFC);
+  static const Color background = Color(0xFFF8FAFC); // ← NECESARIO
   static const Color cardBg = Colors.white;
   static const Color inputBg = Color(0xFFF8FAFC);
 
@@ -18,6 +19,7 @@ class AppTheme {
   static const Color textPrimary = Color(0xFF0F172A);
   static const Color textSecondary = Color(0xFF64748B);
   static const Color textMuted = Color(0xFF94A3B8);
+  static const Color textDisabled = Color(0xFFCBD5E1); // ← NECESARIO
   static const Color textWhite = Colors.white;
 
   // ─── Bordes ───
@@ -30,7 +32,7 @@ class AppTheme {
   static const Color warning = Color(0xFFF59E0B);
   static const Color info = Color(0xFF3B82F6);
 
-  // ─── Categorías (colores de fondo + accent) ───
+  // ─── Categorías ───
   static const Map<String, Map<String, dynamic>> categoryStyles = {
     'Frutas': {
       'color': Color(0xFFFEF3C7),
@@ -106,7 +108,7 @@ class AppTheme {
   static BorderRadius radiusL = BorderRadius.circular(16);
   static BorderRadius radiusXL = BorderRadius.circular(20);
 
-  // ─── Estilos de texto reutilizables ───
+  // ─── Estilos de texto ───
   static TextStyle heading1 = GoogleFonts.plusJakartaSans(
     fontSize: 24,
     fontWeight: FontWeight.w800,
@@ -166,10 +168,7 @@ class AppTheme {
   }) {
     return InputDecoration(
       hintText: hint,
-      hintStyle: GoogleFonts.plusJakartaSans(
-        fontSize: 13,
-        color: textMuted,
-      ),
+      hintStyle: GoogleFonts.plusJakartaSans(fontSize: 13, color: textMuted),
       prefixIcon: Icon(icon, color: textMuted, size: 19),
       filled: true,
       fillColor: inputBg,
@@ -239,6 +238,15 @@ class AppTheme {
           borderRadius: radiusM,
           borderSide: const BorderSide(color: green, width: 2),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: radiusM,
+          borderSide: const BorderSide(color: error, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: radiusM,
+          borderSide: const BorderSide(color: error, width: 2),
+        ),
+        errorStyle: GoogleFonts.plusJakartaSans(fontSize: 10),
       ),
     );
   }
