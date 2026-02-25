@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../home_screen.dart';
+import 'services/firestore_service.dart';
+import 'theme/app_theme.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   const CompleteProfileScreen({super.key});
@@ -12,12 +13,10 @@ class CompleteProfileScreen extends StatefulWidget {
 }
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
+  final _firestoreService = FirestoreService();
   final _nameController = TextEditingController();
   String _userRole = 'Comprador';
   bool _isLoading = false;
-
-  static const Color _orange = Color(0xFFF97316);
-  static const Color _green = Color(0xFF0DF220);
 
   @override
   void dispose() {
@@ -30,7 +29,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Por favor ingresa tu nombre',
             style: GoogleFonts.plusJakartaSans(color: Colors.white)),
-        backgroundColor: const Color(0xFFEF4444),
+        backgroundColor: AppTheme.error,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         margin: const EdgeInsets.all(12),
@@ -43,24 +42,17 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       await user.updateDisplayName(_nameController.text.trim());
-      await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+      await _firestoreService.saveUser(user, additionalData: {
         'nombre': _nameController.text.trim(),
         'rol': _userRole,
-        'email': user.email,
         'perfilCompleto': true,
-        'fechaRegistro': FieldValue.serverTimestamp(),
       });
     }
 
     if (!mounted) return;
-    setState(() => _isLoading = false);
-
-    // ── Navegar al Home eliminando todo el stack ──
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-      (route) => false,
-    );
+    // No es necesario navegar aquí. El AuthWrapper se encargará de
+    // redirigir a HomeScreen una vez que el perfil esté completo.
+    // El estado de _isLoading se reseteará cuando el widget se reconstruya.
   }
 
   @override
@@ -81,11 +73,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   width: 70,
                   height: 70,
                   decoration: BoxDecoration(
-                    color: _orange.withOpacity(0.1),
+                    color: AppTheme.orange.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.person_outline_rounded,
-                      color: _orange, size: 36),
+                      color: AppTheme.orange, size: 36),
                 ),
               ),
               const SizedBox(height: 20),
@@ -95,12 +87,14 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   style: GoogleFonts.plusJakartaSans(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                      color: const Color(0xFF0F172A)),
+                      color: AppTheme.textPrimary),
                   textAlign: TextAlign.center),
               const SizedBox(height: 6),
               Text('Cuéntanos un poco sobre ti',
                   style: GoogleFonts.plusJakartaSans(
-                      fontSize: 14, color: const Color(0xFF64748B)),
+                      // Esto podría ser AppTheme.bodyMuted
+                      fontSize: 14,
+                      color: const Color(0xFF64748B)),
                   textAlign: TextAlign.center),
               const SizedBox(height: 36),
 
@@ -109,7 +103,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFF374151))),
+                      color: AppTheme.textSecondary)),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _nameController,
@@ -120,24 +114,23 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 decoration: InputDecoration(
                   hintText: 'Tu nombre completo',
                   hintStyle: GoogleFonts.plusJakartaSans(
-                      fontSize: 14, color: const Color(0xFF94A3B8)),
+                      fontSize: 14, color: AppTheme.textDisabled),
                   prefixIcon: const Icon(Icons.person_outline_rounded,
-                      color: Color(0xFF94A3B8), size: 19),
+                      color: AppTheme.textDisabled, size: 19),
                   filled: true,
-                  fillColor: const Color(0xFFF8FAFC),
+                  fillColor: AppTheme.background,
                   isDense: true,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Color(0xFFE2E8F0))),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(
-                          color: Color(0xFFE2E8F0), width: 1.5)),
+                      borderRadius: AppTheme.radiusM,
+                      borderSide: const BorderSide(color: AppTheme.border)),
+                  enabledBorder:
+                      AppTheme.getTheme().inputDecorationTheme.enabledBorder,
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: _green, width: 2)),
+                      borderSide:
+                          const BorderSide(color: AppTheme.green, width: 2)),
                 ),
               ),
               const SizedBox(height: 20),
@@ -147,7 +140,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFF374151))),
+                      color: AppTheme.textSecondary)),
               const SizedBox(height: 10),
 
               // Role selector cards
@@ -167,13 +160,13 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : _saveProfile,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: _orange,
+                    backgroundColor: AppTheme.orange,
                     disabledBackgroundColor: Colors.grey.shade300,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                     elevation: 4,
-                    shadowColor: _orange.withOpacity(0.35),
+                    shadowColor: AppTheme.orange.withOpacity(0.35),
                   ),
                   child: _isLoading
                       ? const SizedBox(
@@ -203,27 +196,32 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color:
-                selected ? _orange.withOpacity(0.08) : const Color(0xFFF8FAFC),
+            color: selected
+                ? AppTheme.orange.withOpacity(0.08)
+                : AppTheme.background,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: selected ? _orange : const Color(0xFFE2E8F0),
+              color: selected ? AppTheme.orange : AppTheme.border,
               width: selected ? 2 : 1.5,
             ),
           ),
           child: Column(children: [
             Icon(icon,
-                color: selected ? _orange : const Color(0xFF94A3B8), size: 28),
+                color: selected ? AppTheme.orange : AppTheme.textDisabled,
+                size: 28),
             const SizedBox(height: 6),
             Text(role,
                 style: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
-                    color: selected ? _orange : const Color(0xFF374151))),
+                    color:
+                        selected ? AppTheme.orange : AppTheme.textSecondary)),
             const SizedBox(height: 2),
             Text(subtitle,
                 style: GoogleFonts.plusJakartaSans(
-                    fontSize: 10, color: const Color(0xFF94A3B8)),
+                    fontSize: 10,
+                    color:
+                        selected ? AppTheme.textMuted : AppTheme.textDisabled),
                 textAlign: TextAlign.center),
           ]),
         ),

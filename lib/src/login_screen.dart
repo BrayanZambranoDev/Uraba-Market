@@ -8,7 +8,7 @@ import 'services/firestore_service.dart';
 import 'register_screen.dart';
 import 'complete_profile_screen.dart';
 import '../home_screen.dart';
-import 'theme/app_theme.dart';
+
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -188,32 +188,10 @@ class _LoginScreenState extends State<LoginScreen>
     if (!mounted) return;
     setState(() => _showSuccessAnimation = true);
     await Future.delayed(const Duration(milliseconds: 1400));
-    if (!mounted) return;
-    setState(() => _showSuccessAnimation = false);
-    if (!mounted) return;
-
-    if (fromGoogle) {
-      // Verificar si ya completó el perfil en Firestore
-      final doc = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(user?.uid)
-          .get();
-      if (!mounted) return;
-      final perfilCompleto =
-          doc.exists && (doc.data()?['perfilCompleto'] == true);
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (_) => perfilCompleto
-              ? const HomeScreen()
-              : const CompleteProfileScreen(),
-        ),
-        (route) => false,
-      );
-    } else {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => const HomeScreen()));
-    }
+    // No es necesario navegar aquí. El StreamBuilder en AuthWrapper
+    // detectará el cambio de estado de autenticación y redirigirá
+    // automáticamente a la pantalla correcta (HomeScreen o CompleteProfileScreen).
+    // El `showSuccessAnimation` se ocultará cuando el widget sea reconstruido por la navegación.
   }
 
   void _showMessage(String message, {required bool isError}) {
@@ -303,7 +281,7 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                     )),
-            Positioned.fill(
+            const Positioned.fill(
               child: DecoratedBox(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -371,7 +349,7 @@ class _LoginScreenState extends State<LoginScreen>
                   BoxShadow(
                       color: _orange.withOpacity(0.4),
                       blurRadius: 12,
-                      offset: const Offset(0, 4))
+                      offset: const Offset(0, 4)),
                 ],
               ),
               child: const Icon(Icons.agriculture_rounded,
@@ -447,8 +425,9 @@ class _LoginScreenState extends State<LoginScreen>
               icon: Icons.lock_outline_rounded,
               isPassword: true,
               validator: (v) {
-                if (v == null || v.isEmpty)
+                if (v == null || v.isEmpty) {
                   return 'La contraseña es obligatoria';
+                }
                 if (v.length < 6) return 'Mínimo 6 caracteres';
                 return null;
               },

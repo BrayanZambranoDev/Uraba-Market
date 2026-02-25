@@ -6,7 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
 import 'src/login_screen.dart';
 import 'src/complete_profile_screen.dart';
-import 'home_screen.dart'; // ← el HomeScreen nuevo
+import 'src/theme/app_theme.dart';
+import 'home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,10 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Urabá Market',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFF97316)),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.getTheme(),
       home: const AuthWrapper(),
     );
   }

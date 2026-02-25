@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'services/firestore_service.dart';
 
 class PublicarProductoScreen extends StatefulWidget {
   const PublicarProductoScreen({super.key});
@@ -17,6 +16,7 @@ class _PublicarProductoScreenState extends State<PublicarProductoScreen> {
   final _descripcionController = TextEditingController();
   final _precioController = TextEditingController();
   final _stockController = TextEditingController();
+  final _firestoreService = FirestoreService();
 
   static const Color _orange = Color(0xFFF97316);
   static const Color _green = Color(0xFF0DF220);
@@ -58,29 +58,16 @@ class _PublicarProductoScreenState extends State<PublicarProductoScreen> {
     setState(() => _isLoading = true);
 
     try {
-      final user = FirebaseAuth.instance.currentUser;
-      if (user == null) return;
-
-      // Obtener nombre del comerciante desde Firestore
-      final userDoc = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(user.uid)
-          .get();
-      final vendedor =
-          userDoc.data()?['nombre'] ?? user.displayName ?? 'Comerciante';
-
-      await FirebaseFirestore.instance.collection('productos').add({
+      final productoData = {
         'nombre': _nombreController.text.trim(),
         'descripcion': _descripcionController.text.trim(),
         'precio': double.tryParse(_precioController.text.trim()) ?? 0,
         'unidad': _unidad,
         'categoria': _categoria,
         'stock': int.tryParse(_stockController.text.trim()) ?? 0,
-        'vendedor': vendedor,
-        'vendedorId': user.uid,
-        'activo': true,
-        'fechaCreacion': FieldValue.serverTimestamp(),
-      });
+      };
+
+      await _firestoreService.publicarProducto(productoData);
 
       if (!mounted) return;
       setState(() => _isLoading = false);
@@ -104,8 +91,8 @@ class _PublicarProductoScreenState extends State<PublicarProductoScreen> {
           Container(
             width: 70,
             height: 70,
-            decoration: BoxDecoration(
-              color: const Color(0xFFDCFCE7),
+            decoration: const BoxDecoration(
+              color: Color(0xFFDCFCE7),
               shape: BoxShape.circle,
             ),
             child: const Icon(Icons.check_rounded,
@@ -229,10 +216,12 @@ class _PublicarProductoScreenState extends State<PublicarProductoScreen> {
                             FilteringTextInputFormatter.digitsOnly
                           ],
                           validator: (v) {
-                            if (v == null || v.trim().isEmpty)
+                            if (v == null || v.trim().isEmpty) {
                               return 'Ingresa el precio';
-                            if (double.tryParse(v) == null)
+                            }
+                            if (double.tryParse(v) == null) {
                               return 'Precio inválido';
+                            }
                             return null;
                           },
                         ),

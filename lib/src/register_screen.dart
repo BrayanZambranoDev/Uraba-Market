@@ -1,10 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'services/auth_service.dart';
-import 'theme/app_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../home_screen.dart';
+import 'complete_profile_screen.dart';
+import 'theme/app_theme.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -31,9 +31,6 @@ class _RegisterScreenState extends State<RegisterScreen>
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
   bool _acceptTerms = false;
-
-  static const Color _orange = Color(0xFFF97316);
-  static const Color _green = Color(0xFF0DF220);
 
   @override
   void initState() {
@@ -82,20 +79,18 @@ class _RegisterScreenState extends State<RegisterScreen>
     final error = await _authService.register(
       _emailController.text.trim(),
       _passwordController.text.trim(),
+      displayName: _nameController.text.trim(),
     );
 
     if (!mounted) return;
     setState(() => _isLoading = false);
 
     if (error == null) {
-      final user = FirebaseAuth.instance.currentUser;
-      if (user != null) {
-        await user.updateDisplayName(_nameController.text.trim());
-      }
-      if (!mounted) return;
+      // La navegación ahora es manejada por AuthWrapper, que redirigirá a CompleteProfileScreen
+      // porque el perfil aún no está completo (falta el rol).
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) => const CompleteProfileScreen()),
         (route) => false,
       );
     } else {
@@ -119,8 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                   fontWeight: FontWeight.w500)),
         ),
       ]),
-      backgroundColor:
-          isError ? const Color(0xFFEF4444) : const Color(0xFF22C55E),
+      backgroundColor: isError ? AppTheme.error : AppTheme.success,
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.all(12),
@@ -153,11 +147,11 @@ class _RegisterScreenState extends State<RegisterScreen>
                         Text('Crear Cuenta',
                             style: GoogleFonts.plusJakartaSans(
                                 fontSize: 22,
-                                fontWeight: FontWeight.w700,
-                                color: const Color(0xFF0F172A)),
+                                fontWeight: FontWeight.w800,
+                                color: AppTheme.textPrimary),
                             textAlign: TextAlign.center),
                         const SizedBox(height: 2),
-                        Text('Únete a la comunidad de Urabá',
+                        Text('Únete a la comunidad de Urabá.',
                             style: GoogleFonts.plusJakartaSans(
                                 fontSize: 13, color: const Color(0xFF64748B)),
                             textAlign: TextAlign.center),
@@ -171,10 +165,12 @@ class _RegisterScreenState extends State<RegisterScreen>
                           hint: 'Tu nombre completo',
                           icon: Icons.person_outline_rounded,
                           validator: (v) {
-                            if (v == null || v.isEmpty)
+                            if (v == null || v.isEmpty) {
                               return 'El nombre es obligatorio';
-                            if (v.length < 3)
+                            }
+                            if (v.length < 3) {
                               return 'Debe tener al menos 3 caracteres';
+                            }
                             return null;
                           },
                         ),
@@ -189,10 +185,12 @@ class _RegisterScreenState extends State<RegisterScreen>
                           icon: Icons.mail_outline_rounded,
                           type: TextInputType.emailAddress,
                           validator: (v) {
-                            if (v == null || v.isEmpty)
+                            if (v == null || v.isEmpty) {
                               return 'El correo es obligatorio';
-                            if (!_isValidEmail(v))
+                            }
+                            if (!_isValidEmail(v)) {
                               return 'Ingresa un correo válido';
+                            }
                             return null;
                           },
                         ),
@@ -210,8 +208,9 @@ class _RegisterScreenState extends State<RegisterScreen>
                           onToggle: () => setState(
                               () => _obscurePassword = !_obscurePassword),
                           validator: (v) {
-                            if (v == null || v.isEmpty)
+                            if (v == null || v.isEmpty) {
                               return 'La contraseña es obligatoria';
+                            }
                             if (v.length < 6) return 'Mínimo 6 caracteres';
                             return null;
                           },
@@ -231,10 +230,12 @@ class _RegisterScreenState extends State<RegisterScreen>
                               _obscureConfirmPassword =
                                   !_obscureConfirmPassword),
                           validator: (v) {
-                            if (v == null || v.isEmpty)
+                            if (v == null || v.isEmpty) {
                               return 'Confirma tu contraseña';
-                            if (v != _passwordController.text)
+                            }
+                            if (v != _passwordController.text) {
                               return 'Las contraseñas no coinciden';
+                            }
                             return null;
                           },
                         ),
@@ -249,12 +250,12 @@ class _RegisterScreenState extends State<RegisterScreen>
                                 horizontal: 12, vertical: 10),
                             decoration: BoxDecoration(
                               color: _acceptTerms
-                                  ? _orange.withOpacity(0.06)
-                                  : const Color(0xFFF8FAFC),
+                                  ? AppTheme.orange.withOpacity(0.06)
+                                  : AppTheme.background,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
                                 color: _acceptTerms
-                                    ? _orange
+                                    ? AppTheme.orange
                                     : const Color(0xFFE2E8F0),
                                 width: 1.5,
                               ),
@@ -265,11 +266,13 @@ class _RegisterScreenState extends State<RegisterScreen>
                                 width: 22,
                                 height: 22,
                                 decoration: BoxDecoration(
-                                  color: _acceptTerms ? _orange : Colors.white,
+                                  color: _acceptTerms
+                                      ? AppTheme.orange
+                                      : Colors.white,
                                   borderRadius: BorderRadius.circular(6),
                                   border: Border.all(
                                     color: _acceptTerms
-                                        ? _orange
+                                        ? AppTheme.orange
                                         : const Color(0xFFCBD5E1),
                                     width: 1.5,
                                   ),
@@ -308,13 +311,13 @@ class _RegisterScreenState extends State<RegisterScreen>
                           child: ElevatedButton(
                             onPressed: _isLoading ? null : _handleRegister,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: _orange,
+                              backgroundColor: AppTheme.orange,
                               disabledBackgroundColor: Colors.grey.shade300,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12)),
                               elevation: 4,
-                              shadowColor: _orange.withOpacity(0.35),
+                              shadowColor: AppTheme.orange.withOpacity(0.35),
                             ),
                             child: _isLoading
                                 ? const SizedBox(
@@ -347,7 +350,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                                     style: GoogleFonts.plusJakartaSans(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w700,
-                                        color: _green)),
+                                        color: AppTheme.green)),
                               ),
                             ]),
                       ],
@@ -408,7 +411,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                 icon: Container(
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.25),
+                    color: Colors.white.withValues(alpha: 0.25),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Icon(Icons.arrow_back_rounded,
@@ -430,17 +433,17 @@ class _RegisterScreenState extends State<RegisterScreen>
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFFF97316), width: 3),
+                border: Border.all(color: AppTheme.orange, width: 3),
                 boxShadow: [
                   BoxShadow(
-                    color: _orange.withOpacity(0.3),
+                    color: AppTheme.orange.withOpacity(0.3),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
                 ],
               ),
               child: const Icon(Icons.person_add_rounded,
-                  color: _orange, size: 28),
+                  color: AppTheme.orange, size: 28),
             ),
           ),
         ),
@@ -464,53 +467,55 @@ class _RegisterScreenState extends State<RegisterScreen>
     TextInputType type = TextInputType.text,
     String? Function(String?)? validator,
   }) =>
-      TextFormField(
-        controller: controller,
-        obscureText: isPassword && obscureText,
-        keyboardType: type,
-        validator: validator,
-        style: GoogleFonts.plusJakartaSans(
-            fontSize: 13,
-            color: const Color(0xFF0F172A),
-            fontWeight: FontWeight.w500),
-        decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: GoogleFonts.plusJakartaSans(
-              fontSize: 13, color: const Color(0xFF94A3B8)),
-          prefixIcon: Icon(icon, color: const Color(0xFF94A3B8), size: 19),
-          suffixIcon: isPassword
-              ? IconButton(
-                  icon: Icon(
-                      obscureText
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      color: const Color(0xFF94A3B8),
-                      size: 19),
-                  onPressed: onToggle)
-              : null,
-          filled: true,
-          fillColor: const Color(0xFFF8FAFC),
-          isDense: true,
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Color(0xFFE2E8F0))),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color: Color(0xFFE2E8F0), width: 1.5)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: _green, width: 2)),
-          errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color: Color(0xFFEF4444), width: 1.5)),
-          focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Color(0xFFEF4444), width: 2)),
-          errorStyle: GoogleFonts.plusJakartaSans(fontSize: 10),
-        ),
-      );
+      Builder(builder: (context) {
+        TextFormField(
+          controller: controller,
+          obscureText: isPassword && obscureText,
+          keyboardType: type,
+          validator: validator,
+          style: GoogleFonts.plusJakartaSans(
+              fontSize: 13,
+              color: const Color(0xFF0F172A),
+              fontWeight: FontWeight.w500),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: GoogleFonts.plusJakartaSans(
+                fontSize: 13, color: const Color(0xFF94A3B8)),
+            prefixIcon: Icon(icon, color: const Color(0xFF94A3B8), size: 19),
+            suffixIcon: isPassword
+                ? IconButton(
+                    icon: Icon(
+                        obscureText
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: const Color(0xFF94A3B8),
+                        size: 19),
+                    onPressed: onToggle)
+                : null,
+            filled: true,
+            fillColor: const Color(0xFFF8FAFC),
+            isDense: true,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Color(0xFFE2E8F0))),
+            enabledBorder:
+                Theme.of(context).inputDecorationTheme.enabledBorder?.copyWith(
+                      borderSide:
+                          const BorderSide(color: AppTheme.border, width: 1.5),
+                    ),
+            focusedBorder: Theme.of(context)
+                .inputDecorationTheme
+                .focusedBorder
+                ?.copyWith(
+                  borderSide: const BorderSide(color: AppTheme.green, width: 2),
+                ),
+            errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+            focusedErrorBorder:
+                Theme.of(context).inputDecorationTheme.focusedErrorBorder,
+            errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
+          ),
+        );
+      });
 }

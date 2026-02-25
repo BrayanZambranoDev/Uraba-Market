@@ -93,13 +93,17 @@ class AuthService {
   }
 
   // 2. Registro con Email/Password
-  Future<String?> register(String email, String password) async {
+  Future<String?> register(String email, String password,
+      {String? displayName}) async {
     try {
       final credential = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
       // Creamos/actualizamos el documento en Firestore inmediatamente después de registrarse
       if (credential.user != null) {
+        // Actualizamos el displayName en Auth y lo pasamos a Firestore
+        if (displayName != null)
+          await credential.user!.updateDisplayName(displayName);
         await _firestoreService.saveUser(credential.user!);
       }
 
@@ -173,9 +177,13 @@ class AuthService {
 
   // 4. Logout
   Future<void> logout() async {
-    final futures = <Future<void>>[];
-    if (_googleSignIn != null) futures.add(_googleSignIn!.signOut());
-    futures.add(_auth.signOut());
-    await Future.wait(futures);
+    // Asegurarse de que GoogleSignIn se inicialice si es necesario antes de cerrar sesión
+    try {
+      _googleSignIn ??= GoogleSignIn();
+      await _googleSignIn!.signOut();
+    } catch (e) {
+      // Ignorar si GoogleSignIn no está disponible (p. ej., en la web sin configuración)
+    }
+    await _auth.signOut();
   }
 }

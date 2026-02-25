@@ -2,197 +2,243 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Colores principales
-  static const Color primaryGreen = Color(0xFF2E7D32);
-  static const Color primaryGreenLight = Color(0xFF43A047);
-  static const Color primaryGreenDark = Color(0xFF1B5E20);
-  static const Color accentOrange = Color(0xFFFF8C42);
-  static const Color accentOrangeDark = Color(0xFFE67E22);
-  static const Color textDark = Color(0xFF1A1A1A);
-  static const Color textGrey = Color(0xFF666666);
-  static const Color textLight = Color(0xFFFFFFFF);
-  static const Color borderGrey = Color(0xFFE0E0E0);
-  static const Color backgroundLight = Color(0xFFFAFAFA);
-  static const Color errorRed = Color(0xFFE53935);
-  static const Color successGreen = Color(0xFF43A047);
+  // ─── Colores principales (FUENTE ÚNICA DE VERDAD) ───
+  static const Color orange = Color(0xFFF97316);
+  static const Color orangeDark = Color(0xFFEA580C);
+  static const Color green = Color(0xFF16A34A);
+  static const Color greenLight = Color(0xFF22C55E);
+  static const Color greenDark = Color(0xFF15803D);
 
-  // Gradientes
-  static const LinearGradient primaryGradient = LinearGradient(
+  // ─── Fondos ───
+  static const Color bg = Color(0xFFF8FAFC);
+  static const Color cardBg = Colors.white;
+  static const Color inputBg = Color(0xFFF8FAFC);
+
+  // ─── Texto ───
+  static const Color textPrimary = Color(0xFF0F172A);
+  static const Color textSecondary = Color(0xFF64748B);
+  static const Color textMuted = Color(0xFF94A3B8);
+  static const Color textWhite = Colors.white;
+
+  // ─── Bordes ───
+  static const Color border = Color(0xFFE2E8F0);
+  static const Color borderLight = Color(0xFFE0E0E0);
+
+  // ─── Estado ───
+  static const Color error = Color(0xFFEF4444);
+  static const Color success = Color(0xFF16A34A);
+  static const Color warning = Color(0xFFF59E0B);
+  static const Color info = Color(0xFF3B82F6);
+
+  // ─── Categorías (colores de fondo + accent) ───
+  static const Map<String, Map<String, dynamic>> categoryStyles = {
+    'Frutas': {
+      'color': Color(0xFFFEF3C7),
+      'accent': Color(0xFFF59E0B),
+      'icon': Icons.eco_rounded,
+    },
+    'Verduras': {
+      'color': Color(0xFFDCFCE7),
+      'accent': Color(0xFF16A34A),
+      'icon': Icons.grass_rounded,
+    },
+    'Artesanías': {
+      'color': Color(0xFFFFEDD5),
+      'accent': Color(0xFFF97316),
+      'icon': Icons.palette_rounded,
+    },
+    'Gastronomía': {
+      'color': Color(0xFFFCE7F3),
+      'accent': Color(0xFFEC4899),
+      'icon': Icons.restaurant_rounded,
+    },
+    'Otros': {
+      'color': Color(0xFFF1F5F9),
+      'accent': Color(0xFF64748B),
+      'icon': Icons.inventory_2_rounded,
+    },
+  };
+
+  static Map<String, dynamic> getCategoryStyle(String? cat) {
+    return categoryStyles[cat] ??
+        {
+          'color': const Color(0xFFF1F5F9),
+          'accent': const Color(0xFF64748B),
+          'icon': Icons.inventory_2_rounded,
+        };
+  }
+
+  // ─── Gradientes ───
+  static const LinearGradient orangeGradient = LinearGradient(
+    colors: [Color(0xFFF97316), Color(0xFFEA580C)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [
-      primaryGreenDark,
-      primaryGreen,
-      primaryGreenLight,
-    ],
   );
 
-  static const LinearGradient secondaryGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [
-      Color(0xFFF5F5F5),
-      Color(0xFFFFFFFF),
-    ],
+  static const LinearGradient greenGradient = LinearGradient(
+    colors: [Color(0xFF16A34A), Color(0xFF15803D)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
 
-  // Sombras
-  static const BoxShadow shadowSmall = BoxShadow(
-    color: Color(0x0D000000),
-    blurRadius: 4,
-    offset: Offset(0, 2),
+  // ─── Sombras ───
+  static BoxShadow shadowSmall = BoxShadow(
+    color: Colors.black.withValues(alpha: 0.05),
+    blurRadius: 8,
+    offset: const Offset(0, 2),
   );
 
-  static const BoxShadow shadowMedium = BoxShadow(
-    color: Color(0x1A000000),
+  static BoxShadow shadowMedium = BoxShadow(
+    color: Colors.black.withValues(alpha: 0.08),
     blurRadius: 12,
-    offset: Offset(0, 4),
+    offset: const Offset(0, 4),
   );
 
-  static const BoxShadow shadowLarge = BoxShadow(
-    color: Color(0x26000000),
-    blurRadius: 24,
-    offset: Offset(0, 8),
+  static BoxShadow shadowOrange = BoxShadow(
+    color: orange.withValues(alpha: 0.35),
+    blurRadius: 16,
+    offset: const Offset(0, 6),
   );
 
-  // Bordes
-  static BorderRadius radiusSmall = BorderRadius.circular(8);
-  static BorderRadius radiusMedium = BorderRadius.circular(12);
-  static BorderRadius radiusLarge = BorderRadius.circular(16);
-  static BorderRadius radiusXL = BorderRadius.circular(24);
+  // ─── Bordes redondeados ───
+  static BorderRadius radiusS = BorderRadius.circular(8);
+  static BorderRadius radiusM = BorderRadius.circular(12);
+  static BorderRadius radiusL = BorderRadius.circular(16);
+  static BorderRadius radiusXL = BorderRadius.circular(20);
 
-  // Espaciado
-  static const double paddingXS = 4;
-  static const double paddingS = 8;
-  static const double paddingM = 16;
-  static const double paddingL = 24;
-  static const double paddingXL = 32;
+  // ─── Estilos de texto reutilizables ───
+  static TextStyle heading1 = GoogleFonts.plusJakartaSans(
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+    color: textPrimary,
+  );
 
-  // Tema Material
+  static TextStyle heading2 = GoogleFonts.plusJakartaSans(
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    color: textPrimary,
+  );
+
+  static TextStyle heading3 = GoogleFonts.plusJakartaSans(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: textPrimary,
+  );
+
+  static TextStyle subtitle = GoogleFonts.plusJakartaSans(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: textSecondary,
+  );
+
+  static TextStyle body = GoogleFonts.plusJakartaSans(
+    fontSize: 13,
+    fontWeight: FontWeight.w500,
+    color: textPrimary,
+  );
+
+  static TextStyle bodyMuted = GoogleFonts.plusJakartaSans(
+    fontSize: 13,
+    color: textMuted,
+  );
+
+  static TextStyle caption = GoogleFonts.plusJakartaSans(
+    fontSize: 11,
+    color: textMuted,
+  );
+
+  static TextStyle label = GoogleFonts.plusJakartaSans(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: const Color(0xFF374151),
+  );
+
+  static TextStyle buttonText = GoogleFonts.plusJakartaSans(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    color: textWhite,
+  );
+
+  // ─── InputDecoration reutilizable ───
+  static InputDecoration inputDecoration({
+    required String hint,
+    required IconData icon,
+  }) {
+    return InputDecoration(
+      hintText: hint,
+      hintStyle: GoogleFonts.plusJakartaSans(
+        fontSize: 13,
+        color: textMuted,
+      ),
+      prefixIcon: Icon(icon, color: textMuted, size: 19),
+      filled: true,
+      fillColor: inputBg,
+      isDense: true,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
+      border: OutlineInputBorder(
+        borderRadius: radiusM,
+        borderSide: const BorderSide(color: border),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: radiusM,
+        borderSide: const BorderSide(color: border, width: 1.5),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: radiusM,
+        borderSide: const BorderSide(color: green, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: radiusM,
+        borderSide: const BorderSide(color: error, width: 1.5),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: radiusM,
+        borderSide: const BorderSide(color: error, width: 2),
+      ),
+      errorStyle: GoogleFonts.plusJakartaSans(fontSize: 10),
+    );
+  }
+
+  // ─── Tema Material completo ───
   static ThemeData getTheme() {
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: primaryGreen,
+        seedColor: orange,
         brightness: Brightness.light,
-        primary: primaryGreen,
-        secondary: accentOrange,
-        tertiary: primaryGreenLight,
+        primary: orange,
+        secondary: green,
       ),
-      scaffoldBackgroundColor: backgroundLight,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: primaryGreen,
-        foregroundColor: textLight,
+      scaffoldBackgroundColor: bg,
+      appBarTheme: AppBarTheme(
+        backgroundColor: orange,
+        foregroundColor: textWhite,
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: textLight,
+        titleTextStyle: GoogleFonts.plusJakartaSans(
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+          color: textWhite,
         ),
       ),
-      filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
-          backgroundColor: primaryGreen,
-          foregroundColor: textLight,
-          padding: const EdgeInsets.symmetric(
-            horizontal: paddingL,
-            vertical: paddingM,
-          ),
-          shape: RoundedRectangleBorder(borderRadius: radiusMedium),
-          elevation: 2,
-          shadowColor: primaryGreen,
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          foregroundColor: primaryGreen,
-          side: const BorderSide(color: borderGrey, width: 1.5),
-          padding: const EdgeInsets.symmetric(
-            horizontal: paddingL,
-            vertical: paddingM,
-          ),
-          shape: RoundedRectangleBorder(borderRadius: radiusMedium),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-      textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-        displayLarge: GoogleFonts.poppins(
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: textDark,
-          letterSpacing: -0.5,
-        ),
-        displayMedium: GoogleFonts.poppins(
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-          color: textDark,
-        ),
-        displaySmall: GoogleFonts.poppins(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: textDark,
-        ),
-        headlineMedium: GoogleFonts.poppins(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: textDark,
-        ),
-        bodyLarge: GoogleFonts.poppins(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: textDark,
-        ),
-        bodyMedium: GoogleFonts.poppins(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          color: textGrey,
-        ),
-      ),
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: paddingM,
-          vertical: paddingM,
-        ),
+        fillColor: inputBg,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
         border: OutlineInputBorder(
-          borderRadius: radiusMedium,
-          borderSide: const BorderSide(color: borderGrey),
+          borderRadius: radiusM,
+          borderSide: const BorderSide(color: border),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: radiusMedium,
-          borderSide: const BorderSide(color: borderGrey, width: 1),
+          borderRadius: radiusM,
+          borderSide: const BorderSide(color: border, width: 1.5),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: radiusMedium,
-          borderSide: const BorderSide(color: primaryGreen, width: 2),
+          borderRadius: radiusM,
+          borderSide: const BorderSide(color: green, width: 2),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: radiusMedium,
-          borderSide: const BorderSide(color: errorRed, width: 1),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: radiusMedium,
-          borderSide: const BorderSide(color: errorRed, width: 2),
-        ),
-        labelStyle: const TextStyle(
-          color: textGrey,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-        hintStyle: const TextStyle(
-          color: Color(0xFFBDBDBD),
-          fontSize: 14,
-        ),
-        prefixIconColor: primaryGreen,
       ),
     );
   }
