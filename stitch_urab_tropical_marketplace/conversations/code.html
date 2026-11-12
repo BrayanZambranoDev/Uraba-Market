@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conversations - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+        /* Custom scrollbar for web */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-surface">
+<!-- TopAppBar from JSON -->
+<header class="docked full-width top-0 sticky z-50 bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<button aria-label="Menu" class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity duration-500 ease-in-out p-2 -ml-2 rounded-full hover:bg-[#1a3c34]/5">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] dark:text-[#fbfbe2] tracking-tight truncate px-4">
+            The Living Archive
+        </h1>
+<button aria-label="User profile" class="hover:opacity-80 transition-opacity duration-500 ease-in-out">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-transparent" data-alt="Close up portrait of a young woman with natural makeup looking slightly off camera in soft dappled jungle sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC33WSSO55TR1KAqDW5CCYwG1c6RrSwxnXyPo-12_h_sLEYyltjZicEv2G_eUAt4g3d3OrYO4lb9qxsKmbJqz_SI2V9eeZK-9OjnnSDJ0suu7Bt3dgXUvoASE4NIp1erMB9GePcHqhFmhgDr5ccAOQjRwxwaxL3gVeUAjkId80emjBC9_pH4xmJLZJHSYijGOL6zzQRKzoI7ef6nMOK_VDt0QbiwcO4s6hquVky2wsQiNmQQ-tLBwC9i-NGCbif5xO9xp1HD9lk8cC9"/>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-32">
+<!-- Page Header (Editorial typographic moment) -->
+<div class="mb-8">
+<h2 class="font-headline text-5xl md:text-6xl text-primary tracking-tight mb-3">Messages</h2>
+<p class="font-body text-tertiary text-lg max-w-md leading-relaxed">Coordinate field expeditions and archive botanical notes.</p>
+</div>
+<!-- Soft Inset Search -->
+<div class="bg-surface-container-highest rounded-[1.5rem] p-1 mb-8 shadow-[inset_0_2px_4px_rgba(1,38,31,0.02)]">
+<div class="flex items-center gap-3 px-5 py-3">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none outline-none w-full text-on-surface font-body placeholder:text-outline-variant focus:ring-0 text-base" placeholder="Search archives &amp; contacts..." type="text"/>
+</div>
+</div>
+<!-- Conversations List (No divider lines, separated by spacing and tonal shifts) -->
+<div class="flex flex-col gap-2">
+<!-- Unread Chat Item (Elevated tonal shift) -->
+<article class="group flex items-center gap-5 p-4 sm:p-5 rounded-[2rem] bg-surface-container-lowest shadow-[0_6px_24px_rgba(27,29,14,0.04)] cursor-pointer transition-all duration-500 ease-out hover:shadow-[0_8px_32px_rgba(27,29,14,0.06)] hover:-translate-y-0.5">
+<div class="relative shrink-0">
+<img class="w-16 h-16 sm:w-18 sm:h-18 rounded-[1.25rem] object-cover shadow-sm" data-alt="Portrait of a middle aged man with a beard wearing a linen shirt standing in a lush tropical garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiIiKhjuodtGjgnY-hETmNTbC8Y3oXX55D32FwVOJYqsa_ZmaRg9l6k5Z8pHM_xUx_WCyhWoq8Xri-Cy2L5Hvr7rmYE5T59m8OxCcwSCQ3LTpk4BOGE2rUajWD7N7FPoZDr6Y8f2ufNi9wVMtDEaStUAqKu_1I11tirFVPhAfUMpeTgDMw5iBXML79aOjM-5cA6Cu8syuFeDrg5vkOGud0qGx3efWSqWsIVvNoBAYPxeEJnCzL42af7NzSo1hEzLp3L9unuLKBcnQ2"/>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-surface-container-lowest shadow-sm"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline text-xl font-bold text-primary truncate pr-2">Dr. Mateo Vargas</h3>
+<time class="font-body text-xs font-bold text-secondary whitespace-nowrap">2m ago</time>
+</div>
+<p class="font-body text-primary-container font-medium text-sm sm:text-base truncate">
+                        The orchid samples from the Urabá ridge are stabilizing in the new climate chamber. We need to...
+                    </p>
+</div>
+</article>
+<!-- Unread Chat Item 2 -->
+<article class="group flex items-center gap-5 p-4 sm:p-5 rounded-[2rem] bg-surface-container-lowest shadow-[0_6px_24px_rgba(27,29,14,0.04)] cursor-pointer transition-all duration-500 ease-out hover:shadow-[0_8px_32px_rgba(27,29,14,0.06)] hover:-translate-y-0.5">
+<div class="relative shrink-0">
+<div class="w-16 h-16 sm:w-18 sm:h-18 rounded-[1.25rem] bg-primary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-surface text-3xl icon-fill">group</span>
+</div>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-surface-container-lowest shadow-sm"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline text-xl font-bold text-primary truncate pr-2">Basecamp Alpha</h3>
+<time class="font-body text-xs font-bold text-secondary whitespace-nowrap">1h ago</time>
+</div>
+<p class="font-body text-primary-container font-medium text-sm sm:text-base truncate">
+<span class="text-tertiary font-semibold mr-1">Elena:</span> Coordinates received. Setting up the observation net near the river bend now.
+                    </p>
+</div>
+</article>
+<!-- Read Chat Item (Flat on surface, hover states) -->
+<article class="group flex items-center gap-5 p-4 sm:p-5 rounded-[2rem] bg-transparent cursor-pointer transition-all duration-500 ease-out hover:bg-surface-container-low">
+<div class="relative shrink-0">
+<img class="w-16 h-16 sm:w-18 sm:h-18 rounded-[1.25rem] object-cover opacity-90" data-alt="Portrait of a young woman smiling warmly with soft diffused light against a background of large green leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzGqZ0JPSRCVUmpnZBU-g6jEkW-sHAyMFF39ADlhTcXFFvWR5gB9n4rKUvtygigsI49Ulf18XB-mZLh647Hen0u82Uot_rk5LgJ9nT8QH-VA9zcJ_5kGFoZnw6prrgNenhLsExGs3wmKn7QM7d-lBHok02phPw_p8IFsIfaG7bu01yx--ibgI5HiDcveSJjxN7uL-a31RClIMBlC2_WsTTYnUlCZO3s3d45y01P-9nDv6za23pWAzmV7BNw01kmQJTJimTu6ula8a0"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-body text-lg font-semibold text-primary truncate pr-2">Isabella Torres</h3>
+<time class="font-body text-xs text-outline whitespace-nowrap">Yesterday</time>
+</div>
+<p class="font-body text-on-surface-variant text-sm sm:text-base truncate">
+                        I've uploaded the high-res scans of the cacao pods to the shared archive folder.
+                    </p>
+</div>
+</article>
+<!-- Read Chat Item -->
+<article class="group flex items-center gap-5 p-4 sm:p-5 rounded-[2rem] bg-transparent cursor-pointer transition-all duration-500 ease-out hover:bg-surface-container-low">
+<div class="relative shrink-0">
+<img class="w-16 h-16 sm:w-18 sm:h-18 rounded-[1.25rem] object-cover opacity-90" data-alt="Headshot of a man with short hair and glasses looking serious in a dimly lit room with warm light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh1nAV_Az8sY6OS6z2fBLAHwjetmpCLIsxz60rr54tHTo15otDcRUc4LVbKaEkxCDUVB56vP_yMQeByXLAKkn3CiAB0DjJ682TiNwOKO971LpYj7gZeAgVf_NrUsvpU4XR3RGK1CqWQVz1wUzrVxs5iVAZRDcZxp0QK0tXiu_h4XFO2bD40DkdZp0dHo9rDVJdkP33RpjVMk0RGksDVz_1_NACXU6pHlFVIo5YZf9T_tghafwL3RyJXdnfqphtSUTJ8EGM-T6pvU9o"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-body text-lg font-semibold text-primary truncate pr-2">Prof. Alistair Reed</h3>
+<time class="font-body text-xs text-outline whitespace-nowrap">Tue</time>
+</div>
+<p class="font-body text-on-surface-variant text-sm sm:text-base truncate">
+                        Fascinating findings. Let's schedule a call to discuss the soil composition data next week.
+                    </p>
+</div>
+</article>
+<!-- Read Chat Item -->
+<article class="group flex items-center gap-5 p-4 sm:p-5 rounded-[2rem] bg-transparent cursor-pointer transition-all duration-500 ease-out hover:bg-surface-container-low">
+<div class="relative shrink-0">
+<img class="w-16 h-16 sm:w-18 sm:h-18 rounded-[1.25rem] object-cover opacity-90" data-alt="Profile photo of a rugged man looking thoughtfully into the distance with a blurred natural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsnNYYsw6UQnRDiSTS_7sTk_MUpdv041xIuMCDny3Rw9UqoybNLTD0_nEZz5azIwWiZoFOL68aeXsYZJ44J5dxffHk0IBSS1BXsA16gv9-V4LP2U8i--8P1cgsFBml5Suzvqp9k8wM13kbDiTKqdkWyA2lLMDqQ94zIV_um72sVS7MwNZb5_oEFNelhqBMXcqrICmjMibtqypWS3pM7pp11c2TNFKvFUPlGcNe4C2Dt1jCQSwli6GSOBChvxJRmHP3ah6_0ZVmFK9C"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-body text-lg font-semibold text-primary truncate pr-2">Carlos Rivera</h3>
+<time class="font-body text-xs text-outline whitespace-nowrap">Oct 12</time>
+</div>
+<p class="font-body text-on-surface-variant text-sm sm:text-base truncate">
+                        The rainy season is starting early. We need to secure the northern perimeter by Friday.
+                    </p>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] md:hidden">
+<!-- Inactive: Home -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<!-- Inactive: Search -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</a>
+<!-- Inactive: Feed -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</a>
+<!-- Active: Messages (Closest semantic match to Conversations) -->
+<a class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 transition-all duration-600 ease-out shadow-sm" href="#">
+<span class="material-symbols-outlined text-[24px] mb-0.5 icon-fill">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</a>
+<!-- Inactive: Profile -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

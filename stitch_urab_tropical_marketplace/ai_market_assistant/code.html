@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Urabá AI Assistant - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#fbfbe2]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border bg-[#f5f5dc] flat no shadows duration-500 ease-in-out flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#01261f] hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] tracking-tight">The Living Archive</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-surface-variant shadow-[0_4px_12px_rgba(27,29,14,0.04)]">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a young professional woman with natural makeup, warm cinematic lighting, editorial aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9AjuEdjJsnJX-fmJa4WH6EFmh_WHaZ096QzK98S7UaYdzZ-A0M2BH83C1FR0zlOc-IbpiMnplXtr8Xq-57HRYi9iXj7nCMI-SUS6Pe6TtvsmbCxvxy2txPq080XI19bH30qC-yUpeG8ddGwh6WNf0vFsL6bafkpqA1SB8WDUs2Ew3MtjftLKMNVS1hBZYT7no6NQGM4DsD_hNSkaH95-OlIkHINIKDwdYusGTxBbw37uCaMYW-Oc5KWFXQovy96JQAz2WDeLjgMi1"/>
+</div>
+</header>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col px-6 pt-2 pb-40 overflow-hidden relative">
+<!-- AI Welcome Area -->
+<div class="flex flex-col items-center justify-center py-8 gap-5 shrink-0">
+<div class="relative">
+<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-xl transform scale-110"></div>
+<div class="w-28 h-28 rounded-full overflow-hidden shadow-[0_8px_32px_rgba(1,38,31,0.12)] relative z-10 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Friendly, wise-looking local Colombian farmer wearing a traditional woven hat, smiling warmly against a lush jungle background, soft natural lighting, editorial portrait style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi9rN1klgm9eK21tuvaJCoylth-zvNnMMyB3w1L8xVb_XPR8JZqAa-54R2_sK_so3q238obBpBI78pyKa61kf83dpNFLz_a15CPJgidgyz2I6I1Zkd15sHPE1MHgI2tsl_F4I4SZN12g-APARLzHm_VFLE9wbwhZmsCzZKkdLk7yGh-lwxlqV4sPQCrQxi0-eamF7_16XxKXok7g_Lm-MftezKAe1ZqGwbNSG-oGFfswWLUVjrI4W56TWNUkhqRprmyNKAptVzIZaq"/>
+</div>
+</div>
+<div class="text-center">
+<h2 class="font-headline text-3xl font-bold text-primary mb-1 tracking-tight">Urabá AI</h2>
+<p class="font-body text-on-surface-variant text-sm font-medium tracking-wide text-tertiary">Your Regional Market Guide</p>
+</div>
+</div>
+<!-- Suggestion Chips (Horizontal Scroll Bento) -->
+<div class="flex overflow-x-auto gap-3 pb-6 pt-2 no-scrollbar -mx-6 px-6 shrink-0 snap-x">
+<button class="snap-start shrink-0 px-6 py-4 bg-surface-container-highest rounded-[1.5rem] font-label text-sm font-semibold text-on-surface hover:bg-surface-variant transition-colors duration-500 ease-in-out flex flex-col gap-2 items-start justify-center shadow-[0_4px_16px_rgba(27,29,14,0.03)] group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform duration-500">trending_up</span>
+<span>Plantain Prices</span>
+</button>
+<button class="snap-start shrink-0 px-6 py-4 bg-surface-container-highest rounded-[1.5rem] font-label text-sm font-semibold text-on-surface hover:bg-surface-variant transition-colors duration-500 ease-in-out flex flex-col gap-2 items-start justify-center shadow-[0_4px_16px_rgba(27,29,14,0.03)] group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform duration-500">policy</span>
+<span>Export Rules</span>
+</button>
+<button class="snap-start shrink-0 px-6 py-4 bg-surface-container-highest rounded-[1.5rem] font-label text-sm font-semibold text-on-surface hover:bg-surface-variant transition-colors duration-500 ease-in-out flex flex-col gap-2 items-start justify-center shadow-[0_4px_16px_rgba(27,29,14,0.03)] group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform duration-500">rainy</span>
+<span>Harvest Weather</span>
+</button>
+<button class="snap-start shrink-0 px-6 py-4 bg-surface-container-highest rounded-[1.5rem] font-label text-sm font-semibold text-on-surface hover:bg-surface-variant transition-colors duration-500 ease-in-out flex flex-col gap-2 items-start justify-center shadow-[0_4px_16px_rgba(27,29,14,0.03)] group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform duration-500">local_shipping</span>
+<span>Port Logistics</span>
+</button>
+</div>
+<!-- Chat History -->
+<div class="flex-1 flex flex-col gap-6 overflow-y-auto no-scrollbar pb-10">
+<!-- AI Message -->
+<div class="flex gap-4 items-end max-w-[90%]">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mb-1 shadow-[0_2px_8px_rgba(1,38,31,0.08)]">
+<img class="w-full h-full object-cover" data-alt="Friendly, wise-looking local Colombian farmer wearing a traditional woven hat, smiling warmly against a lush jungle background, soft natural lighting, editorial portrait style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE57NlFz-0KMxqaKBQdEi8EM3IT0ji84gvrb_DeWqctrbCPQ1EGrBRhrpDg4DJ9oIUMS1YzkfyD-MmAAy16tRDSwIQ5B2x4wyKpYL3wCpt2awXQFjKYAwggJjQKMYnNqKrlby83-aM1PygFRDl0ZafCq0wMVJ9Atuhqw5uCoPAQifMV4Wap2JG_kQCg4qr4kTWDaEBc3OraWlO8pPVOoRXXp0hldCXoLszcr5IPAWf0-UJX-SvniPgONS0us03GLgLzWbzZ3p0cJX5"/>
+</div>
+<div class="bg-surface-container-low rounded-3xl rounded-bl-sm px-6 py-4 flex flex-col gap-2 shadow-[0_4px_20px_rgba(27,29,14,0.02)]">
+<p class="font-body text-on-surface text-[15px] leading-relaxed">
+                        Hola. I am your Urabá AI assistant. How can I help you navigate the agricultural market today? I have the latest data on crop yields, regional logistics, and international demand.
+                    </p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-4 items-end self-end max-w-[90%] flex-row-reverse">
+<div class="bg-primary rounded-3xl rounded-br-sm px-6 py-4 relative overflow-hidden shadow-[0_8px_24px_rgba(1,38,31,0.15)]">
+<!-- High-pill inner glow styling from Design System -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-secondary-fixed-dim/30"></div>
+<p class="font-body text-on-primary text-[15px] leading-relaxed relative z-10">
+                        What are the current trends for sustainable cacao exports to Europe for this quarter?
+                    </p>
+</div>
+</div>
+<!-- AI Message (Typing state) -->
+<div class="flex gap-4 items-end max-w-[90%]">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mb-1 shadow-[0_2px_8px_rgba(1,38,31,0.08)]">
+<img class="w-full h-full object-cover" data-alt="Friendly, wise-looking local Colombian farmer wearing a traditional woven hat, smiling warmly against a lush jungle background, soft natural lighting, editorial portrait style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9sJirFgZaJVHjgM1h9GZS2TqJb4XV0qp2biL-QTKyKRj4ODcICOxr5UpCzlgiFLrHqbT3HiPJ3TbSPPqiOsXuqbpkQ_sG0gYYjoDZMIMS6fhXrKO2gGUKW8Y6JikAMlb9C9BO4gFQVn-ZLW0f3HubSv0D_DMU-unTtsLz8L276PsvEcyiv56_8xfTC1E1rA6Gvskf5a4qhBKE9zpTfQ0IoBzTUTuPOWHy45vKimBFkg4suvZfpNG7gEYhONr3InABYJ63MV127p4m"/>
+</div>
+<div class="bg-surface-container-low rounded-3xl rounded-bl-sm px-6 py-5 flex items-center gap-2 shadow-[0_4px_20px_rgba(27,29,14,0.02)]">
+<div class="w-2 h-2 rounded-full bg-primary/40 animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-primary/60 animate-pulse delay-75"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse delay-150"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Input Area (Floating above Nav) -->
+<div class="fixed bottom-[88px] left-0 w-full px-6 bg-gradient-to-t from-background via-background/90 to-transparent pt-12 pb-4 z-40 pointer-events-none">
+<div class="bg-surface-container-highest rounded-3xl p-2 flex items-center gap-2 shadow-[0_8px_32px_rgba(1,38,31,0.08)] pointer-events-auto ring-1 ring-outline-variant/15">
+<button class="p-3 text-tertiary hover:bg-surface-variant rounded-full transition-colors duration-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none outline-none focus:ring-0 font-body text-on-surface placeholder:text-on-surface-variant text-[15px]" placeholder="Ask about markets, weather, logistics..." type="text"/>
+<button class="bg-secondary text-on-primary p-3 rounded-full hover:bg-secondary/90 transition-colors duration-500 flex items-center justify-center relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-white/30"></div>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar from JSON -->
+<!-- Applying explicit styles from JSON: "Messages" is the active tab based on context -->
+<nav class="bg-[#fbfbe2]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] fixed w-full z-50 flex justify-around items-center px-4 pb-6 pt-2">
+<button class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full duration-600 ease-out transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full duration-600 ease-out transition-all">
+<span class="material-symbols-outlined">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full duration-600 ease-out transition-all">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Feed</span>
+</button>
+<!-- ACTIVE TAB: Messages -->
+<button class="flex flex-col items-center justify-center bg-[#1a3c34] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 duration-600 ease-out transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Messages</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full duration-600 ease-out transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Directory - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": [
+                            "Noto Serif"
+                        ],
+                        "body": [
+                            "Manrope"
+                        ],
+                        "label": [
+                            "Manrope"
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-secondary-container selection:text-on-secondary-container min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar JSON Component -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full border-b-0 hidden md:flex" style="background-color: var(--color-surface); backdrop-filter: blur(20px);">
+<div class="flex items-center gap-4 hover:opacity-80 transition-opacity duration-500 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-[#01261f] dark:text-[#fbfbe2]" data-icon="menu">menu</span>
+</div>
+<div class="font-noto-serif text-2xl tracking-tight font-bold text-[#01261f] dark:text-[#fbfbe2]">
+            The Living Archive
+        </div>
+<div class="flex items-center gap-4 hover:opacity-80 transition-opacity duration-500 ease-in-out">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden" data-alt="close up of a person's face looking directly at the camera, soft lighting, neutral background, professional headshot style">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRNRQ77jHhvtkQwHyeFqe_lgFy4vrKF4m6nc-njifzu0awnRR6TDKhEBs6fdtlT8klDFTgDFT7qpaBMacriOQiZcUvD043XGWLEHDToeQ0BSeOgqyPluVNO-R1VuJL2fzCNxMziF9g4r5zJVTXBSZ4wVrylimP64yEzo3V3TZPHAqPiMPW-HnZdyCG1Yz79HxODjJ54VD8HXjxkyYqH-7nYPkIi9xWMrqBqHQr76OH75KbGNLS5htmNnS6EKgQDyAczxeM0lcu0xEY"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+<!-- Hero Section -->
+<div class="mb-12">
+<h1 class="font-headline text-5xl md:text-6xl text-primary font-bold tracking-tight mb-4 leading-tight">Producers &amp;<br/>Artisans</h1>
+<p class="font-body text-tertiary text-lg max-w-2xl">Discover the heritage and craftsmanship of the Urabá region. Connect directly with the hands that cultivate our most precious resources.</p>
+</div>
+<!-- Search & Filter Area -->
+<div class="mb-12 space-y-6">
+<!-- Soft Inset Search Bar -->
+<div class="relative bg-surface-container-highest rounded-xl p-2 flex items-center shadow-[0_4px_20px_rgba(27,29,14,0.04)]">
+<span class="material-symbols-outlined text-tertiary ml-4 mr-2" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body placeholder:text-outline-variant text-lg py-3" placeholder="Search producers by name or product..." type="text"/>
+<button class="bg-primary text-on-primary rounded-full px-6 py-3 font-label font-semibold text-sm hover:opacity-90 transition-opacity flex items-center gap-2 shadow-[inset_0_2px_0_rgba(255,255,255,0.2)]">
+                    Search
+                </button>
+</div>
+<!-- Filter Chips - Horizontal Scroll -->
+<div class="flex overflow-x-auto pb-4 gap-3 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+<button class="whitespace-nowrap rounded-full bg-secondary-container text-on-secondary-container px-6 py-2.5 font-label font-medium text-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined filled-icon text-sm" data-icon="check">check</span>
+                    All Specialties
+                </button>
+<button class="whitespace-nowrap rounded-full bg-surface-container-high text-on-surface px-6 py-2.5 font-label font-medium text-sm hover:bg-surface-variant transition-colors">
+                    Cacao Specialists
+                </button>
+<button class="whitespace-nowrap rounded-full bg-surface-container-high text-on-surface px-6 py-2.5 font-label font-medium text-sm hover:bg-surface-variant transition-colors">
+                    Artisan Crafts
+                </button>
+<button class="whitespace-nowrap rounded-full bg-surface-container-high text-on-surface px-6 py-2.5 font-label font-medium text-sm hover:bg-surface-variant transition-colors">
+                    Coffee Roasters
+                </button>
+<button class="whitespace-nowrap rounded-full bg-surface-container-high text-on-surface px-6 py-2.5 font-label font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Municipality
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Sellers -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-24">
+<!-- Featured Seller (Spans 8 cols) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-[1.5rem] overflow-hidden relative group cursor-pointer h-[28rem]">
+<img alt="Cacao farm" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" data-alt="lush green cacao plantation in colombia with farmers tending to the trees in the morning mist, warm sunlight filtering through leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJvitp-fW1-CPhWobl5gpWUZN3OeR0t7bkIIFOeKcGojX_7KXrSWAUORIB7QHES7ioMh9Ws6E9BatFVnETitDRJ2050s-v2FCAP18UMJozCeJemN7Hjpgswhk2TR4Yt31enT8w8nEtNAjLTRbGc3xySXFsXNbHfsu-vcZJD-cvHQGFezwYDG8t8rg7-08kbnljWORk0aEjnLUEB36zZQo90ROKskqXVVIKU4lRWeJT6x_MAdlakrdnP3q2gcYlLXPxm7gG_zw2M7CV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-full bg-surface p-1 shadow-lg shrink-0" data-alt="rustic circular logo with a cacao pod illustration in dark brown ink on a cream background">
+<img alt="Finca El Retiro Logo" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCillMQzE3YL_nuL8AarOl5kS0IGUDVHYV7-diCpKt88bGlRB4D-TtOerh3wmGBub94A8iOLL6WDvzBK-uZ2rgIp7Xda0zkCxwC1DYo707ijIHGyLIevUM_09HqOQ2k6QN5r3xccgXYRp7fSc-4vMeoLSCyjOw413fOJgpUvZIbdo5awNfNz0-7ywXAb9X9j5NtpAsnrNggkboAsiDKeakND8wOFXD-UUHtYE_xhUTIDcUbmNLxLBH-H580R3WAtyrSOw_nDJqDxjT6"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-sm">Featured</span>
+<span class="text-surface flex items-center text-sm font-label gap-1">
+<span class="material-symbols-outlined text-sm filled-icon text-[#F59E0B]" data-icon="star">star</span>
+                                    4.9
+                                </span>
+</div>
+<h3 class="font-headline text-3xl font-bold text-surface mb-1">Finca El Retiro</h3>
+<p class="font-body text-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Apartadó, Antioquia
+                            </p>
+</div>
+</div>
+<button class="bg-surface text-primary rounded-full px-6 py-3 font-label font-bold text-sm hover:bg-surface-variant transition-colors shrink-0">
+                        View Profile
+                    </button>
+</div>
+</div>
+<!-- Standard Seller (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-[1.5rem] p-6 flex flex-col hover:bg-surface-variant transition-colors duration-500 ease-in-out cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden" data-alt="minimalist logo of woven basket in dark green on light beige background">
+<img alt="Tejidos de Urabá Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOWztThuKqE98s9H1SW0N0m65LlmNDbV3636jQvrn_sv8G5t-4kzISJ8yRO43YpbVNabtjU3C8vSadEkQx4Bfh0-96Qrs30djBN5hW_82aU8ExfTfrTYwxllILbXpS7uM3aruaoRcqS4kx-97AJ3QZNj1yrsypHNM0sTmpN9LOcD-qGEfR7OWf9poOVSp0O1qQMT60HwJD0L19qNVVJg9amkyYyBa4te1W6g5RXdFk9bY6v6SVafV2i0ssJkE_2wd6uxyWRmoBGuz5"/>
+</div>
+<span class="bg-surface text-tertiary font-label text-xs font-semibold px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs filled-icon text-[#F59E0B]" data-icon="star">star</span>
+                        4.7
+                    </span>
+</div>
+<div class="mt-auto">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">Tejidos de Urabá</h3>
+<p class="font-body text-tertiary text-sm mb-4">Master weavers creating traditional baskets using sustainable iraca palm.</p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<span class="font-body text-surface-tint text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Turbo
+                        </span>
+<span class="text-secondary text-sm font-semibold">Artisan Crafts</span>
+</div>
+</div>
+</div>
+<!-- Standard Seller (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[1.5rem] p-6 flex flex-col hover:bg-surface-container-low transition-colors duration-500 ease-in-out cursor-pointer shadow-[0_4px_20px_rgba(27,29,14,0.02)]">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden" data-alt="logo featuring abstract coffee bean shape in terracotta color on warm white background">
+<img alt="Café del Sol Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq-fPacQM_G6kSDi3zaWwFaNj_COiDifR7RBgnxeqhmYOlGSkE_xcnxsIHY-gjL6yADNF9bNAmw-e0BI2Zsw2_9WvdFpmLqUYxx3Dl5QSVweu9oZxabFu5wJ80GZnKr_wvKGqKEG7eVMVTnnWldjoGjjVtwTAWtgJa_VJuceS3Z6tDD_rol_MwCz7E4WvjscWDquNbONQJTPT8TBQc-idwK4S3IKFAnphUlq5_KhviaC4u81qV5XrZWmWJE7YLK1LgGzHLWh6e7P3m"/>
+</div>
+<span class="bg-surface-container-high text-tertiary font-label text-xs font-semibold px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs filled-icon text-[#F59E0B]" data-icon="star">star</span>
+                        4.8
+                    </span>
+</div>
+<div class="mt-auto">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">Café del Sol</h3>
+<p class="font-body text-tertiary text-sm mb-4">Small-batch roasted arabica coffee from the high altitude slopes.</p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<span class="font-body text-surface-tint text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Mutatá
+                        </span>
+<span class="text-secondary text-sm font-semibold">Coffee Roasters</span>
+</div>
+</div>
+</div>
+<!-- Standard Seller (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-[1.5rem] p-6 flex flex-col hover:bg-surface-variant transition-colors duration-500 ease-in-out cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden" data-alt="logo with stylized banana leaf in vibrant green on pale yellow background">
+<img alt="Platanera Hermanos Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgBcln5XDVRBEiLrdhZkD0KL-_HkHEAzUmVpnL0RbIyN9HqS1klHfyhQhFAYgndIM9nDp45Yn8kzuHQM4LDS_533lGfobSvegdE_gBIak7kObf7GmUWh2ku0YIXMrfvTfnYHmg12VEg38nwVYMTcaZK40SSldZCivEuHsVmblAdk-WimMKeXjz7tt0Nbk9CookTVd0HJA8qLC8nzyld20kQruBLNV_blT2yu2NnH-sBsPOilOU_g7gGilG69LtfwZev_kfIguEV8EK"/>
+</div>
+<span class="bg-surface text-tertiary font-label text-xs font-semibold px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs filled-icon text-[#F59E0B]" data-icon="star">star</span>
+                        4.5
+                    </span>
+</div>
+<div class="mt-auto">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">Platanera Hermanos</h3>
+<p class="font-body text-tertiary text-sm mb-4">Organic plantain cultivation specializing in heritage varieties.</p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<span class="font-body text-surface-tint text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Chigorodó
+                        </span>
+<span class="text-secondary text-sm font-semibold">Agriculture</span>
+</div>
+</div>
+</div>
+<!-- Standard Seller (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[1.5rem] p-6 flex flex-col hover:bg-surface-container-low transition-colors duration-500 ease-in-out cursor-pointer shadow-[0_4px_20px_rgba(27,29,14,0.02)]">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden" data-alt="elegant wordmark logo 'Aura' in serif typography in dark brown on cream background">
+<img alt="Aura Botanicals Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcNlln0s7fYd7aYjkbf-GCwdkbvv0VF9S13Be3Ax96inC6ODKT_XaSxB8CS9ws3gShgsdsGNBchLmCQSwqU0NyGXI2XboKq6xGETOvoeqLJh4F6wfoqSq0LMZz3hkxZLwdzIZ8sEKZTdTLRqAYl9dlbCmy7XMaezLeXJ4zA73hRIMktWNd7AbaOu4JW-SpjAsA1OvSSj4yGdtkzQ8N3Zi7XEITRJ4y9DKH3vTaLY0n7iQ8XkVzkI5QG4hxHjzzQqiThfkeo9hUKqwM"/>
+</div>
+<span class="bg-surface-container-high text-tertiary font-label text-xs font-semibold px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs filled-icon text-[#F59E0B]" data-icon="star">star</span>
+                        4.9
+                    </span>
+</div>
+<div class="mt-auto">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">Aura Botanicals</h3>
+<p class="font-body text-tertiary text-sm mb-4">Essential oils and natural remedies sourced directly from the jungle.</p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<span class="font-body text-surface-tint text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Necoclí
+                        </span>
+<span class="text-secondary text-sm font-semibold">Botanicals</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar JSON Component -->
+<nav class="bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 border-t-0 md:hidden" style="background-color: var(--color-surface); backdrop-filter: blur(20px);">
+<div class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-manrope text-[10px] tracking-widest font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1 filled-icon" data-icon="search">search</span>
+<span class="font-manrope text-[10px] tracking-widest font-bold">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="potted_plant">potted_plant</span>
+<span class="font-manrope text-[10px] tracking-widest font-bold">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-manrope text-[10px] tracking-widest font-bold">Messages</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-manrope text-[10px] tracking-widest font-bold">Profile</span>
+</div>
+</nav>
+</body></html>

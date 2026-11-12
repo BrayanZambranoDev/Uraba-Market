@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Transactional Header: Suppressing global TopAppBar due to linear checkout intent -->
+<header class="sticky top-0 z-40 w-full px-6 py-5 bg-background/80 backdrop-blur-xl flex items-center justify-between">
+<button aria-label="Go back" class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors duration-500 ease-in-out">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl md:text-3xl font-bold tracking-tight text-primary">Your Selection</h1>
+<div class="w-12 h-12"></div> <!-- Spacer for balance -->
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+<!-- Cart Items List (Left Column) -->
+<section class="lg:col-span-8 flex flex-col gap-6">
+<!-- Item 1 -->
+<article class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest rounded-3xl p-4 md:p-5 items-center sm:items-stretch shadow-[0_4px_30px_rgba(1,38,31,0.02)] transition-transform duration-600 ease-out hover:-translate-y-1">
+<div class="w-full sm:w-40 h-48 sm:h-auto rounded-2xl overflow-hidden shrink-0 bg-surface-container-low relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="close up of a lush monstera deliciosa plant with dramatic natural lighting highlighting the textured green leaves against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvCQDjTEiqViNpH4URMCeCF4D0m4XYJCJPOOMf1dtkdapHZ9-R0_oSVs_Cd0Unrzf_8wTnfVf0RwqcLekx-wFCYfPurln1cFwu11xmo6oemKUkWG9Ex9Ybx-VGzrLaq38jE73VnG2nxf-q40-FzLUjN9NyODm2I8hJTwfMoQVkw5L4IisEfbORaLVWy4KYlb5KYAM1HIkSJIAQtnzKT1kDMLajLBWptMXoM9exB0HZvTgAddMc06jwERMAy4vxeMi1JsY9Q9kEWR3X"/>
+</div>
+<div class="flex-1 flex flex-col justify-between w-full py-2">
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+<div class="pr-4">
+<h3 class="font-headline text-xl md:text-2xl text-primary font-bold leading-tight">Monstera Albo Borsigiana</h3>
+<p class="font-body text-sm text-on-surface-variant mt-2 font-medium">Mature Cutting • High Variegation</p>
+</div>
+<p class="font-body text-xl font-bold text-primary shrink-0">$450.00</p>
+</div>
+<div class="flex justify-between items-end mt-6 sm:mt-auto pt-4">
+<!-- Quantity Adjuster -->
+<div class="flex items-center bg-surface-container-high rounded-full p-1">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-highest transition-colors duration-400 ease-in-out">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-body text-sm font-bold w-8 text-center text-primary">1</span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-highest transition-colors duration-400 ease-in-out">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<!-- Remove Button -->
+<button class="group flex items-center gap-1.5 text-tertiary hover:text-error transition-colors duration-400 ease-in-out px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[1.1rem]">delete</span>
+<span class="font-body text-xs font-bold uppercase tracking-widest group-hover:opacity-100 opacity-80">Remove</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest rounded-3xl p-4 md:p-5 items-center sm:items-stretch shadow-[0_4px_30px_rgba(1,38,31,0.02)] transition-transform duration-600 ease-out hover:-translate-y-1">
+<div class="w-full sm:w-40 h-48 sm:h-auto rounded-2xl overflow-hidden shrink-0 bg-surface-container-low relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="elegant philodendron gloriosum plant in a handcrafted terracotta pot sitting on a minimalist concrete surface bathed in warm morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFHDQ-fesHdWdl5WxeHUzu4HssQxCd7ESMPPh9xzbsk3lIHWACJyFOKzv9CZYjQHVNNZUyfdYgnb0bUDbiLeWcXAUtkJy4Urz8YjBD6EoYg-HgXjehLamWayxYZaKMqLmPXv-mLUHmkS3mS8tzBMXXSRA-f8DFCmKRyMnJ1v6EUy3-IiIXL0RUPaY47NabQF_G0I3HEHAP-HGXslgdx_YzK-cUexgACU6mUeQyM1KyG82iuBhsc7TLmIKgoeThyMNimgHLaID7zLee"/>
+</div>
+<div class="flex-1 flex flex-col justify-between w-full py-2">
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+<div class="pr-4">
+<h3 class="font-headline text-xl md:text-2xl text-primary font-bold leading-tight">Philodendron Gloriosum</h3>
+<p class="font-body text-sm text-on-surface-variant mt-2 font-medium">Rooted Plant • 6" Nursery Pot</p>
+</div>
+<p class="font-body text-xl font-bold text-primary shrink-0">$125.00</p>
+</div>
+<div class="flex justify-between items-end mt-6 sm:mt-auto pt-4">
+<!-- Quantity Adjuster -->
+<div class="flex items-center bg-surface-container-high rounded-full p-1">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-highest transition-colors duration-400 ease-in-out">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-body text-sm font-bold w-8 text-center text-primary">2</span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-highest transition-colors duration-400 ease-in-out">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<!-- Remove Button -->
+<button class="group flex items-center gap-1.5 text-tertiary hover:text-error transition-colors duration-400 ease-in-out px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[1.1rem]">delete</span>
+<span class="font-body text-xs font-bold uppercase tracking-widest group-hover:opacity-100 opacity-80">Remove</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Order Summary (Right Column) -->
+<section class="lg:col-span-4">
+<div class="bg-surface-container-low rounded-[2.5rem] p-8 md:p-10 sticky top-32">
+<h2 class="font-headline text-2xl text-primary font-bold mb-8 tracking-tight">Archive Summary</h2>
+<div class="space-y-5 font-body text-on-surface-variant mb-10">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium tracking-wide">Subtotal</span>
+<span class="text-primary font-bold text-lg">$700.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium tracking-wide">Est. Climate Shipping</span>
+<span class="text-primary font-bold text-lg">$45.00</span>
+</div>
+<!-- Spacing acting as a structural divider, avoiding hard lines -->
+<div class="pt-6 mt-6">
+<div class="flex justify-between items-end">
+<span class="text-lg text-primary font-bold">Total</span>
+<span class="font-headline text-4xl font-black text-primary tracking-tighter">$745.00</span>
+</div>
+</div>
+</div>
+<!-- Primary Checkout Button -->
+<button class="w-full rounded-full bg-primary text-on-primary py-5 px-8 font-body font-bold text-lg tracking-wide flex items-center justify-center gap-3 hover:bg-primary-container transition-all duration-500 ease-in-out shadow-[inset_0_2px_0_rgba(255,255,255,0.15),0_8px_20px_rgba(1,38,31,0.1)] hover:shadow-[inset_0_2px_0_rgba(255,255,255,0.2),0_12px_24px_rgba(1,38,31,0.15)] transform hover:-translate-y-0.5 group">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-400">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center justify-center gap-2 text-tertiary/70">
+<span class="material-symbols-outlined text-sm">lock</span>
+<p class="font-body text-xs font-medium uppercase tracking-widest">Secure Encrypted Checkout</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

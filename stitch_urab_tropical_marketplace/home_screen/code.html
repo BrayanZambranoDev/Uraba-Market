@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Urabá Marketplace - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif"
+                      ],
+                      "body": [
+                              "Manrope"
+                      ],
+                      "label": [
+                              "Manrope"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6, .font-headline {
+            font-family: 'Noto Serif', serif;
+        }
+        .glass-panel {
+            background-color: rgba(228, 228, 204, 0.6); /* surface-variant at 60% */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .organic-gradient {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full">
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity Liquid-Slow duration-500 ease-in-out p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] dark:text-[#fbfbe2] tracking-tight text-center flex-1">
+            The Living Archive
+        </h1>
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity Liquid-Slow duration-500 ease-in-out p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="sr-only">User profile</span>
+</button>
+</header>
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 mt-6">
+<!-- Search Bar with Glassmorphism -->
+<div class="glass-panel rounded-full px-6 py-4 flex items-center shadow-[0_4px_20px_rgba(27,29,14,0.04)] sticky top-[88px] z-40 mx-2 md:mx-0">
+<span class="material-symbols-outlined text-tertiary mr-3" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-body w-full placeholder-on-surface-variant/70 text-lg" placeholder="Discover the harvest..." type="text"/>
+<button class="ml-3 text-secondary p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">tune</span>
+</button>
+</div>
+<!-- Hero Section: Product of the Month -->
+<section class="relative rounded-[2rem] overflow-hidden organic-gradient min-h-[400px] md:min-h-[500px] flex items-end">
+<div class="absolute inset-0 w-full h-full">
+<img alt="Premium Cacao" class="w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="close-up of raw organic cacao pods split open revealing white pulp and dark beans, rich earthy tones, natural jungle lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKFyzHjm-HkImi-iFkw8zkxDjBKpvYXKZGh2LDI73ZfO9MoX6Dyl55MUK7hYG8_iUj97UI_iSXTUTgf1IDChW9YInK1g_Z73q758G8QuN-cRtst3vYJ_6ZzGcFW3Qwv6CNTmTB58xm5j_xQwYZPqtS-o223Yfk2LTA5usGFoJMC9crXFTMOzTt8ViKuR6sYv1VhFzn3bRN0GiorxfY1j3Ej1PZSxJVg0aANPS7KUCX13iZsb43tmq23UOGt4Wa6VQlbL010G4SLu0"/>
+</div>
+<!-- Vignette for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+<div class="relative z-10 p-8 md:p-12 w-full max-w-2xl text-on-primary">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label text-sm font-bold tracking-widest uppercase mb-4 shadow-[0_2px_10px_rgba(27,29,14,0.1)]">
+                    Product of the Month
+                </span>
+<h2 class="font-headline text-5xl md:text-6xl text-on-primary mb-4 leading-tight">
+                    Premium<br/>Criollo Cacao
+                </h2>
+<p class="font-body text-on-primary-container text-lg mb-8 max-w-md">
+                    Sourced directly from the shade-grown fincas of Urabá. Rich, complex, and unrefined.
+                </p>
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-full font-label font-bold tracking-wide flex items-center gap-2 hover:bg-primary-fixed-dim transition-colors shadow-[0_4px_15px_rgba(27,29,14,0.1)]">
+                    Explore Harvest
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="space-y-6">
+<h3 class="font-headline text-3xl text-tertiary flex items-center gap-3 px-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">category</span>
+                Terrains
+            </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<!-- Fruits -->
+<a class="group relative rounded-xl overflow-hidden aspect-square flex items-end p-6 bg-surface-container-low transition-transform hover:scale-[1.02] duration-500 ease-out" href="#">
+<div class="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+<img alt="Tropical Fruits" class="w-full h-full object-cover" data-alt="vibrant assortment of tropical fruits including mangoes, papayas, and passion fruit on a rustic wooden table, natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0m0PALaMBevIxDtdQM7BiISzgIFweoExd8qc4B9OJFi3w20WZWa5rNxEZVgCq9lgc-i2WpYM6ga0qQyP-HExKI0fpKHU-rjN7k-hUYrMur0Q1SFcjZMmFB1xEjTQHWMaBZOAchitbKHyjo7igVycl_UpcCyMNBrYmtLgCj3UN07dPCfCKcsIJ2YUxqQLvj353NJg3BJSSBTNVYtd8390OZIO5STz6qjSgByEMEMOqt6kaWAP1DYoDv09lGz5PVmOZ_gZSlf5QT89b"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 flex flex-col items-start gap-4">
+<div class="p-4 rounded-full bg-surface-container-highest group-hover:bg-surface/90 backdrop-blur-md transition-colors text-tertiary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">nutrition</span>
+</div>
+<span class="font-label text-lg font-bold text-on-surface group-hover:text-on-primary transition-colors">Fruits &amp; Flora</span>
+</div>
+</a>
+<!-- Seafood -->
+<a class="group relative rounded-xl overflow-hidden aspect-square flex items-end p-6 bg-surface-container-low transition-transform hover:scale-[1.02] duration-500 ease-out" href="#">
+<div class="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+<img alt="Fresh Seafood" class="w-full h-full object-cover" data-alt="freshly caught snapper and shellfish on crushed ice at a coastal market, cool blue and silver tones, bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Uvj7uLY38uAWuREbUJM-hB8DFVRJGx_BlJS2OAL-02K6JBrDF1ThhNkC6wOH7nODxnX8DU-D1ortSyogpVnDAkyeHX8teyEnOdkuejIDrYV2CnylrLywut58crCFSVp0i1PMD2wYSxfOsX2KIu5ZCDmxInRmBISkwPzaZT0h5iff7wP-_87U-4kZvzYRyXZ5PKC6oZ3BU6qSQh30CvM1E9bm8K-QfC7es1fyESvPsB4ONlxlqJWrGd9RTK4UBerMKIEpg-vizaIl"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 flex flex-col items-start gap-4">
+<div class="p-4 rounded-full bg-surface-container-highest group-hover:bg-surface/90 backdrop-blur-md transition-colors text-tertiary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">set_meal</span>
+</div>
+<span class="font-label text-lg font-bold text-on-surface group-hover:text-on-primary transition-colors">Coastal Catch</span>
+</div>
+</a>
+<!-- Crafts -->
+<a class="group relative rounded-xl overflow-hidden aspect-square flex items-end p-6 bg-surface-container-low transition-transform hover:scale-[1.02] duration-500 ease-out" href="#">
+<div class="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+<img alt="Handcrafted Goods" class="w-full h-full object-cover" data-alt="close-up of artisan weaving intricate pattern with natural palm fibers, warm earthy tones, focused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurUaslU4ZsMEZqMeopElDXy_54kCHctiNVeD0nGXyCaSz3GoqzYYVcUXkR3O7le5AuFPUDvFC97rExfY9XJVOBjmodUf-B7wfBfzE8QGlt-1qV49WUAnoQm381Ii5i3rLGIyi2r_JJyXpbQCITYjvB7zQkQdOSAGDsM2znyBp8QiEmROnWF-o_zXcWixmg7NhAdC2RkScSO83s4IyaWjGyNjafgBDv5e8LJ05pk3Bgbv75jnam2NBKbtQFk0dsKHsL-V0zcbxKMRR"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 flex flex-col items-start gap-4">
+<div class="p-4 rounded-full bg-surface-container-highest group-hover:bg-surface/90 backdrop-blur-md transition-colors text-tertiary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">palette</span>
+</div>
+<span class="font-label text-lg font-bold text-on-surface group-hover:text-on-primary transition-colors">Artisan Hands</span>
+</div>
+</a>
+<!-- Trade -->
+<a class="group relative rounded-xl overflow-hidden aspect-square flex items-end p-6 bg-surface-container-low transition-transform hover:scale-[1.02] duration-500 ease-out" href="#">
+<div class="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+<img alt="Bulk Trade" class="w-full h-full object-cover" data-alt="burlap sacks overflowing with roasted coffee beans and spices in a rustic warehouse, warm ambient light, rich brown tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMURswkV6HEQmtg0vDApRtAf5dXezKNLG-27m5pa_Pl26zkb6KdfVvuUNeGCUNSLbrmFK9JZY6UVH97-gtDMMF_C-L8LE7eRzBhJzLepXmSPOt7mekY5S99g8XNFU61TxFhMgqCIXrqFH0vMrpY8vNrzKDAcOtAv7dCML1L92ZHKITjyVZzTJz3EnNq_1RszyCnSSDvSy8q_pbhu3k7MkMm_n3CrzM8YRmjigTPX775PiDeF_SrcPY8cMZsROxXN91WCeaxAyom360"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 flex flex-col items-start gap-4">
+<div class="p-4 rounded-full bg-surface-container-highest group-hover:bg-surface/90 backdrop-blur-md transition-colors text-tertiary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">storefront</span>
+</div>
+<span class="font-label text-lg font-bold text-on-surface group-hover:text-on-primary transition-colors">Bulk Exchange</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Daily Fresh Deals & Featured Producers (Asymmetric Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+<!-- Left Column: Featured Producers (Takes 5 columns on large screens) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="flex justify-between items-end px-2">
+<h3 class="font-headline text-3xl text-tertiary">
+                        The Stewards
+                    </h3>
+<a class="text-secondary font-label font-bold text-sm tracking-wide hover:text-secondary-container transition-colors" href="#">View All</a>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-6">
+<!-- Producer 1 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-[0_4px_10px_rgba(27,29,14,0.05)]">
+<img alt="Producer Avatar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="portrait of a confident mature farmer wearing a woven hat standing in a lush green plantation, warm sunlight, medium close-up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZqWNFnTV70M9jaItjnsNOIJ_Vej0tt1GPaZY3pArcEBqkvhpSpdO1wZVQfcOgxc156wSlYL7acRDgCkDqjgvkArA2eboUtwj1vqASFpsYiPsUjtVIYzmFB1uGkECQQZO7GiU-8NbMC-piFxaX-kgjbw3kHl5QldsOeEyCc_4ratWhAc-CD0Atq2FAk4PLMzTw0OOJutM_67i69_D6oATtEbDB7RhPTvKcVuZVTMfFjjv4TuV-uxccvcvkjQ4nhuIbX0adqzOvC56Z"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline text-lg text-on-surface">Finca La Verde</h4>
+<p class="font-body text-sm text-on-surface-variant">Organic Plantains &amp; Roots</p>
+</div>
+<div class="p-2 rounded-full bg-surface-container-highest text-tertiary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-surface-container-highest"></div>
+<!-- Producer 2 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-[0_4px_10px_rgba(27,29,14,0.05)]">
+<img alt="Producer Avatar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="portrait of a smiling female artisan in a brightly colored traditional blouse, in front of a woven textile background, soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL9ZJ-8ZMMn_GnLZlKrIOnc7gxF0TBmxh-9XJAlDWmcP2NG6Y-nLGc91AX4HTArAdjYvivbgrWz7Nf6fmqcoPRMOWLcOYPB-ZH_ntvB-pOEEmtylccTtqRDKHXuzYwW7pyN9-MCYBvobe8bMxmGSapgJvuLDsi7Be81h_uTX5GZ3I3VaL-p0pXEWngcLZqFoWMQ9vPH2bVPDEOCyZLsrrECdpoZBlP4WeRwreb6VFu0bzdG6gwnDrc3-eWEaMOjvdHaihMESoOjOCu"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline text-lg text-on-surface">Cooperativa Brisas</h4>
+<p class="font-body text-sm text-on-surface-variant">Textiles &amp; Natural Dyes</p>
+</div>
+<div class="p-2 rounded-full bg-surface-container-highest text-tertiary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Daily Fresh Deals (Takes 7 columns on large screens) -->
+<div class="lg:col-span-7 space-y-6">
+<div class="flex justify-between items-end px-2">
+<h3 class="font-headline text-3xl text-tertiary flex items-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                        Fresh Harvest
+                    </h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Deal Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_8px_30px_rgba(27,29,14,0.03)] hover:shadow-[0_12px_40px_rgba(27,29,14,0.06)] transition-shadow duration-500 flex flex-col">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden mb-4 relative">
+<img alt="Gros Michel Bananas" class="w-full h-full object-cover" data-alt="pile of ripe bright yellow bananas with a few green ones mixed in, sitting on a weathered wooden table, dappled jungle sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhnr6wwrkTLZwEb3G8tzJ62dx6T79Xp8gNCL-t4WtVtPVgG6c2qTnKn9btfVCgE3IVoSSqyXUodVjVbQ7IpovWseoaF90liM2XmWdYPbP5yd1Zv09hikc8opVE8JjcqAwlVEWZROOu7488Zll01y6LCtit7LnT6DjLRRTbdaRJQ4RwOFI_1kBXD5K0WoW8hK_W0tHXnMwQcUio_p1AB9JkjSfmOYJyA1W5vp-mSxI2snG0lrF8G3r3vihwj6mSZqMnm8gVC2TdtffQ"/>
+<div class="absolute top-3 left-3 bg-error text-on-error px-3 py-1 rounded-full font-label text-xs font-bold tracking-wider uppercase">
+                                Limited Yield
+                            </div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-headline text-xl text-on-surface mb-1">Gros Michel Bananas</h4>
+<p class="font-body text-sm text-on-surface-variant mb-4">Heritage variety, robust flavor. Perfect for immediate processing.</p>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex flex-col">
+<span class="font-label text-xs text-on-surface-variant line-through">$4.50/kg</span>
+<span class="font-headline text-2xl text-primary font-bold">$3.20/kg</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-[0_4px_10px_rgba(1,38,31,0.2)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_8px_30px_rgba(27,29,14,0.03)] hover:shadow-[0_12px_40px_rgba(27,29,14,0.06)] transition-shadow duration-500 flex flex-col">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden mb-4 relative">
+<img alt="Ají Dulce Peppers" class="w-full h-full object-cover" data-alt="close-up of vibrant red and orange chili peppers piled high in a woven basket, vibrant intense colors, direct sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCyTO5LPQMKxLMqttOcXNvj8St8a9OdcDn1PTbug3YrT1dYq_KpMrNuAkoJoCTEid-1xHbdxk8LFknBbVdeemnlQsgKwsYWdVetPFWqsd3ku0pWXqd49RE9rJDBBX9oHZ6VQmJo8B7HSPmUI6_XXgjLj-Zx8MhFx7JcX0UGNEKYfzqZshgZ8X92AVxSihH6hqwGGW018PdOqe9pMIkQT8t8I1NteJqLLYr3DkgM7M3ghJGFsqOMDVY2Gucu_X7BknUrptXtObPGN3C"/>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label text-xs font-bold tracking-wider uppercase">
+                                Morning Pick
+                            </div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-headline text-xl text-on-surface mb-1">Ají Dulce Peppers</h4>
+<p class="font-body text-sm text-on-surface-variant mb-4">Aromatic, mild heat. Essential for regional marinades.</p>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex flex-col">
+<span class="font-headline text-2xl text-primary font-bold">$12.00/kg</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-[0_4px_10px_rgba(1,38,31,0.2)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only based on platform rules, but requested to show) -->
+<nav class="md:hidden bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] fixed w-full z-50 flex justify-around items-center px-4 pb-6 pt-2">
+<button class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

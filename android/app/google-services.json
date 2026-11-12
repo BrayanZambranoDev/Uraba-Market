@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "929920743054",
+    "project_id": "uraba-market",
+    "storage_bucket": "uraba-market.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929920743054:android:74847c636767eebb967bdf",
+        "android_client_info": {
+          "package_name": "com.urabamarket.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929920743054-i7tivdv1hkbi9ojkhijmv25s170rsidl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.urabamarket.app",
+            "certificate_hash": "44bf283f0c13126af1129781720b89217acc3d72"
+          }
+        },
+        {
+          "client_id": "929920743054-cgkvud4l47aspc6sjvn90nes7hgsm6ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP-usYe_iCrxzibct6t8ZX5m_khhbMbeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929920743054-cgkvud4l47aspc6sjvn90nes7hgsm6ma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

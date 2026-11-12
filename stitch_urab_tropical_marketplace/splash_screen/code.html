@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Urabá - Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary m-0 p-0 font-body text-surface antialiased overflow-hidden selection:bg-secondary selection:text-on-secondary h-screen w-full flex flex-col">
+<!-- Splash Screen Container -->
+<!-- Suppressing Nav Shells due to "Linear/Transactional: Login, Sign-up, Onboarding, Checkout, or 'Success/Confirmation' splash screens" rule -->
+<main class="relative w-full flex-1 flex flex-col items-center justify-between overflow-hidden z-0">
+<!-- Deep Jungle Mist Background -->
+<div class="absolute inset-0 z-[-2] w-full h-full bg-primary bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="misty deep green tropical jungle canopy in the Uraba region at dawn with soft light filtering through dense flora, high end cinematic moody photography" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMOCIPPmaGKINW4hNxMA7ZUQqIoQ3Y7Q9w6Rb5_eaIHBZm61zwxfUY1nJC9MbJS3OCsuhH7HtY6_VSi7SXCvWHmIbOYzoZRV1-BdwoTlk42m5fUmpDDCb8SBUkiWw_iA0LVw4ooIYi4DasanQJh42qvCMBR1VZbqaEBluzoBS9KT44yJVuiLSEj4kY4DWBoUJu-jcTQGwVSgjbNzIK4NLK3UD4Vp1BQnPFXIeSgyTsHtVVseN5d-z7d_NUBh6y-U9cXGJ2O2MmZjNy');">
+</div>
+<!-- Tonal Gradient Overlay for depth and text legibility (The "No-Line" Rule & Ambient Layering) -->
+<div class="absolute inset-0 z-[-1] bg-gradient-to-b from-primary via-primary-container/80 to-primary"></div>
+<!-- Top Spacer for Balance -->
+<div class="w-full h-32"></div>
+<!-- Center Brand Identity -->
+<div class="flex flex-col items-center justify-center w-full px-6 z-10 relative">
+<!-- Ambient Behind-Logo Glow -->
+<div class="absolute w-[250px] h-[250px] bg-secondary/10 rounded-full blur-[60px]"></div>
+<!-- Stylized Intersection Logo (Banana Leaf & Cacao Pod approximation) -->
+<div class="relative w-32 h-32 mb-10 flex items-center justify-center">
+<!-- Outer Ring/Aura -->
+<div class="absolute inset-0 border-[1px] border-surface/20 rounded-full mix-blend-overlay"></div>
+<!-- Leaf Symbol (Banana Leaf) -->
+<span class="material-symbols-outlined absolute text-[88px] text-surface drop-shadow-[0_0_15px_rgba(251,251,226,0.3)] z-10 -rotate-12" style="font-variation-settings: 'FILL' 0, 'wght' 200;">
+                    eco
+                </span>
+<!-- Pod Symbol (Cacao) -->
+<span class="material-symbols-outlined absolute text-[64px] text-surface/80 translate-x-4 translate-y-3 mix-blend-screen z-20" style="font-variation-settings: 'FILL' 1, 'wght' 300;">
+                    water_drop
+                </span>
+</div>
+<!-- Editorial Typography Anchor -->
+<h1 class="font-headline text-5xl md:text-7xl text-surface font-light tracking-tight text-center leading-none mb-4 drop-shadow-sm">
+                Urabá
+            </h1>
+<p class="font-body text-surface-variant text-sm md:text-base tracking-[0.4em] uppercase opacity-80 font-light">
+                Marketplace
+            </p>
+</div>
+<!-- Minimalist Loading Indicator -->
+<div class="w-full flex flex-col items-center justify-end pb-20 z-10">
+<!-- Progress Track -->
+<div class="w-48 md:w-64 h-[1px] bg-surface-variant/20 rounded-full overflow-hidden relative">
+<!-- Progress Fill (Static representation of animation) -->
+<div class="absolute top-0 left-0 h-full bg-surface w-2/5 rounded-full shadow-[0_0_8px_rgba(251,251,226,0.8)]"></div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased relative min-h-screen pb-32 selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Contextual Header (Sub-page logic dictates suppressing global nav) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-8 py-4 bg-gradient-to-b from-primary/60 to-transparent">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest/20 backdrop-blur-md text-surface hover:bg-surface-container-lowest/30 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest/20 backdrop-blur-md text-surface hover:bg-surface-container-lowest/30 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest/20 backdrop-blur-md text-surface hover:bg-surface-container-lowest/30 transition-colors">
+<span class="material-symbols-outlined">favorite_border</span>
+</button>
+</div>
+</header>
+<!-- Hero Image Carousel -->
+<section class="relative w-full h-[574px] md:h-[663px] bg-surface-container-low rounded-b-[2rem] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a rare variegated Monstera Deliciosa Albo leaf showing intricate fenestration patterns against a dark green jungle background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxlEjywWkYHdMBEdCzpCh3Ck1QkhWzOa4HyzvgjnD9x7emT7YvaPbs2vUplrR6g2r8HDpEPohKFOqYJHQyQ6r7LZXbOgJhxjtxLbWCP1e0ljaQ7o3dMgYQe3PsykasV9x-SNwwxjiiVWcOLiezlLRF668c-_Yo7lIG4PLarXlTw2gWnfBI22i27fLPqUFRyIgYXAx3SI6Ytoj_geId_nZ0RzYVLbSit2C0iXuPOjgWRoqrHTbL0xo19S0hPApLxh2Q7mthrFaDvV-B"/>
+<!-- Gradient overlay for text legibility if needed later, but helps frame the image -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
+<!-- Carousel Indicators -->
+<div class="absolute bottom-6 w-full flex justify-center gap-2 z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface/40"></div>
+</div>
+</section>
+<!-- Main Content Area -->
+<main class="px-5 md:px-8 max-w-4xl mx-auto -mt-6 relative z-20">
+<!-- Title & Price (High-contrast editorial typography) -->
+<div class="pt-10 pb-8">
+<div class="flex justify-between items-start gap-4 mb-2">
+<h1 class="font-headline text-4xl md:text-5xl text-primary leading-tight tracking-tight">Monstera Deliciosa Albo</h1>
+</div>
+<p class="font-headline text-3xl text-tertiary font-bold mt-2">$450.00 <span class="text-lg text-on-surface-variant font-body font-normal">USD</span></p>
+<div class="flex gap-2 mt-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wide uppercase">Rare Specimen</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-highest text-on-surface text-xs font-bold tracking-wide uppercase">Local Pickup</span>
+</div>
+</div>
+<!-- Seller Profile Card (Organic tonal layering) -->
+<div class="bg-surface-container-low rounded-[1.5rem] p-5 mb-8 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Portrait of a young artisan cultivator wearing a linen shirt smiling gently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6-8MiWQxogWCV9wI1TLJMSqo3R3V0sQzobS_O7LB_HBinpAjBxbNbTGbNbtsr5XbFB2WO030EocXIXU5y1w7n9syLPgse8kOl_VB6FjXow3mNzHCDdaDCxofol37gkVdwoi-ETt7GfUyyPL5cnxRTduXtB7tvUB-_qkPb3DxYii9w9y-S3k7Prro6NN3TFOgpwu8buGlIKwLwZV-8zBX_6vzBHrVR0ylmkeeaGTTUBWesyv8gNP03StR--jq4KrR7ubkytSTg98g9"/>
+<div>
+<h2 class="font-bold text-on-surface text-lg">Vivero La Esperanza</h2>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Master Cultivator
+                    </p>
+</div>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2.5 rounded-full text-sm font-bold hover:bg-surface-variant transition-colors">
+                Visit Profile
+            </button>
+</div>
+<!-- Expandable Details Sections -->
+<div class="space-y-4">
+<!-- Description (Expanded state shown) -->
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_4px_20px_rgba(1,38,31,0.02)]">
+<div class="flex justify-between items-center mb-4 cursor-pointer">
+<h3 class="font-headline text-xl text-primary">Description</h3>
+<span class="material-symbols-outlined text-tertiary">expand_less</span>
+</div>
+<div class="text-on-surface-variant text-base leading-relaxed space-y-4">
+<p>
+                        This exceptional variegated Monstera is cultivated directly in the nutrient-rich soils of the Urabá region. Featuring striking white fenestrations that resemble the dappled light of the jungle canopy, it has been meticulously grown under optimal humidity.
+                    </p>
+<p>
+                        Each cutting is rooted in our signature organic mix, ensuring robust health and vigorous growth upon transition to your home environment.
+                    </p>
+</div>
+</div>
+<!-- Specifications (Collapsed) -->
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_4px_20px_rgba(1,38,31,0.02)] flex justify-between items-center cursor-pointer hover:bg-surface-container-lowest/80 transition-colors">
+<h3 class="font-headline text-xl text-primary">Specifications</h3>
+<span class="material-symbols-outlined text-tertiary">expand_more</span>
+</div>
+<!-- Reviews (Collapsed with preview) -->
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_4px_20px_rgba(1,38,31,0.02)] flex justify-between items-center cursor-pointer hover:bg-surface-container-lowest/80 transition-colors">
+<h3 class="font-headline text-xl text-primary">Reviews <span class="text-on-surface-variant text-lg font-body">(24)</span></h3>
+<div class="flex items-center gap-3">
+<div class="flex items-center text-secondary font-bold">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1">4.9</span>
+</div>
+<span class="material-symbols-outlined text-tertiary">expand_more</span>
+</div>
+</div>
+<!-- Q&A (Collapsed) -->
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_4px_20px_rgba(1,38,31,0.02)] flex justify-between items-center cursor-pointer hover:bg-surface-container-lowest/80 transition-colors">
+<h3 class="font-headline text-xl text-primary">Questions &amp; Answers</h3>
+<span class="material-symbols-outlined text-tertiary">expand_more</span>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed, Glassmorphism) -->
+<div class="fixed bottom-0 w-full z-50 bg-surface/80 backdrop-blur-xl px-5 py-4 pb-8 rounded-t-[1.5rem] shadow-[0_-10px_30px_rgba(1,38,31,0.05)] border-t border-outline-variant/10">
+<div class="max-w-4xl mx-auto flex gap-4 items-center">
+<button class="w-14 h-14 flex items-center justify-center rounded-full bg-surface-container-highest text-primary hover:bg-surface-variant transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="flex-1 bg-primary text-on-primary rounded-full py-4 px-6 font-bold text-lg flex items-center justify-center gap-3 relative overflow-hidden group">
+<!-- Simulated 3D top edge organic glow -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-primary-fixed-dim/40"></div>
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform duration-500" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+                Add to Cart
+            </button>
+</div>
+</div>
+</body></html>

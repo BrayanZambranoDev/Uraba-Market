@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Living Archive - Orders History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#c5eadf",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed-dim": "#e3beb8",
+                    "on-tertiary-container": "#b99791",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f2f2d9",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c8c4",
+                    "on-tertiary-fixed-variant": "#5b403c",
+                    "secondary-fixed-dim": "#78dc77",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-secondary-container": "#00731e",
+                    "surface-container-high": "#eaead1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "outline": "#717976",
+                    "inverse-primary": "#aacec3",
+                    "tertiary-container": "#48302c",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-primary-fixed": "#00201a",
+                    "secondary-fixed": "#94f990",
+                    "tertiary": "#301b17",
+                    "inverse-surface": "#303221",
+                    "surface-tint": "#43655c",
+                    "on-primary-fixed-variant": "#2b4d44",
+                    "surface-bright": "#fbfbe2",
+                    "secondary-container": "#91f78e",
+                    "primary-container": "#1a3c34",
+                    "on-primary-container": "#83a69c",
+                    "primary": "#01261f",
+                    "on-surface": "#1b1d0e",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container-low": "#f5f5dc",
+                    "on-surface-variant": "#414846",
+                    "on-tertiary-fixed": "#2b1613",
+                    "primary-fixed-dim": "#aacec3",
+                    "secondary": "#006e1c",
+                    "surface-container": "#efefd7",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dbdcc3",
+                    "on-error-container": "#93000a",
+                    "background": "#fbfbe2",
+                    "on-background": "#1b1d0e",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e4cc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pb-[100px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-[#fbfbe2]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border tonal-shift flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#01261f] cursor-pointer hover:opacity-80 transition-opacity duration-500 ease-in-out" data-icon="menu">menu</span>
+<h1 class="font-headline text-2xl tracking-tight font-bold text-[#01261f]">The Living Archive</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a young woman with natural makeup looking directly at the camera with a soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaJ0EW25KxVFCvFrMpJfdF1fWMwcu2o4jeYxSYblOMQ71bHFvlP_Y4xc3KNHY2P5Kjgznsg7Y4DHSV3nxBx1ilJwqu6RKSM_7fsPr6BsvHxVt-xhGJPNpdx4bBidPRIle7vBW8eCOn0x21CNJQUStCVYDFnbKLQToqy22VN2JqB3SKicQ909IWMMJQTZoV_mi7B4tErBNSjd8lGm46dmomAR7BY8s3T3iC8tFqX5EjMIKuXJQnJ9N-Gf8f_tPquDfdCT1tLFLEkzKw"/>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+<!-- Page Header -->
+<div class="mb-12">
+<h2 class="font-headline text-5xl text-primary mb-4">Orders History</h2>
+<p class="font-body text-tertiary text-lg">A record of your botanical acquisitions and distributions.</p>
+</div>
+<!-- Tabs -->
+<div class="flex gap-2 mb-8 bg-surface-container-low p-2 rounded-full w-fit">
+<button class="px-6 py-3 rounded-full bg-primary text-on-primary font-label text-sm font-bold shadow-[0_4px_6px_-1px_rgba(27,29,14,0.06)]">My Purchases</button>
+<button class="px-6 py-3 rounded-full bg-transparent text-on-surface-variant font-label text-sm font-bold hover:bg-surface-variant transition-colors duration-500">My Sales</button>
+</div>
+<!-- Orders Grid (Bento style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Order Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-6 flex flex-col gap-6 relative shadow-[0_4px_20px_rgba(27,29,14,0.04)]">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label text-xs text-on-surface-variant tracking-wider uppercase">Order #LA-0982</span>
+<h3 class="font-headline text-xl text-primary mt-1">Monstera Deliciosa Albo</h3>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs font-bold">Shipped</span>
+</div>
+<div class="h-48 rounded-lg overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="Close up of a rare variegated Monstera Deliciosa plant with striking white and green patterned leaves against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK0mocqDJvNmZhaZeLyLj-PEIttkHxSZuqKMYT1ISyMcOkBaJPJaSxV3sXs1Y__se5RTCur9hQoukTI8oOAD4xMLQXtUhDh_jtLH7AMho8CCFSy8Xn-ohE_6jmynPjQ45aVwQT7juhzCS1G2GfEgunxHr0lnyI69DruvPfernaSt9YTEeno5fv_QC4wYxd4DjK-ZqMlhPXt_TPJ-e0RfuJd-5Ksw2mc8u0R742JkyQGJ9LNubDnh5AiAnT2z24PkllYNDgprUUBAJl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="flex justify-between items-end mt-auto pt-4 border-t border-surface-variant/30">
+<div class="flex flex-col">
+<span class="font-label text-xs text-on-surface-variant">Total</span>
+<span class="font-headline text-2xl text-tertiary">$345.00</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-500">
+<span class="font-label text-sm font-bold">View Details</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-6 flex flex-col gap-6 relative shadow-[0_4px_20px_rgba(27,29,14,0.04)]">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label text-xs text-on-surface-variant tracking-wider uppercase">Order #LA-0954</span>
+<h3 class="font-headline text-xl text-primary mt-1">Philodendron Pink Princess</h3>
+</div>
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full font-label text-xs font-bold">Delivered</span>
+</div>
+<div class="h-48 rounded-lg overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A small potted Philodendron Pink Princess with dark green and vibrant pink leaves sitting on a textured beige surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0NeBS7lb_Q8FxFGG_y3bs92NbDgzNC1SSzqZC06DoHYTfpqj4PbqGBnIJLRMqD2y2Ah1egY19ymQN4UWWh1d2hgXAh4mCMjIkmJwhwfIem3BdFcVRB6IEHozIWjcL-QRvKdRRw5ZNX1zfxQQ4poO__mCqCiuhENGXJb8Gel8AKETfTpWahfEcbrRCEoQ2-GaaLOqEUIV9eASCJNIP1dBawBFK0IQRGKkJ-PBoYrv3sB9WaEhSwnofiUD6C8frgogOqiDb0X9KF4DC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="flex justify-between items-end mt-auto pt-4 border-t border-surface-variant/30">
+<div class="flex flex-col">
+<span class="font-label text-xs text-on-surface-variant">Total</span>
+<span class="font-headline text-2xl text-tertiary">$120.00</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-500">
+<span class="font-label text-sm font-bold">View Details</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Order Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-6 flex flex-col gap-6 relative shadow-[0_4px_20px_rgba(27,29,14,0.04)] md:col-span-2 lg:col-span-1">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label text-xs text-on-surface-variant tracking-wider uppercase">Order #LA-0899</span>
+<h3 class="font-headline text-xl text-primary mt-1">Anthurium Warocqueanum</h3>
+</div>
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full font-label text-xs font-bold">Delivered</span>
+</div>
+<div class="h-48 rounded-lg overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="Close up of a large elongated dark green Anthurium leaf with prominent white veins in a humid indoor greenhouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXb_FnKGs24-_L5jFV-Zol8NU66kHHFtbiXEFT9yMcuV2Jq7CjkEXZLi6fiiBg6nn6BH8PvNQlygiPXI1e4b3NkdDxDINgze26QDCVCuzVmDm4vr3Lp7h40K3JQJKuklHrztGXt5AIWID9EzNvYN6VonfXXUH4yXjGbhblToX0sS0OjpJ2Mysdka9HtpNqIvrEW4yz89xz2oExRzsr2EXI3oq6s6sW4tUwkZ9DP5JTl0gEJ_YlboAqBZ5qSl6KQdZhZBOJ4bjgCU2H"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="flex justify-between items-end mt-auto pt-4 border-t border-surface-variant/30">
+<div class="flex flex-col">
+<span class="font-label text-xs text-on-surface-variant">Total</span>
+<span class="font-headline text-2xl text-tertiary">$250.00</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-500">
+<span class="font-label text-sm font-bold">View Details</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-[#fbfbe2]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] no-border tonal-shift shadow-[0_-4px_20px_rgba(1,38,31,0.05)] fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2">
+<div class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="search">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="potted_plant">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#301b17] p-2 hover:bg-[#1a3c34]/10 rounded-full transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#1a3c34] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 transition-all duration-600 ease-out cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen selection:bg-secondary selection:text-on-secondary">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border tonal-shift bg-[#f5f5dc] dark:bg-[#1a3c34] flex justify-between items-center px-6 py-4 w-full transition-opacity duration-500 ease-in-out">
+<button aria-label="Menu" class="hover:opacity-80 transition-opacity duration-500 ease-in-out focus:outline-none">
+<span class="material-symbols-outlined text-[#01261f] dark:text-[#fbfbe2]" data-icon="menu">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl tracking-tight font-bold text-[#01261f] dark:text-[#fbfbe2]">The Living Archive</h1>
+<button aria-label="User Profile" class="hover:opacity-80 transition-opacity duration-500 ease-in-out focus:outline-none">
+<span class="material-symbols-outlined text-[#01261f] dark:text-[#fbfbe2]" data-icon="person">person</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-3xl mx-auto px-6 pt-12 pb-32 md:pb-16 w-full">
+<!-- Header Section with High Contrast Typography -->
+<div class="mb-12">
+<h2 class="font-headline text-5xl md:text-6xl text-primary tracking-tight mb-4">Settings</h2>
+<p class="font-body text-tertiary text-lg max-w-md leading-relaxed">Manage your digital footprint and curate your personal archive experience.</p>
+</div>
+<!-- Settings List Menu (Minimalist, No Borders, Tonal Shift) -->
+<div class="flex flex-col gap-2">
+<!-- Security -->
+<button class="flex items-center justify-between w-full p-6 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors duration-500 ease-in-out group focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="flex items-center gap-5">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary transition-colors duration-500">lock</span>
+<span class="font-body text-xl text-primary tracking-wide">Security</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-tertiary transition-colors duration-500">chevron_right</span>
+</button>
+<!-- Notifications -->
+<button class="flex items-center justify-between w-full p-6 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors duration-500 ease-in-out group focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="flex items-center gap-5">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary transition-colors duration-500">notifications</span>
+<span class="font-body text-xl text-primary tracking-wide">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-tertiary transition-colors duration-500">chevron_right</span>
+</button>
+<!-- Language -->
+<button class="flex items-center justify-between w-full p-6 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors duration-500 ease-in-out group focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="flex items-center gap-5">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary transition-colors duration-500">language</span>
+<span class="font-body text-xl text-primary tracking-wide">Language</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-body text-sm text-tertiary font-medium">English</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-tertiary transition-colors duration-500">chevron_right</span>
+</div>
+</button>
+<!-- Legal -->
+<button class="flex items-center justify-between w-full p-6 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors duration-500 ease-in-out group focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="flex items-center gap-5">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary transition-colors duration-500">gavel</span>
+<span class="font-body text-xl text-primary tracking-wide">Legal</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-tertiary transition-colors duration-500">chevron_right</span>
+</button>
+</div>
+<!-- Secondary Action Button -->
+<div class="mt-16 flex justify-start">
+<button class="px-8 py-4 bg-surface-container-highest text-tertiary rounded-full font-body font-bold tracking-widest uppercase text-sm hover:bg-surface-variant transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary/20">
+                Sign Out
+            </button>
+</div>
+</main>
+<!-- BottomNavBar from JSON (Visible on Mobile) -->
+<nav class="md:hidden bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] no-border tonal-shift">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out focus:outline-none">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="home">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</button>
+<!-- Search -->
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out focus:outline-none">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="search">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</button>
+<!-- Feed -->
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out focus:outline-none">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="potted_plant">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</button>
+<!-- Messages -->
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out focus:outline-none">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</button>
+<!-- Profile (ACTIVE STATE based on Settings context) -->
+<button class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 transition-all duration-600 ease-out focus:outline-none">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

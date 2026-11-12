@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Living Archive - Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif"
+                      ],
+                      "body": [
+                              "Manrope"
+                      ],
+                      "label": [
+                              "Manrope"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-secondary selection:text-on-secondary pb-24 md:pb-0">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl font-noto-serif text-2xl tracking-tight docked full-width top-0 sticky z-50 no-border tonal-shift bg-[#f5f5dc] dark:bg-[#1a3c34] flat no shadows Liquid-Slow duration-500 ease-in-out flex justify-between items-center px-6 py-4 w-full">
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] dark:text-[#fbfbe2] hidden md:block">The Living Archive</h1>
+<h1 class="font-noto-serif text-xl font-bold text-[#01261f] dark:text-[#fbfbe2] md:hidden">The Living Archive</h1>
+<div class="flex items-center gap-4">
+<!-- Desktop Nav Links (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-6 mr-6 font-manrope text-sm tracking-wide font-medium">
+<a class="text-[#301b17] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="text-[#301b17] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity" href="#">Search</a>
+<a class="text-[#301b17] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity" href="#">Feed</a>
+<a class="text-[#006e1c] dark:text-[#006e1c] hover:opacity-80 transition-opacity border-b-2 border-[#006e1c] pb-1" href="#">Messages</a>
+<a class="text-[#301b17] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity" href="#">Profile</a>
+</nav>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-transparent hover:border-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a woman with natural lighting, soft expression, wearing earthy tones against a blurred tropical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCg_vdE7DQLR7f0S8QmZ7NgImx7nvONS8rprOhGdwHbukkvZDg4k6rqd2pQPk9yMvaGZ_38F_VlEqjxIXsb2-t8hqNkEndexrCJSMxHX02TLKr9IFLuK6SCFuwnbh2ttx2qwL4rsFOO3jKr48YbF_fXf5-FagEETRi-3he_oRAt7Dn-BeegsvEn4edJ41BUDSUY7sF0jgudwp2mNf2H9tAwzEi0rR7U1evOl8N2nc2Ry8aX3JHMCp9KANN2zimMhOfUPEN0HT8-dCu"/>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-screen">
+<!-- Page Header -->
+<div class="mb-12">
+<h2 class="font-headline text-5xl md:text-6xl lg:text-[4rem] leading-none tracking-tight text-primary mb-4">Updates</h2>
+<p class="font-body text-on-surface-variant text-lg max-w-2xl">Your latest alerts, messages, and order activities from the archive.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex overflow-x-auto pb-4 mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 gap-3 no-scrollbar">
+<button class="flex-none bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label font-semibold text-sm tracking-wide transition-colors">
+                All Updates
+            </button>
+<button class="flex-none bg-surface-container-high text-on-surface hover:bg-surface-variant px-6 py-2 rounded-full font-label font-medium text-sm tracking-wide transition-colors">
+                Orders
+            </button>
+<button class="flex-none bg-surface-container-high text-on-surface hover:bg-surface-variant px-6 py-2 rounded-full font-label font-medium text-sm tracking-wide transition-colors">
+                Messages
+            </button>
+<button class="flex-none bg-surface-container-high text-on-surface hover:bg-surface-variant px-6 py-2 rounded-full font-label font-medium text-sm tracking-wide transition-colors">
+                Market Alerts
+            </button>
+</div>
+<!-- Notification Groups -->
+<div class="space-y-12">
+<!-- New Section: Orders -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary bg-primary-container p-2 rounded-full" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<h3 class="font-headline text-2xl text-primary">Orders</h3>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-6 space-y-4">
+<!-- Notification Item: Order 1 -->
+<div class="group relative bg-surface rounded-xl p-4 sm:p-5 flex gap-4 sm:gap-6 items-start hover:shadow-[0_4px_20px_rgba(27,29,14,0.04)] transition-shadow duration-500 ease-out">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body font-bold text-on-surface text-base">Order #LA-4921 Shipped</h4>
+<span class="text-xs font-label text-on-surface-variant font-medium whitespace-nowrap ml-4">2h ago</span>
+</div>
+<p class="text-sm font-body text-on-surface-variant mb-3 leading-relaxed">Your curated selection of Monstera varieties is on its way. Track your shipment for real-time updates.</p>
+<button class="inline-flex items-center justify-center bg-primary text-on-primary rounded-full px-5 py-2 text-sm font-label font-semibold tracking-wide hover:opacity-90 transition-opacity relative overflow-hidden group-hover:scale-[1.02] duration-300 ease-out shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]">
+                                Track Package
+                            </button>
+</div>
+<!-- Unread Indicator -->
+<div class="absolute top-6 right-6 w-2.5 h-2.5 bg-secondary rounded-full"></div>
+</div>
+<!-- Notification Item: Order 2 -->
+<div class="group relative bg-surface rounded-xl p-4 sm:p-5 flex gap-4 sm:gap-6 items-start hover:shadow-[0_4px_20px_rgba(27,29,14,0.04)] transition-shadow duration-500 ease-out opacity-80">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body font-semibold text-on-surface text-base">Order Delivered</h4>
+<span class="text-xs font-label text-on-surface-variant font-medium whitespace-nowrap ml-4">Yesterday</span>
+</div>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">Your order of artisanal terracotta pots has been delivered safely. We hope you enjoy them.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- New Section: Messages -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-fixed p-2 rounded-full" style="font-variation-settings: 'FILL' 1;">forum</span>
+<h3 class="font-headline text-2xl text-tertiary">Messages</h3>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-6 space-y-4">
+<!-- Notification Item: Message 1 -->
+<div class="group relative bg-surface rounded-xl p-4 sm:p-5 flex gap-4 sm:gap-6 items-start hover:shadow-[0_4px_20px_rgba(27,29,14,0.04)] transition-shadow duration-500 ease-out">
+<div class="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Sender avatar" class="w-full h-full object-cover" data-alt="Portrait of a male artisan in a sunlit workshop, warm tones, confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9uofZMmPg8t9tqy-HuNZjyzc6l1MGY0OAU9Epm_-4gRfHjaXiJ8usWjmn77lScu25X3LAR_MbafjbovnlzGJWnsNrg0FxWiXIDHANRXQo9Jo7gpXCfyVEh47Omwna3uvsE2dLFJfIpqSZXwZ5FNshy80GJWfBA_vweNFNdRrzQwjb8EmCkT7ylRkqH-LyyRzRpB-sLHallsQa07mmRepFV-yAqpT2zxx0MekL7O5pRtwlsF0nLR0ua6mLq3md2890qbywd1TgxAYt"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body font-bold text-on-surface text-base">Mateo from Vivero Verde</h4>
+<span class="text-xs font-label text-on-surface-variant font-medium whitespace-nowrap ml-4">5h ago</span>
+</div>
+<p class="text-sm font-body text-on-surface-variant mb-3 leading-relaxed">"Hola! The rare Alocasia you requested is finally ready for transport. Let me know when..."</p>
+<button class="inline-flex items-center justify-center bg-surface-container-highest text-on-surface rounded-full px-5 py-2 text-sm font-label font-semibold tracking-wide hover:bg-surface-variant transition-colors">
+                                Reply
+                            </button>
+</div>
+<!-- Unread Indicator -->
+<div class="absolute top-6 right-6 w-2.5 h-2.5 bg-secondary rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- New Section: Market Alerts -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-on-surface-variant bg-surface-variant p-2 rounded-full" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<h3 class="font-headline text-2xl text-on-surface">Market Alerts</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Alert Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container-high transition-colors duration-500 ease-in-out cursor-pointer group flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-3">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="text-xs font-label text-on-surface-variant font-medium">1d ago</span>
+</div>
+<h4 class="font-body font-bold text-on-surface text-lg mb-2 group-hover:text-secondary transition-colors">Rare Seeds Restocked</h4>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">The highly anticipated batch of Philodendron Spiritus Sancti seeds is now available. Limited quantity.</p>
+</div>
+</div>
+<!-- Alert Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container-high transition-colors duration-500 ease-in-out cursor-pointer group flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary mb-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+</div>
+<span class="text-xs font-label text-on-surface-variant font-medium">3d ago</span>
+</div>
+<h4 class="font-body font-bold text-on-surface text-lg mb-2 group-hover:text-tertiary transition-colors">Seasonal Ceramic Sale</h4>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">Hand-thrown planters from the Urabá collective are currently 20% off for the next 48 hours.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar from JSON (Visible only on mobile) -->
+<nav class="md:hidden bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg font-manrope text-[10px] uppercase tracking-widest font-bold font-noto-serif text-[#01261f] dark:text-[#fbfbe2] docked full-width bottom-0 rounded-t-[24px] no-border tonal-shift shadow-[0_-4px_20px_rgba(1,38,31,0.05)] Liquid-Slow transition-all duration-600 ease-out fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">search</span>
+<span>Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">potted_plant</span>
+<span>Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span>Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span>Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,97 @@
+name: uraba
+description: "Urabá Market — Plataforma digital de comercio local del Urabá."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- BLOQUE DE FIREBASE ACTUALIZADO (Compatible con Pigeon) ---
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.0
+  firebase_crashlytics: ^4.1.3
+
+  # --- DISEÑO Y GOOGLE ---
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  google_sign_in: ^6.2.2  # Esta versión funciona perfecto con Auth ^5.3.1
+
+  # --- CONECTIVIDAD ---
+  connectivity_plus: ^5.0.0
+  # --- ANIMACIONES ---
+  lottie: ^2.4.0
+  # --- IMÁGENES ---
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+  http: ^1.2.0
+  image: ^4.1.0            # Compresión de imágenes (pure Dart)
+  share_plus: ^10.1.2
+  path_provider: ^2.1.4
+  shared_preferences: ^2.3.0
+  url_launcher: ^6.3.1
+  webview_flutter: ^4.4.4      # Pasarela de pago Wompi
+  crypto: ^3.0.3               # SHA256 para firma de integridad Wompi
+  iconsax: ^0.0.8              # Iconos modernos estilo premium
+  onesignal_flutter: ^5.2.0   # Notificaciones push gratuitas sin servidor
+  fl_chart: ^0.69.0           # Gráficos profesionales (línea, barras, torta)
+  pdf: ^3.11.1                 # Generación de PDF
+  printing: ^5.13.3            # Imprimir/compartir PDF
+  record: ^5.1.2              # Grabación de audio
+  audioplayers: ^6.0.0        # Reproducción de audio
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  adaptive_icon_background: "#0D1F0D"
+  adaptive_icon_foreground: "assets/icons/app_icon.png"
+  min_sdk_android: 21
+  web:
+    generate: false
+  windows:
+    generate: false
+  macos:
+    generate: false
+
+dependency_overrides:
+  record_linux: ^1.3.0   # record 5.2.1 depende de 0.7.2 que no implementa record_platform_interface 1.5.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/login_bg.jpg
+    - assets/images/register_bg.jpg
+    - assets/images/home_bg.png
+    - assets/images/logo.png
+    - assets/images/ura_ia.png
+    - assets/images/ura_saludando.png
+    - assets/images/banner1.png
+    - assets/images/banner2.png
+    - assets/images/banner3.png
+    - assets/images/cat_frutas.png
+    - assets/images/cat_verduras.png
+    - assets/images/cat_artesanias.png
+    - assets/images/cat_gastronomia.png
+    - assets/images/onboard_yuca.png
+    - assets/images/onboard_india.png
+    - assets/images/onboard_ambulante.png
+    - assets/icons/app_icon.png
+    - assets/lottie/mascot.json
+    - directorio icono.png
+    - mensajes icono.png
+    - ia icono.jpg
+    - ia final.png
+    - ura ia.png
+    - imagen mensajes.jpg
+    - imagen conversaciones.png

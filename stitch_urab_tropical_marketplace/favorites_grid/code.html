@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Living Archive - Favorites</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif", "serif"
+                      ],
+                      "body": [
+                              "Manrope", "sans-serif"
+                      ],
+                      "label": [
+                              "Manrope", "sans-serif"
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Specific override for Material Symbols to handle filled state smoothly if needed */
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-surface pb-32 md:pb-10 font-body relative min-h-screen flex flex-col">
+<!-- Shared Component: TopAppBar -->
+<header class="sticky top-0 z-50 w-full bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full hover:bg-[#1a3c34]/10">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] dark:text-[#fbfbe2] tracking-tight text-center flex-1">
+                The Living Archive
+            </h1>
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-transparent">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close up portrait of a woman with natural makeup looking slightly off camera, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa_TMmEUoopruH17QCU0sQ1vk5YsljoTS_4gXrKZaKd-HjGIYPWqEDxn7Qllz1AZC_zXv6CKSjAfc6YkPwoyqIH-tUtqDQr66cTy24i9VlFvdelAAAdAci2-5El47rSv5Qq0Z4kF6DZH5vLghm15NEAwOaPMzhcnaD6KOrebqJ0k3zTFCgp34teDTjWf7Ng0uGQF8iKZO9O0Ngo77pl6n9GO0XZKa6wkIp6rVmi_-cItIhkkfYpgSfV9ZN_og82lFumjrcb_ZCeW4B"/>
+</button>
+</div>
+<!-- Tonal Shift Separator instead of border -->
+<div class="h-[1px] w-full bg-[#f5f5dc] dark:bg-[#1a3c34]"></div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-6 pt-12 pb-24">
+<!-- Editorial Header -->
+<div class="mb-16 max-w-2xl">
+<h2 class="font-headline text-5xl md:text-7xl text-primary leading-none tracking-tight mb-6">
+                Curated Roots
+            </h2>
+<p class="font-body text-lg text-tertiary max-w-md leading-relaxed">
+                Your personal collection of heritage botanicals and crafted artifacts, preserved for consideration.
+            </p>
+</div>
+<!-- Filter Chips (Organic pebbles) -->
+<div class="flex flex-wrap gap-3 mb-10">
+<button class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label text-sm font-bold tracking-wide transition-all">All Saved</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium hover:bg-surface-variant transition-all">Flora</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium hover:bg-surface-variant transition-all">Ceramics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium hover:bg-surface-variant transition-all">Extracts</button>
+</div>
+<!-- Asymmetric Bento Grid for Products -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(300px,auto)]">
+<!-- Item 1: Large Featured (Spans 8 cols) -->
+<article class="md:col-span-8 md:row-span-2 group relative rounded-xl overflow-hidden bg-surface-container-low flex flex-col md:flex-row">
+<div class="w-full md:w-3/5 h-64 md:h-full relative overflow-hidden">
+<img alt="Alocasia Amazonica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" data-alt="close up of an alocasia amazonica plant with dark green leaves and prominent white veins in a dimly lit moody botanical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6GpiGdE-9BW2gRef_YKWn9F1J9_IJWgQJ4_0SAhWz8x5kCXxOYAqmBXZBrE5y7a9TrkNFxrw7-mMlSg5gNcaA8Zi3qS2kxay5Uf1sqBEP6lvMyDdM_aGiqozfyrdLeLS6XCwZjwv0ndlCMWqtx5J3mjo9ykQozQjW10eosReCN2UJeK91x4vZl0WDviS9-oibmF7RMVD1R8fFzhvYUkxMI7nza5nT5uCdiD-XaHrw9X6Jbq0l5q5d_xHue9AskxIJr9pMyKVWnx3I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="w-full md:w-2/5 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Flora • Urabá</span>
+<button class="text-tertiary hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite" data-weight="fill">favorite</span>
+</button>
+</div>
+<h3 class="font-headline text-3xl text-primary mb-2">Alocasia Amazonica</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                            Known for its dramatic, shield-like leaves with striking contrasting veins. Cultivated in our highland nurseries.
+                        </p>
+</div>
+<div class="mt-8 flex items-end justify-between">
+<span class="font-body text-xl text-primary">$85.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest text-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2: Tall Portrait (Spans 4 cols, 2 rows) -->
+<article class="md:col-span-4 md:row-span-2 group relative rounded-xl overflow-hidden bg-surface-container-lowest flex flex-col">
+<div class="w-full h-[60%] relative overflow-hidden">
+<img alt="Artisan Cacao Extract" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-1000 ease-in-out" data-alt="small amber glass dropper bottle sitting on dark rough wood surface with scattered cacao nibs soft dramatic natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqf7KCz2ZOFFW7Ju1NH5VRNvAu60bV6R4jx4K7EvIphoXKJqU7jegRFc8o6OVAwmdPFDj4KG8WrcvHKl6QMmqnBPQjYg5Upv02EzNhOIUZFvWXujCmXRcth7j25vAiSb66tSkcWaBhgzAsLJwIFOedrNpePITA2nyEmsqiWvwsKMv8u117byNfPLbCZUZiuB_402nw5fekT8eAx4rdv2C5CyLsbY2Kq-5uNd-OxdNnRAU2Mjd4vtm-BY3U10sYfCUV3IJ24cC9AMhv"/>
+<button class="absolute top-4 right-4 text-tertiary bg-surface/50 backdrop-blur-md rounded-full p-2 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" data-weight="fill">favorite</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between bg-surface-container-low">
+<div>
+<span class="font-label text-xs uppercase tracking-widest text-tertiary/70 font-bold mb-2 block">Extracts</span>
+<h3 class="font-headline text-2xl text-primary mb-1">Raw Cacao Essence</h3>
+<p class="font-body text-xs text-on-surface-variant">Cold-pressed, limited batch.</p>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="font-body text-lg text-primary">$42.00</span>
+<button class="text-secondary font-label text-sm font-bold tracking-wide uppercase hover:underline underline-offset-4">Add</button>
+</div>
+</div>
+</article>
+<!-- Item 3: Standard Card (Spans 4 cols) -->
+<article class="md:col-span-4 group relative rounded-xl overflow-hidden bg-surface-container-low flex flex-col">
+<div class="w-full aspect-[4/3] relative overflow-hidden">
+<img alt="Terracotta Planter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" data-alt="minimalist hand thrown terracotta planter pot sitting on a textured linen cloth with soft natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgvlrbFbO8uDh8V2aH0Mkb7UUkwZabhasjoBeYeof-drg5uRv_iTx7evn6yr2izSv14M2q5hcpqs8W10xIyvtgaRnT_dWenmjyDfg8APXoQ5E02cC1W8cGIdfFzF5f2YpbOGyua3IdSKA8ALkbse8cbHkLq_jRhy3KUTi-_JMvUzGb8AFyb-tLeKS7bolWBIf2f20Gwh7ck39GzuE4C6ix_NVonZzSuhFGTCDbBx9bMOUttC0K9WPTVf0NZWQ0EQzPwgM8eqLz5xZ5"/>
+<button class="absolute top-4 right-4 text-tertiary hover:text-error transition-colors drop-shadow-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" data-weight="fill">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<span class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold block mb-1">Ceramics</span>
+<h3 class="font-headline text-xl text-primary leading-tight mb-3">Oaxaca Low Planter</h3>
+<div class="flex justify-between items-end">
+<span class="font-body text-md text-tertiary">$65.00</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest text-tertiary flex items-center justify-center hover:bg-tertiary hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 4: Wide Card (Spans 8 cols) -->
+<article class="md:col-span-8 group relative rounded-xl overflow-hidden bg-surface-container-low flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 aspect-[16/9] md:aspect-auto md:h-full relative overflow-hidden">
+<img alt="Monstera Deliciosa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" data-alt="lush mature monstera deliciosa plant filling the frame with huge fenestrated leaves in a dense jungle environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP77gjD_7eyqLghDNkND3AWffAE8ZySDjSsWd-dwecaoWLavj7aMTZFVHcHCC4jXvXmPSnazHNIC0IBDi0TBwKa7EcEeDseo8cZrbWSpOUl8cUTDI1YK35knDFXhU8cQlS1Xl9Mib-_D6arXRZnIlXQsnFQoJo3bl6EIJtB6upyFC3whyqyDj293CD8WIuId2btzhuk4lc1flF1AU7lA6YIi_pCuxCzJpRDMnPe_1LweirZ8P5h2kkL_2bK9rkUqMqH7F1sI_6x3jt"/>
+</div>
+<div class="w-full md:w-1/2 p-6 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-2xl text-primary">Heritage Monstera</h3>
+<button class="text-tertiary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" data-weight="fill">favorite</span>
+</button>
+</div>
+<p class="font-body text-sm text-on-surface-variant mb-6">A mature specimen cultivated for exceptional leaf fenestration.</p>
+<div class="flex justify-between items-center w-full">
+<span class="font-body text-lg text-primary font-medium">$120.00</span>
+<button class="px-5 py-2 rounded-full bg-surface-container-highest text-tertiary font-label text-xs font-bold tracking-wider uppercase hover:bg-tertiary hover:text-surface transition-colors">Add to Cart</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Action Bar for "Add All" (Glassmorphism) -->
+<div class="fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-3rem)] max-w-sm pointer-events-none">
+<div class="bg-surface-variant/60 backdrop-blur-[20px] rounded-full p-2 shadow-[0_8px_32px_rgba(1,38,31,0.08)] pointer-events-auto">
+<button class="w-full bg-primary text-on-primary rounded-full py-4 px-6 font-label text-sm font-bold tracking-wide flex items-center justify-between shadow-[inset_0_2px_2px_rgba(255,255,255,0.15)] hover:bg-[#023329] transition-colors duration-300 group">
+<span>Add Collection to Cart</span>
+<div class="flex items-center gap-3">
+<span class="font-body font-normal opacity-80 text-xs mr-2">4 Items</span>
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Shared Component: BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg shadow-[0_-4px_20px_rgba(1,38,31,0.05)] rounded-t-[24px] md:hidden">
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="search">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="potted_plant">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</a>
+<!-- Active State: Assuming Favorites is accessed via Profile -->
+<a class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 transition-all duration-600 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

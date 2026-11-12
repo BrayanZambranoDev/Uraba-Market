@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile - The Living Archive</title>
+<!-- Google Fonts: Noto Serif (Headline) & Manrope (Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar to match the clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e4cc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c1c8c4;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c5eadf",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#b99791",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c4",
+                        "on-tertiary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#78dc77",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-high": "#eaead1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "outline": "#717976",
+                        "inverse-primary": "#aacec3",
+                        "tertiary-container": "#48302c",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#94f990",
+                        "tertiary": "#301b17",
+                        "inverse-surface": "#303221",
+                        "surface-tint": "#43655c",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "surface-bright": "#fbfbe2",
+                        "secondary-container": "#91f78e",
+                        "primary-container": "#1a3c34",
+                        "on-primary-container": "#83a69c",
+                        "primary": "#01261f",
+                        "on-surface": "#1b1d0e",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container-low": "#f5f5dc",
+                        "on-surface-variant": "#414846",
+                        "on-tertiary-fixed": "#2b1613",
+                        "primary-fixed-dim": "#aacec3",
+                        "secondary": "#006e1c",
+                        "surface-container": "#efefd7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdcc3",
+                        "on-error-container": "#93000a",
+                        "background": "#fbfbe2",
+                        "on-background": "#1b1d0e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e4cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-surface/80 backdrop-blur-xl transition-opacity duration-500 ease-in-out">
+<div class="flex items-center gap-4">
+<button aria-label="Menu" class="text-primary hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline text-2xl tracking-tight font-bold text-primary">The Living Archive</h1>
+</div>
+<div>
+<!-- Trailing avatar placeholder as per JSON -->
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close up portrait of a young woman with natural light and warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDeu2gPW2rUgJq8HfU1uQzMaWOTdaCbdU4gaBmuWs73PYedGY48WNFozaCnmJsNMF3gr2wYAi2pTUmYjpFFEIVLJdbXedOCgnqb4baMbncbd-vzEQeduO6jGvGin1YEYw7YpfpOCe9_fwwlpfi7wa2Nx-lH5VXeOgnncuYPgvFJ8UAA4oWg7OGobPBOwpB_PIxut1PcStkk8G5fIU_8np9lH4Ln1rFvoz1uYnU2McrvZfQfIak8WzIARml7T77ZVu2CQGDZvdkNpW-"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow container mx-auto px-6 py-12 md:py-20 max-w-3xl">
+<!-- Editorial Header -->
+<div class="mb-16">
+<h2 class="font-headline text-5xl md:text-6xl text-primary tracking-tight mb-4">Edit Profile</h2>
+<p class="font-body text-lg text-on-surface-variant max-w-xl">Update your personal information and adjust your role within the archive. Changes are reflected immediately upon saving.</p>
+</div>
+<!-- Photo Upload Section (Asymmetric / Organic Layout) -->
+<section class="mb-16 bg-surface-container-low rounded-xl p-8 flex flex-col sm:flex-row items-center sm:items-start gap-8">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden bg-surface-container-highest shadow-sm">
+<img alt="Current Profile Photo" class="w-full h-full object-cover" data-alt="close up portrait of a young woman with natural light and warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUNEoFYtNnzeAqR9qfF1TqdmijsrgEmUsjGFlPIModagD1SvHMiXNNc8kaSO-Zs1k5dP_AXQYj4u4dQdsjXMnGDfJo3XwGLJyGcSbVu3b_VTboToUPrnOj38w2NEJuf7EIh7ejhAfC5NAp0jLKTMpNsohTWA358VVrRW2Q9f9v7Le-2gvPElSYsjTz-tHtTRoFbqM4DTdhfZ1ll5qfiwwxKLcsPn7to9JcUsgtW4UbGZvIGzRx6uCVfPDRhfzDO_6NRaJVSS0RlY5y"/>
+</div>
+<!-- Overlay hint for hover -->
+<div class="absolute inset-0 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-surface text-3xl" data-icon="photo_camera" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+</div>
+<div class="flex flex-col justify-center sm:pt-4 space-y-4 text-center sm:text-left">
+<div>
+<h3 class="font-label font-bold text-primary mb-1">Profile Photo</h3>
+<p class="text-sm text-on-surface-variant">Recommended size: 500x500px. JPG or PNG.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+<button class="bg-surface-container-highest text-on-surface hover:bg-surface-variant px-6 py-3 rounded-full font-label font-bold text-sm tracking-wider transition-colors duration-300" type="button">
+                        Upload New
+                    </button>
+<button class="text-tertiary hover:text-error px-4 py-2 font-label font-bold text-sm tracking-wider transition-colors duration-300" type="button">
+                        Remove
+                    </button>
+</div>
+</div>
+</section>
+<!-- Form Area -->
+<form class="space-y-10">
+<!-- Personal Info Block -->
+<div class="space-y-6">
+<h3 class="font-headline text-2xl text-primary mb-4">Personal Details</h3>
+<!-- Input: Name (Soft Inset) -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-bold tracking-widest text-tertiary uppercase pl-1" for="fullName">Full Name</label>
+<input class="bg-surface-container-highest rounded-xl px-5 py-4 text-on-surface font-body border-0 focus:ring-0 placeholder:text-on-surface-variant/50 w-full transition-colors hover:bg-surface-variant focus:bg-surface-variant outline-none" id="fullName" placeholder="Enter your full name" type="text" value="Elena Martinez"/>
+</div>
+<!-- Input: Email (Soft Inset) -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-bold tracking-widest text-tertiary uppercase pl-1" for="emailAddress">Email Address</label>
+<input class="bg-surface-container-highest rounded-xl px-5 py-4 text-on-surface font-body border-0 focus:ring-0 placeholder:text-on-surface-variant/50 w-full transition-colors hover:bg-surface-variant focus:bg-surface-variant outline-none" id="emailAddress" placeholder="Enter your email" type="email" value="elena.m@example.com"/>
+</div>
+<!-- Input: Phone (Soft Inset) -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-bold tracking-widest text-tertiary uppercase pl-1" for="phoneNumber">Phone Number</label>
+<input class="bg-surface-container-highest rounded-xl px-5 py-4 text-on-surface font-body border-0 focus:ring-0 placeholder:text-on-surface-variant/50 w-full transition-colors hover:bg-surface-variant focus:bg-surface-variant outline-none" id="phoneNumber" placeholder="Enter your phone number" type="tel" value="+57 300 123 4567"/>
+</div>
+</div>
+<!-- Role Section (Interactive Chips) -->
+<div class="pt-6">
+<h3 class="font-headline text-2xl text-primary mb-2">Workspace Role</h3>
+<p class="font-body text-sm text-on-surface-variant mb-5">Select your primary function within the archive. This affects your access permissions.</p>
+<div class="flex flex-wrap gap-3">
+<!-- Inactive Chip -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="role" type="radio" value="viewer"/>
+<div class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface font-label font-bold text-sm tracking-wider peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all duration-300 hover:bg-surface-variant group-hover:shadow-sm">
+                            Viewer
+                        </div>
+</label>
+<!-- Active Chip -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="role" type="radio" value="contributor"/>
+<div class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface font-label font-bold text-sm tracking-wider peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all duration-300 hover:bg-surface-variant group-hover:shadow-sm">
+                            Contributor
+                        </div>
+</label>
+<!-- Inactive Chip -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="role" type="radio" value="curator"/>
+<div class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface font-label font-bold text-sm tracking-wider peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all duration-300 hover:bg-surface-variant group-hover:shadow-sm">
+                            Curator
+                        </div>
+</label>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-12 flex flex-col-reverse sm:flex-row items-center justify-end gap-4">
+<button class="w-full sm:w-auto px-8 py-4 rounded-full text-tertiary font-label font-bold tracking-wider hover:bg-surface-container-low transition-colors duration-300" type="button">
+                    Cancel
+                </button>
+<!-- Primary Button with subtle top inner glow simulated via shadow -->
+<button class="w-full sm:w-auto bg-primary text-on-primary px-10 py-4 rounded-full font-label font-bold tracking-wider hover:opacity-90 transition-opacity duration-300 shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]" type="submit">
+                    Save Changes
+                </button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar intentionally suppressed as this is a focused task screen (Conflict Resolution Protocol) -->
+</body></html>

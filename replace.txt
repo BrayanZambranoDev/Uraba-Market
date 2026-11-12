@@ -1,0 +1,5 @@
+regex,Groq API Key,gsk_.*
+regex,Gemini API Key,AIzaSy.*
+regex,OpenRouter API Key,sk-or-v1-.*
+regex,OneSignal App ID,6f79f9a6-3ee6-439c-ad14-de78f7e52063
+regex,OneSignal Rest Key,os_v2_app_.*

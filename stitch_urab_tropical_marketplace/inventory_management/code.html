@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif", "serif"
+                      ],
+                      "body": [
+                              "Manrope", "sans-serif"
+                      ],
+                      "label": [
+                              "Manrope", "sans-serif"
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Base typography and utilities */
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbfbe2; /* surface */
+            color: #1b1d0e; /* on-surface */
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Noto Serif', serif;
+        }
+        /* Hide scrollbar for clean editorial look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen pb-32">
+<!-- TopAppBar (From JSON) -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full no-border tonal-shift bg-[#f5f5dc] dark:bg-[#1a3c34] flat no shadows Liquid-Slow duration-500 ease-in-out border-none shadow-none">
+<button class="text-[#01261f] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl tracking-tight font-bold text-[#01261f] dark:text-[#fbfbe2] font-headline">The Living Archive</h1>
+<button class="hover:opacity-80 transition-opacity">
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover shadow-[0_4px_12px_rgba(27,29,14,0.1)]" data-alt="close up portrait of a male farmer with weathered skin and a warm smile, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3OuKt_-wudV4aq9o5iEtP5XqRSeExTL7OrruCPWOzNo_f-gt0VPztepSKnjg27E-f3xXlUDL0jGNkdD7QxlsLKlB_ir6J_BlILtD4cMJMyope9YKFGN-OtHzQGqGo2OHvzVQNM4qYfLwbPhUVhNd2-YipgPXLs7yYjOdEpjAM7pHw95BfvimaI_FhPRtscs0SBbx5xYOL6l3lr0L673jXlb6aJpjp6ExRCiITT2UmLAwSgchjV4PsplrwhrwqHE7R48Ip5F9gWl_u"/>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="px-4 md:px-8 max-w-4xl mx-auto pt-8">
+<!-- Header Section -->
+<section class="mb-10">
+<h2 class="font-headline text-primary text-5xl md:text-6xl tracking-tight mb-3">Inventory</h2>
+<p class="font-body text-tertiary text-lg md:text-xl max-w-md">Manage your active harvest, monitor stock levels, and update market pricing.</p>
+</section>
+<!-- Bento Grid Dashboard -->
+<section class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+<!-- Primary Stat Card -->
+<div class="col-span-2 md:col-span-1 bg-primary-container text-on-primary-container rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-container mb-2" style="font-variation-settings: 'FILL' 1;">eco</span>
+<p class="font-label text-sm uppercase tracking-widest text-on-primary-container/80 mb-1">Total Value</p>
+<h3 class="font-headline text-4xl text-surface-bright">$14,250</h3>
+</div>
+</div>
+<!-- Secondary Stat Cards -->
+<div class="bg-surface-container-highest rounded-xl p-5 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<p class="font-label text-sm uppercase tracking-wider text-tertiary">Active Items</p>
+</div>
+<h3 class="font-headline text-3xl text-primary">24</h3>
+</div>
+<div class="bg-surface-container-low rounded-xl p-5 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute right-0 top-0 w-16 h-16 bg-error/10 rounded-bl-full"></div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-error text-xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+<p class="font-label text-sm uppercase tracking-wider text-error">Low Stock</p>
+</div>
+<h3 class="font-headline text-3xl text-primary">3</h3>
+</div>
+</section>
+<!-- Search & Filter Area (Soft Inset) -->
+<section class="mb-8 flex flex-col md:flex-row gap-4 items-center">
+<div class="w-full md:w-auto flex-grow bg-surface-container-highest rounded-xl px-4 py-3 flex items-center gap-3 shadow-inner">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-body w-full placeholder-on-surface-variant/70 p-0" placeholder="Search archive..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label text-sm font-semibold tracking-wide">All Stock</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-sm hover:bg-surface-variant transition-colors">Low Inventory</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-sm hover:bg-surface-variant transition-colors">Drafts</button>
+</div>
+</section>
+<!-- Inventory List (Organic Cards, No Borders) -->
+<section class="space-y-4">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 shadow-[0_4px_20px_rgba(27,29,14,0.03)] hover:shadow-[0_8px_30px_rgba(27,29,14,0.06)] transition-shadow duration-500 ease-in-out cursor-pointer group">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 relative">
+<img alt="Cacao Beans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="close up of raw cacao beans resting inside a freshly opened vibrant yellow and purple pod, soft tropical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJbIju2wTdxO3GysW6OAEpKR6FrmtHHFzxq1Z3Jfn2B4TKiiZq4sAf_wuxUUEfB59dvQVekyW6hWN9LrzKpYyPKR-f9ejK2q8owV94fi9QjiPOVUFoy2zQdK50cZiLNiI3jBYC4Z_1zjoJmulDeoZCzy78bYOKLjdxINprKtLNNlZWEszmfFBIHkn1R24N5v7TZhWmy2lD73vdfSfkUDmmZypBWs5-Xmk9evyNOa8FEekvTg_f7xRz2P1uX0wRs_LhbDlWOlRT7GPm"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<div class="flex-grow py-1">
+<div class="flex justify-between items-start mb-1">
+<div>
+<p class="font-label text-xs tracking-wider text-on-surface-variant mb-1 uppercase">Criollo Strain</p>
+<h4 class="font-headline text-xl text-primary leading-tight">Raw Heritage Cacao</h4>
+</div>
+<span class="font-headline text-lg text-tertiary bg-surface px-3 py-1 rounded-full">$12.50<span class="text-sm font-body text-on-surface-variant">/kg</span></span>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<div class="flex items-center gap-1.5 bg-secondary-container/50 px-2.5 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label text-xs text-on-secondary-container font-semibold">In Stock (450 kg)</span>
+</div>
+<span class="font-label text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">public</span> Published</span>
+</div>
+</div>
+</div>
+<!-- Item 2 (Low Stock) -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 shadow-[0_4px_20px_rgba(27,29,14,0.03)] hover:shadow-[0_8px_30px_rgba(27,29,14,0.06)] transition-shadow duration-500 ease-in-out cursor-pointer group">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 relative">
+<img alt="Vanilla Beans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="bundle of dark, oily vanilla beans tied with natural twine resting on dark textured wood, dramatic moody side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWesAz6KMWQVJKZfWy8YKrr-tQ4cM_lmX_TbFLBgmwmezZ13G16_AToUgTxxRFGTtBKpsMMcvE7ZHX0N3xq2F0eFc_Q53vh6iYEw7qvDWrI8gTZxwvJUS_6IrIaMsspwI9cUC9n1KMewW8NcQgvk2he5HjYYDK685H2MtoWoigDQcHUkVQhHXBimnhrgq3dYki52pHlepV8uDJv6kZbpVgha3YtAEIEhuX46uCESF8sA2t3D_nl1eENTjX3ih2Yl6A4AEvTOAgNUd9"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<div class="flex-grow py-1">
+<div class="flex justify-between items-start mb-1">
+<div>
+<p class="font-label text-xs tracking-wider text-on-surface-variant mb-1 uppercase">Madagascar Type</p>
+<h4 class="font-headline text-xl text-primary leading-tight">Cured Vanilla Pods</h4>
+</div>
+<span class="font-headline text-lg text-tertiary bg-surface px-3 py-1 rounded-full">$450.00<span class="text-sm font-body text-on-surface-variant">/kg</span></span>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<div class="flex items-center gap-1.5 bg-error-container/50 px-2.5 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label text-xs text-on-error-container font-semibold">Low Stock (12 kg)</span>
+</div>
+<span class="font-label text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">public</span> Published</span>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 shadow-[0_4px_20px_rgba(27,29,14,0.03)] hover:shadow-[0_8px_30px_rgba(27,29,14,0.06)] transition-shadow duration-500 ease-in-out cursor-pointer group opacity-70 hover:opacity-100">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 relative grayscale-[30%]">
+<img alt="Plantains" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="bunch of unripe green plantains hanging on the plant with large lush leaves in background, bright dappled sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGDPy8IoCcVqhL6S-47dQ7n9f40Av8g2ZPR7oe-_zRBTZnijjo2vj1mfenlyew555v0_AJ-5GGvn4n12_No-nzjV4yUvjf4swnhYznKPaADD4rZbCZxT5wwSkvtY8eV08IbjSwxUxb_BEJ5CApr3L-afp2WGX86oGvDLgP7gwjVckdXNkuYr2GP8AX7NGYGm11CMMtDHmKJPJ4Q30lXsV9WH-t3ojLICPyTO-fEcDZWm9sCu-LCbqhP_INxveZNDhCektHtO06L4Ew"/>
+</div>
+<div class="flex-grow py-1">
+<div class="flex justify-between items-start mb-1">
+<div>
+<p class="font-label text-xs tracking-wider text-on-surface-variant mb-1 uppercase">Hartón Variety</p>
+<h4 class="font-headline text-xl text-primary leading-tight">Green Plantains</h4>
+</div>
+<span class="font-headline text-lg text-tertiary bg-surface px-3 py-1 rounded-full">$1.20<span class="text-sm font-body text-on-surface-variant">/kg</span></span>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<div class="flex items-center gap-1.5 bg-surface-variant px-2.5 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="font-label text-xs text-on-surface-variant font-semibold">Out of Season</span>
+</div>
+<span class="font-label text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">visibility_off</span> Hidden</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 right-6 md:right-10 bg-primary text-on-primary rounded-full p-4 flex items-center gap-3 shadow-[0_8px_30px_rgba(27,29,14,0.15)] z-40 hover:scale-105 hover:bg-primary-container transition-all duration-500 ease-in-out group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="font-label font-bold tracking-wide pr-2 hidden md:block group-hover:block transition-all duration-300">Add Entry</span>
+<!-- Subtle inner top glow for tactile feel -->
+<div class="absolute inset-x-0 top-0 h-px bg-white/20 rounded-t-full"></div>
+</button>
+<!-- BottomNavBar (From JSON) -->
+<nav class="bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] no-border tonal-shift shadow-[0_-4px_20px_rgba(1,38,31,0.05)] border-none fixed w-full z-50 flex justify-around items-center px-4 pb-6 pt-2">
+<!-- Active Tab: Home (Dashboard intent) -->
+<button class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</button>
+<!-- Inactive Tabs -->
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1 opacity-0 h-0 overflow-hidden">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1 opacity-0 h-0 overflow-hidden">Feed</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1 opacity-0 h-0 overflow-hidden">Messages</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full Liquid-Slow transition-all duration-600 ease-out">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold mt-1 opacity-0 h-0 overflow-hidden">Profile</span>
+</button>
+</nav>
+</body></html>

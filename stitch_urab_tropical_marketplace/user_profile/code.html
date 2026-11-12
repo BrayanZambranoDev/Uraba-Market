@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - The Living Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif"
+                      ],
+                      "body": [
+                              "Manrope"
+                      ],
+                      "label": [
+                              "Manrope"
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex flex-col font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full docked full-width top-0 sticky z-50 bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl no-border tonal-shift bg-[#f5f5dc] dark:bg-[#1a3c34] flat no shadows text-[#01261f] dark:text-[#fbfbe2]">
+<button class="hover:opacity-80 transition-opacity Liquid-Slow duration-500 ease-in-out text-[#301b17] dark:text-[#fbfbe2] flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl tracking-tight font-bold text-[#01261f] dark:text-[#fbfbe2]">
+            The Living Archive
+        </h1>
+<div class="hover:opacity-80 transition-opacity Liquid-Slow duration-500 ease-in-out cursor-pointer w-9 h-9 rounded-full overflow-hidden border border-outline-variant/15">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="portrait of a confident man with subtle facial hair looking directly at camera, soft natural lighting, warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuL7JexEjOtZNJC8yPdEqi3I4u96ftRT7dKVOumU48X2a1kJW9bbwyjVaDsT_S0DgWisNbjaYYD8Mph7lQc02I9TyQBgUEmT2TkL2xJYgU6eC5O8rMbDAtTZn7vkDW-gA1QUF1GYwSIKBApOxDGtH7PRs3eG0L3Tvtl2aSv8Ey3Ddyr5_Jt_6NiiEwiudweu-sLtpf_T99y_sqKKZDMc-ajmOka1rgM5dObUJwSFjmOE0Ev26fnUp_LqBI2h7kf2eNH3nVxTbdH44q"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pb-32">
+<!-- Profile Hero Section -->
+<section class="relative pt-6 pb-10 px-6 flex flex-col items-center">
+<!-- Organic Atmosphere Background -->
+<div class="absolute top-0 left-0 right-0 h-64 bg-surface-container-low rounded-b-[3rem] overflow-hidden">
+<img class="w-full h-full object-cover opacity-70 mix-blend-multiply" data-alt="close up of overlapping giant monstera and banana leaves with deep green hues and subtle golden hour light highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiQTjxHqddvpyql_kC0ympu-X3Qhi3lx7555_NMX05hEWxf5ikvLWHPc-jE6ftNmwK7nF_hbt9qB5Z0qqH8vZ0Ms9Z1EOmOtb8p5ER3n8KAhAEj-Q1qGuDWdWfVq7QGmij1ZL2y_v0FH7CjeNhl_VkT34sBE7upPw0XKp1gLRMUYzeJoESkA3Kz9BnI5UeeFNanU9mAvhDZ-Las41i4tdGtL3MjL-PgLv6EingbLjuRNuD_4oP_iL8ndoj6Ccp8srpQU2xDq8r_7An"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface-container-low/40 to-background"></div>
+</div>
+<!-- Avatar -->
+<div class="relative z-10 mt-12 w-36 h-36 rounded-full overflow-hidden border-[6px] border-surface shadow-[0_12px_40px_rgba(27,29,14,0.08)]">
+<img class="w-full h-full object-cover" data-alt="close up high quality portrait of a man, warm inviting expression, soft diffused light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjsGbPuIX0s3VVqWiIYmazDDZ26TcXpuuJGvkA3fxAErDLuXdzWZPPaDBBYhVZGpVRk1GMF-hDJXgCxKCHch-YLFSq6_n90PukGThASOHfmA0sc0fHLxWHxlxgd3VLaJJ9iWJ7AIB7CjvhMTQd3xRYvfgiNyPRISPYdFUru5PBByRIgJuqtGtsi1erhC3rG4w5Mcph0gDugTICSF9Y0yDPgnW2VtnvzLKz8hHzJiDXLyMs1rkJh1uXNQEojrBrmEaeq2EcoQorWtV4"/>
+</div>
+<!-- Identity & Badge -->
+<div class="relative z-10 mt-6 text-center flex flex-col items-center gap-4 w-full max-w-md">
+<h2 class="font-headline text-5xl text-on-surface leading-none tracking-tight">Mateo Rios</h2>
+<div class="inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase shadow-[inset_0_2px_4px_rgba(255,255,255,0.15)]">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+                    Master Cultivator
+                </div>
+<p class="text-on-surface-variant font-body text-base leading-relaxed mt-2">
+                    Curating rare heirloom species from the deep Urabá region. Dedicated to sustainable growth and living heritage.
+                </p>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="px-6 py-4 max-w-2xl mx-auto w-full">
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-6 flex flex-col items-center justify-center shadow-[0_4px_24px_rgba(27,29,14,0.03)] group transition-transform duration-500 hover:-translate-y-1">
+<span class="font-headline text-3xl text-primary tracking-tight">142</span>
+<span class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-2 group-hover:text-secondary transition-colors">Orders</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 flex flex-col items-center justify-center shadow-[0_4px_24px_rgba(27,29,14,0.03)] group transition-transform duration-500 hover:-translate-y-1">
+<span class="font-headline text-3xl text-primary tracking-tight">$18k</span>
+<span class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-2 group-hover:text-secondary transition-colors">Sales</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 flex flex-col items-center justify-center shadow-[0_4px_24px_rgba(27,29,14,0.03)] group transition-transform duration-500 hover:-translate-y-1">
+<span class="font-headline text-3xl text-primary tracking-tight flex items-center gap-1">
+                        4.9
+                        <span class="material-symbols-outlined text-[20px] text-secondary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-2 group-hover:text-secondary transition-colors">Rating</span>
+</div>
+</div>
+</section>
+<!-- Navigation Menu List -->
+<section class="px-6 py-8 max-w-2xl mx-auto w-full">
+<h3 class="font-headline text-2xl text-tertiary mb-6 px-2">Archive Management</h3>
+<div class="flex flex-col gap-3">
+<a class="flex items-center justify-between p-5 bg-surface-container-highest rounded-xl group transition-all duration-500 ease-in-out hover:bg-surface-container-low hover:shadow-[0_8px_30px_rgba(27,29,14,0.05)]" href="#">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 ease-out">
+<span class="material-symbols-outlined">person</span>
+</div>
+<span class="font-body font-bold text-lg text-on-surface tracking-wide">Account</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-5 bg-surface-container-highest rounded-xl group transition-all duration-500 ease-in-out hover:bg-surface-container-low hover:shadow-[0_8px_30px_rgba(27,29,14,0.05)]" href="#">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 ease-out">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="font-body font-bold text-lg text-on-surface tracking-wide">Payments</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-5 bg-surface-container-highest rounded-xl group transition-all duration-500 ease-in-out hover:bg-surface-container-low hover:shadow-[0_8px_30px_rgba(27,29,14,0.05)]" href="#">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 ease-out">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<span class="font-body font-bold text-lg text-on-surface tracking-wide">Addresses</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-5 bg-surface-container-highest rounded-xl group transition-all duration-500 ease-in-out hover:bg-surface-container-low hover:shadow-[0_8px_30px_rgba(27,29,14,0.05)]" href="#">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 ease-out">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<span class="font-body font-bold text-lg text-on-surface tracking-wide">Analytics</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-5 bg-surface-container-highest rounded-xl group transition-all duration-500 ease-in-out hover:bg-surface-container-low hover:shadow-[0_8px_30px_rgba(27,29,14,0.05)]" href="#">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 ease-out">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<span class="font-body font-bold text-lg text-on-surface tracking-wide">Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg font-manrope text-[10px] uppercase tracking-widest font-bold docked full-width rounded-t-[24px] no-border tonal-shift shadow-[0_-4px_20px_rgba(1,38,31,0.05)] Liquid-Slow transition-all duration-600 ease-out">
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">home</span>
+<span>Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">search</span>
+<span>Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">potted_plant</span>
+<span>Feed</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all duration-600 ease-out group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:-translate-y-1 transition-transform duration-500">chat_bubble</span>
+<span>Messages</span>
+</button>
+<!-- Active Tab: Profile -->
+<button class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 transition-all duration-600 ease-out shadow-[0_4px_12px_rgba(26,60,52,0.3)]">
+<span class="material-symbols-outlined text-[24px] mb-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>Profile</span>
+</button>
+</nav>
+</body></html>

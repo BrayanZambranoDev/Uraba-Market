@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Profile - The Living Archive</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#c5eadf",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed-dim": "#e3beb8",
+                    "on-tertiary-container": "#b99791",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f2f2d9",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c8c4",
+                    "on-tertiary-fixed-variant": "#5b403c",
+                    "secondary-fixed-dim": "#78dc77",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-secondary-container": "#00731e",
+                    "surface-container-high": "#eaead1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "outline": "#717976",
+                    "inverse-primary": "#aacec3",
+                    "tertiary-container": "#48302c",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-primary-fixed": "#00201a",
+                    "secondary-fixed": "#94f990",
+                    "tertiary": "#301b17",
+                    "inverse-surface": "#303221",
+                    "surface-tint": "#43655c",
+                    "on-primary-fixed-variant": "#2b4d44",
+                    "surface-bright": "#fbfbe2",
+                    "secondary-container": "#91f78e",
+                    "primary-container": "#1a3c34",
+                    "on-primary-container": "#83a69c",
+                    "primary": "#01261f",
+                    "on-surface": "#1b1d0e",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container-low": "#f5f5dc",
+                    "on-surface-variant": "#414846",
+                    "on-tertiary-fixed": "#2b1613",
+                    "primary-fixed-dim": "#aacec3",
+                    "secondary": "#006e1c",
+                    "surface-container": "#efefd7",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dbdcc3",
+                    "on-error-container": "#93000a",
+                    "background": "#fbfbe2",
+                    "on-background": "#1b1d0e",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e4cc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Noto Serif", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface antialiased overflow-x-hidden">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border tonal-shift bg-[#f5f5dc] dark:bg-[#1a3c34] flat no shadows flex justify-between items-center px-6 py-4 w-full Liquid-Slow duration-500 ease-in-out">
+<button class="text-[#301b17] dark:text-[#fbfbe2] hover:opacity-80 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] dark:text-[#fbfbe2] tracking-tight font-headline">The Living Archive</h1>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden flex items-center justify-center text-[#301b17] hover:opacity-80 transition-opacity focus:outline-none">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZyImBc0fYSyN9RPlSh2ZCfXSH2LL6ZTMVC9pymvLI4fHlxRXBZapdMapyFQIeo6FBeJ6MmABpi2joVNhjG91aEZcP6ZTU84SXkBPZOrkdKYqSVuRP_1vEfjDA7hf9SH7xsuOes3wuvH1IlzLq31mcHN2djXJ17bCYpYbMTZeUMldIIpUjAZ8vL7e5KZCEjreneCSWtJhU5lYP9KWAAi7th7SAjWDystZMJjtMYHQqrdKTQMRlSUlWTuW7fUTw-DFhZrqr5al-3Gjz"/>
+</button>
+</header>
+<main>
+<!-- Hero Banner -->
+<section class="relative w-full h-[397px] lg:h-[486px] bg-surface-container-highest overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="lush green organic cacao farm in the uraba region with morning mist rolling over the hills under soft ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0tFgn7lOv465eax0KlpKaeV_d9t3e8HAh1Lut6rZcrCmwNGRUiXImw0N-gJrKdyRvcD2FqpM_VdOXldWk9DHbUfiYdqhLO0ZUv67ZB2qbitrT196f_p4dxnU0tSwjXtlcewdUerGqo38JCszI32ulB0cUHubW4ms3f_7SfjI305vHERC1VGk8mzqVBq6DCOEG8o0d3UsQUoCqTSkR7cqzOcV6kRI91JnuXMZJtwsncuHt3lw7nRBMAdU8BeX2noPJHNJKKtc5tK6o"/>
+<!-- Tonal gradient for depth and transition to background -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+</section>
+<!-- Profile Head & Identity -->
+<section class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10 -mt-24 mb-16 flex flex-col md:flex-row gap-8 items-start">
+<div class="relative shrink-0">
+<div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden ring-8 ring-surface shadow-[0_4px_24px_rgba(27,29,14,0.08)] bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="portrait of a confident local colombian farmer with a weathered warm face wearing a simple woven hat and linen shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yfwQEqnWjQ8a806AIGgKlGuwbWTKaMfbNa8_-fZKFcJMTNegzu2a-CT-4pkJHNNmEj6bvkOUxXgAwq85xYORNB27XemjBbBQghERnwHQ7NZwpukLSmhjozUeYPMouz9zs89xCUNgG4V05fhObsH1U2cSrNzuDJXSxk9fZV9iK2WC-qnuhPUQ0bLXGfO-sr2tivWMdLc4uLI-hPux2_8cSx8-d8rc8t7CON0OltOf3EyECblG02BLuhyT3ePE4W6Rq2wrH2TlcvWz"/>
+</div>
+<!-- Master Producer Badge -->
+<div class="absolute -bottom-2 -right-2 md:right-0 bg-secondary-container text-on-secondary-container px-5 py-2 rounded-full font-label text-xs font-bold tracking-wide flex items-center gap-1.5 shadow-[0_4px_12px_rgba(1,38,31,0.06)]">
+<span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">verified</span>
+                    Master Producer
+                </div>
+</div>
+<div class="pt-2 md:pt-28 flex-1 w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+<div class="flex-1">
+<h2 class="font-headline text-5xl md:text-6xl text-primary mb-4 leading-none tracking-tight">Finca La Esperanza</h2>
+<div class="flex flex-wrap items-center gap-4 text-tertiary font-label text-sm md:text-base font-semibold">
+<span class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span> 
+                            4.9 (124 reviews)
+                        </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 18px;">location_on</span> 
+                            Urabá, Antioquia, Colombia
+                        </span>
+</div>
+</div>
+<button class="bg-primary text-on-primary rounded-full px-10 py-4 font-label font-bold tracking-wide shadow-[inset_0_2px_0_rgba(170,206,195,0.25),0_8px_24px_rgba(1,38,31,0.12)] hover:opacity-90 transition-all duration-500 ease-out flex items-center gap-2 w-full lg:w-auto justify-center shrink-0 group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform duration-500">person_add</span> 
+                    Follow Producer
+                </button>
+</div>
+</section>
+<!-- About The Producer (Organic Heritage) -->
+<section class="max-w-7xl mx-auto px-6 sm:px-12 my-24">
+<div class="bg-surface-container-low rounded-[2.5rem] p-8 md:p-16 lg:p-20 flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-5/12 flex flex-col justify-center">
+<span class="font-label text-tertiary text-xs uppercase tracking-widest font-bold mb-4 block">The Heritage</span>
+<h3 class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight">Rooted in the volcanic soil.</h3>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed mb-6">
+                        For three generations, our family has cultivated the rich earth of the Urabá region. We believe that true luxury lies in patience and a profound respect for the natural rhythms of the jungle ecosystem.
+                    </p>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed">
+                        Every single pod is hand-selected, naturally fermented in traditional wooden boxes, and sun-dried to unlock its deepest, most complex flavor profiles. This is not simply farming; it is a living archive of our collective heritage.
+                    </p>
+</div>
+<div class="lg:w-7/12 relative h-[400px] md:h-[500px] w-full rounded-[2rem] overflow-hidden bg-surface-container-highest shadow-[0_8px_32px_rgba(1,38,31,0.04)]">
+<!-- Subtle primary gradient overlay for depth -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent z-10 mix-blend-overlay"></div>
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="close up of weathered artisan hands holding freshly harvested organic cacao pods showing deep textures and vibrant natural earth tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALEAoRVUml21iLUsHtm0hZY6hmGBrWe-oEde9AXifhHEI5OS-AV5c95KySMrArYSrtlAgA8a78ao4BABguuTmV9HfxDDSnkNbi5HK6361ayg082lgw3yXYgOYnmv4LK53XwhUIgFYJ4vtZySQJT0HeKNUJhioh25uzPZdatu_vvJ3ARjW-4lmigZ0lLXiJzvglO0-ZedwKPOkUEmtCOzpJr0r-kRrDtyJ5kSjJB4GAS__FzTUyLPOrLMBGuMd2Vs-DFhNrAPWjC3i6"/>
+</div>
+</div>
+</section>
+<!-- Product Grid (Bento Layout) -->
+<section class="max-w-7xl mx-auto px-6 sm:px-12 mb-32">
+<div class="flex items-end justify-between mb-10">
+<div>
+<span class="font-label text-tertiary text-xs uppercase tracking-widest font-bold mb-2 block">Current Harvest</span>
+<h3 class="font-headline text-4xl text-primary">Curated Offerings</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[340px]">
+<!-- Featured Item (Spans 2 columns, 2 rows on large screens) -->
+<div class="md:col-span-2 md:row-span-2 rounded-[2rem] bg-surface-container-highest relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105" data-alt="artisanal dark chocolate bar wrapped in textured sustainable paper resting on dark rough stone with dramatic directional side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQeVTQcGAfMky5WmBXDmMZiTlUlGphCbn1q44JCfUvXQQLY5wMQLvCnVbxIbSQayeboa-UYnUwZcA8n03D-vBovO3r5yVwODeZnW-c_SjC1zJzjaGqbptg4C9oW9GTCUEw_VQG50YtrFkMzgOWaf-AGZ64vKAf0LYtTiWWUfgsBOPZoIBm8PVxVSa-5J-VkAQ79KU0vJidk9egaBOpfAf_fRbZR8Fe4qtFbnjxeeYgq5cIKeEAjC5lq27ejbZOWl7OIrov_YxgkfOZ"/>
+<!-- Glassmorphism Card Overlay -->
+<div class="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-10 bg-surface-variant/60 backdrop-blur-2xl rounded-[1.5rem] p-6 lg:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 shadow-[0_8px_32px_rgba(1,38,31,0.08)]">
+<div>
+<span class="text-tertiary font-label text-xs uppercase tracking-widest font-bold block mb-3">Limited Reserve</span>
+<h4 class="font-headline text-3xl md:text-4xl text-primary leading-tight">70% Urabá Dark Cacao</h4>
+</div>
+<div class="sm:text-right shrink-0">
+<span class="font-body text-on-surface-variant text-sm block mb-1">Batch No. 042</span>
+<span class="font-headline text-2xl md:text-3xl text-primary block">$28.00</span>
+</div>
+</div>
+</div>
+<!-- Standard Item 1 -->
+<div class="rounded-[2rem] bg-surface-container-low relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105" data-alt="small glass jar of raw organic golden honey sitting on a textured wooden table with soft sunlight highlighting the amber color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk0jafezRcHOYOinYRPrbHG1gLv_wkjzXMqt9VGXhwhZ3YliGDlONKruPUzD0eP0ZO0hO6PvZEoHLspy9K8Igl94k8q9hlYk6NhkuxD3SdFJlzT-GEYQMlCyljTq-Yc1pga1GA68q_0Yqa_qs5Dh8UA3ofzbStzRQehoFHYaSdGRMwqw37fpX2it5RaskguReMKftRsz3Aw7nz997XBmU4JcG3DzM9bmw92TbksiUkpDjxrGiPNlAEScA3JQEFbuQVwWhw5a1YGKiR"/>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/85 backdrop-blur-xl rounded-[1.25rem] p-5 shadow-[0_4px_20px_rgba(1,38,31,0.04)]">
+<h4 class="font-body font-bold text-primary text-lg mb-1 leading-snug">Jungle Flora Honey</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline text-xl text-tertiary">$15.00</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Item 2 -->
+<div class="rounded-[2rem] bg-surface-container-low relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105" data-alt="roasted premium coffee beans spread evenly across a rustic burlap sack showing rich dark brown colors and natural oils" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcd8td7ijqpGePuMmHr9xMkBEmTV2ZLMMrLB_FoiOVg2jvCvSTW5tvSe2Kq_smX4HC2VMyU_jgvz4DScQdi9KpyLBr39tvxElANf3nGN_uWl1pU-BVc_vDx2R6fWgUpuK9-aDYy1WSBI5AkKu7L0ODpO27dqYcAw7p7SXbwkGJ3oGfVxAOd0ldozlaELTzF3dWvU7VZY8i5Nn5KqEP7OL0aI8deCDnwhuaktlvCkR29VKukNOJCHcFXeQKZaNdp1U5Ls3JKIbGF-h_"/>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/85 backdrop-blur-xl rounded-[1.25rem] p-5 shadow-[0_4px_20px_rgba(1,38,31,0.04)]">
+<h4 class="font-body font-bold text-primary text-lg mb-1 leading-snug">Whole Bean Reserve</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline text-xl text-tertiary">$22.00</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Item 3 -->
+<div class="rounded-[2rem] bg-surface-container-low relative overflow-hidden group md:col-span-1">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105" data-alt="woven artisan basket made from dried palm leaves containing fresh green plantains sitting on a stone floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBptHnpVynOLBTaqhg4XXXTb4hY4UK9zIJKAFyYUZUa_9QWrSKMoIBuxtX3bOI88yo9irLaWnm79k62ov4-tbnqgTGl9mYWJjdYV6YsTP5C-7CdpsMLzmUyCR0nIqGcybwYIKoBm_rh0mdCcqd92UUxsAF8vacx1ocuDieJfHi7bSCkSwXY7mXFTzZNNZ6Ajwb4vkzXbBZ3hubzwcuwshXXsPLhgWReyv9T2xlijAFWjxua-DdZbVhOopB1fQAIqfSWqVXl8g_9E49u"/>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/85 backdrop-blur-xl rounded-[1.25rem] p-5 shadow-[0_4px_20px_rgba(1,38,31,0.04)]">
+<h4 class="font-body font-bold text-primary text-lg mb-1 leading-snug">Handwoven Palm Basket</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline text-xl text-tertiary">$45.00</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Urabá Stories - Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c5eadf",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbfbe2",
+                      "tertiary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#b99791",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f2d9",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c1c8c4",
+                      "on-tertiary-fixed-variant": "#5b403c",
+                      "secondary-fixed-dim": "#78dc77",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-secondary-container": "#00731e",
+                      "surface-container-high": "#eaead1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#002204",
+                      "on-primary": "#ffffff",
+                      "outline": "#717976",
+                      "inverse-primary": "#aacec3",
+                      "tertiary-container": "#48302c",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-primary-fixed": "#00201a",
+                      "secondary-fixed": "#94f990",
+                      "tertiary": "#301b17",
+                      "inverse-surface": "#303221",
+                      "surface-tint": "#43655c",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "surface-bright": "#fbfbe2",
+                      "secondary-container": "#91f78e",
+                      "primary-container": "#1a3c34",
+                      "on-primary-container": "#83a69c",
+                      "primary": "#01261f",
+                      "on-surface": "#1b1d0e",
+                      "surface-variant": "#e4e4cc",
+                      "surface-container-low": "#f5f5dc",
+                      "on-surface-variant": "#414846",
+                      "on-tertiary-fixed": "#2b1613",
+                      "primary-fixed-dim": "#aacec3",
+                      "secondary": "#006e1c",
+                      "surface-container": "#efefd7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdcc3",
+                      "on-error-container": "#93000a",
+                      "background": "#fbfbe2",
+                      "on-background": "#1b1d0e",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Noto Serif", "serif"
+                      ],
+                      "body": [
+                              "Manrope", "sans-serif"
+                      ],
+                      "label": [
+                              "Manrope", "sans-serif"
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle ambient shadow for floating elements, as per design system */
+        .ambient-shadow {
+            box-shadow: 0 8px 30px rgba(27, 29, 14, 0.05);
+        }
+        
+        /* Hide scrollbar for horizontal scrolling containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-[#fbfbe2]/80 dark:bg-[#01261f]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full transition-opacity duration-500 ease-in-out">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Icon (Hidden on Desktop) -->
+<button class="md:hidden text-[#01261f] hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Brand Logo -->
+<h1 class="font-noto-serif text-2xl font-bold text-[#01261f] tracking-tight">The Living Archive</h1>
+</div>
+<!-- Desktop Navigation Cluster (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#301b17] font-label font-bold uppercase tracking-widest text-xs hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="text-[#301b17] font-label font-bold uppercase tracking-widest text-xs hover:opacity-80 transition-opacity" href="#">Search</a>
+<a class="text-[#006e1c] font-label font-bold uppercase tracking-widest text-xs relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#006e1c] after:rounded-full" href="#">Feed</a>
+<a class="text-[#301b17] font-label font-bold uppercase tracking-widest text-xs hover:opacity-80 transition-opacity" href="#">Messages</a>
+</nav>
+<!-- Trailing Avatar -->
+<button class="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden hover:opacity-80 transition-opacity bg-tertiary-container text-on-tertiary-container">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close up portrait of a young woman with natural light and a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoddWe5ivaTM_pdfAZ0XSfI5lFGelM48dCgedkhmImwPEHP9SB2FLDEfWRLxmSQv0qliNn6DylsqjWUKvM0CMJ_sMqFiiUrFk5QJglNOo1yAfReUmvOCVgP-5PUGaKfzCkMwOgXCubIzGdCoYvgWT1ia-x5Hex0l7UHfSzapMT5kIll_OyupjMQ9TfwPaNlgZ3dXepuAP-C6mqJXKb4RuYplJAXjg3zO6eg-qlJZcs1nPRlx-AxGCnezZWMR25K1RtbZsHuhamN7NU"/>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-32 space-y-12">
+<!-- Organic Page Header -->
+<div class="space-y-2 px-2">
+<h2 class="font-headline text-[3.5rem] leading-none text-primary tracking-tight">Urabá Stories</h2>
+<p class="font-body text-base text-on-surface-variant max-w-md">Discover the daily rhythms, fresh harvests, and rich heritage of our local producer community.</p>
+</div>
+<!-- Horizontal Story Highlights (Producers) -->
+<section class="-mx-4 px-4 overflow-x-auto hide-scrollbar">
+<div class="flex gap-6 pb-4 w-max px-2">
+<!-- Add Story / Your Story -->
+<div class="flex flex-col items-center gap-3 w-20">
+<button class="w-16 h-16 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<span class="text-xs font-label font-bold text-tertiary text-center leading-tight">Your Story</span>
+</div>
+<!-- Producer Story 1 -->
+<div class="flex flex-col items-center gap-3 w-20 group cursor-pointer">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-secondary to-primary-fixed">
+<img alt="Finca El Paraiso" class="w-full h-full object-cover rounded-full border-2 border-surface" data-alt="portrait of a male farmer in a straw hat smiling in a lush green field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK-wdP0ws-7oallDOpvDc45_8jXUSMxQlBnF4UrqnlILdS9v0q0nTbZFCh0XnUDyKtc5leyqvF7lxSLutUcDgPtdvrq5bePxngbvUwyrt9e9nX71RtpbmJExABAJpZBdjZaVKrb4fJR-Z0x09dxBQB38RPFZ_sL5SElrtToXEtnSqyk8t8Dt_EJZbM1tix-XIBZVmfiOV56s1ibf1S7gW7yczuZrNftNnuEhxC7fvNZbXqkj660X8aUzGxSPdXsaC3-TOr6UHJKG42"/>
+</div>
+<span class="text-xs font-label font-bold text-tertiary text-center leading-tight truncate w-full group-hover:text-primary transition-colors">El Paraiso</span>
+</div>
+<!-- Producer Story 2 -->
+<div class="flex flex-col items-center gap-3 w-20 group cursor-pointer">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-secondary to-primary-fixed">
+<img alt="Cooperativa Cacao" class="w-full h-full object-cover rounded-full border-2 border-surface" data-alt="close up of hands holding fresh roasted cacao beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8XlOQ_Yv63UEA8CT8-UZW83Zlsnw0VI7V1UfzluEytPQclrmlbrupA310XrGwKga_PtexPiVl3i2TdIQdjCAczH-X_Nsnj8oHYEjxg3mwSbHoKYNGySArPXpGI9NFKe-OfwoIC-B27FRXFPBmo_X23KY7QRceD3a3oEMF2eg8kctMds_RQgnk7_Z48ah_K_D8szFFtBzW6eeBmEjmJZcWnmxIBwgIi9Q5TKKy4JRr8zGNloNCHweiXsO8sNSmGcYN-l3Y47bzRxMq"/>
+</div>
+<span class="text-xs font-label font-bold text-tertiary text-center leading-tight truncate w-full group-hover:text-primary transition-colors">Coop Cacao</span>
+</div>
+<!-- Producer Story 3 -->
+<div class="flex flex-col items-center gap-3 w-20 group cursor-pointer">
+<div class="w-16 h-16 rounded-full p-[2px] bg-surface-variant">
+<img alt="Artesanos de la Selva" class="w-full h-full object-cover rounded-full border-2 border-surface opacity-80" data-alt="artisan weaving a colorful basket with natural fibers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdSkaxsf4zhuIsaNOTb9vtySfx3ToMtgp86jrQ2ezdEPfARGXkRbHXHjwKu-SNjg2cylj1cqUeSvA2vsEeLF3dJ-3iBvP6eU2bsHyw33_zAc-lusB3OaNKpkFQDV8wx_4wzKA5dnfy_isq34yEHQX3_Ds_iODLcR3P0KziTBPNLfaDCgd8xfVFZXSkzNG2EEg-M2oYdWZn0TmOCSdij0mEZxsAXPpPPJulPLjfHovLMhDgqIm8YrvXzH1EN58-AZg7DV7jiEQXqLte"/>
+</div>
+<span class="text-xs font-label font-bold text-on-surface-variant text-center leading-tight truncate w-full">Artesanos</span>
+</div>
+</div>
+</section>
+<!-- Feed List -->
+<div class="space-y-12">
+<!-- Post Card 1 (Harvest Focus) -->
+<article class="bg-surface-container-lowest rounded-xl ambient-shadow overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="px-6 py-5 flex items-center justify-between">
+<div class="flex items-center gap-4 cursor-pointer group">
+<img alt="Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="portrait of a male farmer in a straw hat smiling in a lush green field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIDNAPBWy7VsZYGQ1BXYf50OkKzUwL7sxzdqXu0w9M3lPTnXRQGBopCSkuvRgYoskgxJ8gQ6X93xJURxTsxLzU3lEhdpAc0yJmU63hA7Dcfm5O228qcUusaryZoLLogMRNFDQqC29WUrew-VPwOk4rVdVg5xfYdOEjuP4RVGcj1j1EiVFadI1F9pzYfzu4XP8qF-K2ojYJw0WGLCgt91F8vNJtsyIWLE2_Ubx378XxqYamq0LigdfFbCVS8FYEkMh2pa8amCulOyoi"/>
+<div>
+<h3 class="font-body font-bold text-base text-primary group-hover:underline">Finca El Paraiso</h3>
+<p class="font-label text-sm text-on-surface-variant">Apartadó, Antioquia • 2 hours ago</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-2 rounded-full hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Imagery -->
+<div class="w-full relative aspect-[4/5] sm:aspect-[16/10] bg-surface-container-low">
+<img alt="Harvest image" class="w-full h-full object-cover" data-alt="vibrant yellow and red cacao pods growing on a tree trunk in a dense tropical forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX3JNldWU8eEAYf6Y7IW1B9bvk_7I8Fh-R_zx8cbx_8tO0hAK_oAaYIEqiwKY47XDIX5SzeTKi7bQWzuYtQ735OL5VhCxDtLi9wAYowfO83Fxcu4aFAcqsA6y0VYlrut_pr7JmTi5tZbGUXE53sd2r1Uij2l7WWz0ppMNGS8QLgl28TGjzpYoMFvUzeXuFDG6V00tgfh2GcmovbS92fjt9I_dgJ3rODqkuVFLNsr2vXm72aYhlkyfzfnIuOHVj-KKnYNc7CR02qDXU"/>
+</div>
+<!-- Content & Actions -->
+<div class="px-6 py-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-primary hover:text-secondary transition-colors group">
+<span class="material-symbols-outlined group-hover:fill-icon transition-all" data-icon="favorite">favorite</span>
+<span class="font-label font-bold text-sm">124</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label font-bold text-sm">12</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline text-2xl text-primary leading-tight">The First Pods of the Season</h4>
+<p class="font-body text-base text-on-surface-variant leading-relaxed">
+                            The rains have been kind this month, and the forest is responding. We are seeing incredibly vibrant colors on our Criollo cacao pods. This early harvest promises complex, fruity notes for our next micro-batch. Grateful for the rhythm of the jungle. 🌿🍫
+                        </p>
+</div>
+<div class="pt-2 flex flex-wrap gap-2">
+<span class="px-4 py-1.5 bg-surface-container-low text-tertiary text-xs font-bold uppercase tracking-wider rounded-full">#CacaoFino</span>
+<span class="px-4 py-1.5 bg-surface-container-low text-tertiary text-xs font-bold uppercase tracking-wider rounded-full">#HarvestSeason</span>
+</div>
+</div>
+</article>
+<!-- Post Card 2 (Community / Craft Focus) -->
+<article class="bg-surface-container-lowest rounded-xl ambient-shadow overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="px-6 py-5 flex items-center justify-between">
+<div class="flex items-center gap-4 cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary font-headline text-xl">
+                            A
+                        </div>
+<div>
+<h3 class="font-body font-bold text-base text-primary group-hover:underline">Artesanos de la Selva</h3>
+<p class="font-label text-sm text-on-surface-variant">Necoclí • Yesterday</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-2 rounded-full hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Imagery (Asymmetric split) -->
+<div class="w-full grid grid-cols-2 gap-1 px-1 bg-surface-container-lowest">
+<img alt="Weaving detail" class="w-full h-64 object-cover rounded-tl-lg rounded-bl-lg" data-alt="close up macro shot of intricate woven dried palm fibers showing texture and warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjUMbA6d3s_5V2CDV4LvaaQge64XIyOauu3zX44lKz0sO5HyCnMNsHd3Zrv1ugPVn1l5nypvnE80ZMuwKFHAwfRX3RPCXNPe4z4MHlnOFzBV7CLOGqp2-zKmaCE9c8Vq2px2_aToRD2O4iHvJyFDae7-VYFgPqzraImPKAUDHdIeAKgeVgWjB0_lnp63QtQKDAahGq4s_sq_YZhnsc8fXpR43yv3RTbntujyOxhWNfurG7cv2-YsyFiHME6Hd16Z9nveR-lduIF8rS"/>
+<img alt="Finished craft" class="w-full h-64 object-cover rounded-tr-lg rounded-br-lg" data-alt="a beautifully crafted wide-brimmed woven hat resting on a wooden table in soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyfE6VcJkQ7r2NngprxdFnifNfp8D5uqPsznpuygKzrHs1NgczF6DeiyRy5bpjnqnXfJ7c6dE30bh5dUfex-s4SI9A4t__l_H1erqV7iCBZudJ2BLJ2izcAnrWNuxqW7V7Fr4ArjD4Y7GhKbgoJKKtC0zXzAjOYEd7lAZ-BdFNGppt5lhfk3ZU0cOxo4SMqZDDCxeVXvZXt9DSsWAtJS570DjO63YqNA1ZTNbolt1acz4TfMIlcf3mCZMHFp1kVj4ts-OKJJwn293e"/>
+</div>
+<!-- Content & Actions -->
+<div class="px-6 py-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors group">
+<span class="material-symbols-outlined group-hover:fill-icon transition-all" data-icon="favorite">favorite</span>
+<span class="font-label font-bold text-sm">89</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label font-bold text-sm">5</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline text-2xl text-primary leading-tight">Preserving the Weave</h4>
+<p class="font-body text-base text-on-surface-variant leading-relaxed">
+                            Each iraca palm frond tells a story. Today, Doña Maria is teaching the younger generation the traditional spiral technique. These aren't just hats; they are wearable archives of our cultural heritage.
+                        </p>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-[#fbfbe2]/60 dark:bg-[#01261f]/60 backdrop-blur-lg docked full-width bottom-0 rounded-t-[24px] shadow-[0_-4px_20px_rgba(1,38,31,0.05)] fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 transition-all duration-600 ease-out">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="home">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<!-- Search -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="search">search</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Search</span>
+</a>
+<!-- Feed (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#1a3c34] dark:bg-[#006e1c] text-[#fbfbe2] rounded-full px-4 py-2 scale-105 shadow-md" href="#">
+<span class="material-symbols-outlined fill-icon mb-1" data-icon="potted_plant">potted_plant</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Feed</span>
+</a>
+<!-- Messages -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="chat_bubble">chat_bubble</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full border border-surface"></span>
+</div>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Messages</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-[#301b17] dark:text-[#fbfbe2]/70 p-2 hover:bg-[#1a3c34]/10 dark:hover:bg-[#fbfbe2]/10 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="person">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+</body></html>
